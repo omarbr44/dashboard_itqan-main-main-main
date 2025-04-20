@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accounting System</title>
+    <link rel="stylesheet" href="../../style.css" />
+
+    <link href="../../src/css/output.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.1/dist/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="../../src/js/layout/sidebar.js" ></script>
+    <script src="../../src/js/layout/header.js" ></script>
+    <script src="../../src/js/layout/layout.js" ></script>
+    <script src="../../src/js/shared/steper.js" ></script>
+    <script src="../../src/js/shared/table.js" ></script>
+    <script src="../../src/js/atoms/orderBox/orderBox.js" ></script>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../../app.js"></script>
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+  </head>
+  <body dir="rtl">
+    <main-header
+    namee="محمد الشريف"
+    role="مشرف رئيسى"
+    />
+    <main-layout />
+    <div class="p-4 sm:mr-48" id="main-body">
+      <div
+        class="p-4 border-2 border-gray-200 rounded-lg dark:border-gray-700 mt-14"
+      >
+        <page-steper
+          baseStep="../../src/images/icons/home.png"
+          firstStep="../../src/images/icons/users.png"
+          firstTitle="نظام إتقان المحاسبي"
+        >
+        </page-steper>
+
+        <div class="mx-auto mt-10 bg-white  rounded-lg">
+          <!--* Head Selector -->
+          <div class="flex gap-3 flex-wrap">
+            <button
+              class="tab-button border border-[#EBEBEC] flex-1 p-[15px] text-center font-bold rounded-[12px] text-[#12161C]"
+              data-tab="tab1"
+            >
+              الإحصائيات
+            </button>
+            <button
+              class="tab-button border border-[#EBEBEC] flex-1 p-[15px] text-center font-bold rounded-[12px] text-[#12161C]"
+              data-tab="tab2"
+            >
+              المحاسبة
+            </button>
+            <button
+              class="tab-button border border-[#EBEBEC] flex-1 p-[15px] text-center font-bold rounded-[12px] text-[#12161C]"
+              data-tab="tab3"
+            >
+              المستودعات
+            </button>
+            <button
+              class="tab-button border border-[#EBEBEC] flex-1 p-[15px] text-center font-bold rounded-[12px] text-[#12161C]"
+              data-tab="tab4"
+            >
+              المشتريات
+            </button>
+            <button
+              class="tab-button border border-[#EBEBEC] flex-1 p-[15px] text-center font-bold rounded-[12px] text-[#12161C]"
+              data-tab="tab5"
+            >
+              المبيعات
+            </button>
+            <button
+              class="tab-button border border-[#EBEBEC] flex-1 p-[15px] text-center font-bold rounded-[12px] text-[#12161C]"
+              data-tab="tab6"
+            >
+              الإعدادات
+            </button>
+
+            <button
+              class="tab-button border activeTapSelector border-[#EBEBEC] flex-1 p-[15px] text-center font-bold rounded-[12px] text-[#12161C]"
+              data-tab="tab7"
+            >
+              الفواتير
+            </button>
+          </div>
+
+          <!--* Content -->
+          <div class="p-6">
+            <div id="tab1" class="tab-content hidden">
+              <!-- Chart -->
+              <div class="grid grid-cols-12 my-3">
+                <div id="chartLine" class="col-span-12 sm:col-span-7 "></div>
+                <div id="chartBarBill" class="col-span-12 sm:col-span-4 hidden sm:block"></div>
+                <div
+                  id="chartLineRestrictions"
+                  class="col-span-12 sm:col-span-7 mt-2"
+                ></div>
+                <div
+                  id="chartBarRestrictions"
+                  class="col-span-12 sm:col-span-4  hidden sm:block"
+                ></div>
+              </div>
+              <!-- End Chart -->
+            </div>
+            <div id="tab2" class="tab-content hidden">
+              <h2 class="text-lg font-semibold">المحاسبة</h2>
+              <p class="mt-2 text-gray-600">محتوى المحاسبة.</p>
+            </div>
+            <div id="tab3" class="tab-content hidden">
+              <div class="grid grid-cols-12 gap-[32px]">
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                  <a href="./new-domain-service.html">
+                    <div
+                      class="border flex flex-col justify-center items-center p-[24px] gap-[8px] rounded-[8px] border-[#EBEBEC]"
+                    >
+                      <img
+                        src="../../src/images/icons/webDomain.png"
+                        class="w-[83px] h-[83px] rounded-[12px]"
+                      />
+                      <h3 class="text-[18px] font-bold text-[#121212]">
+                        خدمة نطاق جديد
+                      </h3>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div id="tab4" class="tab-content hidden">
+              <h2 class="text-lg font-semibold">المشتريات</h2>
+              <p class="mt-2 text-gray-600">محتوى المشتريات.</p>
+            </div>
+            <div id="tab5" class="tab-content hidden">
+              
+              <div class="grid grid-cols-12 gap-[20px]">
+
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                  <a href="./new-domain-service.html">
+                    <div
+                      class="border flex flex-col justify-center items-center p-[24px] gap-[8px] rounded-[8px] border-[#EBEBEC]"
+                    >
+                      <img
+                        src="../../src/images/icons/clients.png"
+                        class="w-[83px] h-[83px] rounded-[12px]"
+                      />
+                      <h3 class="text-[18px] font-bold text-[#121212]">
+                        العملاء
+                      </h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                  <a href="./new-domain-service.html">
+                    <div
+                      class="border flex flex-col justify-center items-center p-[24px] gap-[8px] rounded-[8px] border-[#EBEBEC]"
+                    >
+                      <img
+                        src="../../src/images/icons/costNote.png"
+                        class="w-[83px] h-[83px] rounded-[12px]"
+                      />
+                      <h3 class="text-[18px] font-bold text-[#121212]">
+                        فواتير البيع
+                      </h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                  <a href="./new-domain-service.html">
+                    <div
+                      class="border flex flex-col justify-center items-center p-[24px] gap-[8px] rounded-[8px] border-[#EBEBEC]"
+                    >
+                      <img
+                        src="../../src/images/icons/analysisReport.png"
+                        class="w-[83px] h-[83px] rounded-[12px]"
+                      />
+                      <h3 class="text-[18px] font-bold text-[#121212]">
+                        يومية فواتير البيع
+                      </h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                  <a href="./new-domain-service.html">
+                    <div
+                      class="border flex flex-col justify-center items-center p-[24px] gap-[8px] rounded-[8px] border-[#EBEBEC]"
+                    >
+                      <img
+                        src="../../src/images/icons/offers.png"
+                        class="w-[83px] h-[83px] rounded-[12px]"
+                      />
+                      <h3 class="text-[18px] font-bold text-[#121212]">
+                        عروض الاسعار
+                      </h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                  <a href="./new-domain-service.html">
+                    <div
+                      class="border flex flex-col justify-center items-center p-[24px] gap-[8px] rounded-[8px] border-[#EBEBEC]"
+                    >
+                      <img
+                        src="../../src/images/icons/countSelles.png"
+                        class="w-[83px] h-[83px] rounded-[12px]"
+                      />
+                      <h3 class="text-[18px] font-bold text-[#121212]">
+                        مرتجع المبيعات
+                      </h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                  <a href="./new-domain-service.html">
+                    <div
+                      class="border flex flex-col justify-center items-center p-[24px] gap-[8px] rounded-[8px] border-[#EBEBEC]"
+                    >
+                      <img
+                        src="../../src/images/icons/acceptReport.png"
+                        class="w-[83px] h-[83px] rounded-[12px]"
+                      />
+                      <h3 class="text-[18px] font-bold text-[#121212]">
+                        تقرير فوائد الاصناف
+                      </h3>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            </div>
+            <div id="tab6" class="tab-content hidden">
+              <div class="grid grid-cols-12 gap-[20px]">
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                  <a href="./new-domain-service.html">
+                    <div
+                      class="border flex flex-col justify-center items-center p-[24px] gap-[8px] rounded-[8px] border-[#EBEBEC]"
+                    >
+                      <img
+                        src="../../src/images/icons/empCompany2.png"
+                        class="w-[83px] h-[83px] rounded-[12px]"
+                      />
+                      <h3 class="text-[18px] font-bold text-[#121212]">
+                        ادارة المستخدمين
+                      </h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                  <a href="./new-domain-service.html">
+                    <div
+                      class="border flex flex-col justify-center items-center p-[24px] gap-[8px] rounded-[8px] border-[#EBEBEC]"
+                    >
+                      <img
+                        src="../../src/images/icons/userActive.png"
+                        class="w-[83px] h-[83px] rounded-[12px]"
+                      />
+                      <h3 class="text-[18px] font-bold text-[#121212]">
+                        نشاط المستخدمين
+                      </h3>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div id="tab7" class="tab-content">
+              <!-- Start Orders-->
+
+              <div class="grid grid-cols-4 gap-3">
+                <!-- * Order 1 -->
+                <div
+                  class="col-span-4 md:col-span-2 lg:col-span-1 border rounded-[8px]"
+                >
+                  <order-box
+                    title="العملاء"
+                    img="../../src/images/icons/users.png"
+                    bg="#F8F0E9"
+                    count="42"
+                    rate="18.2"
+                    up="true"
+                  >
+                  </order-box>
+                </div>
+                <!-- * Order 2 -->
+                <div
+                  class="col-span-4 md:col-span-2 lg:col-span-1 border rounded-[8px]"
+                >
+                  <order-box
+                    title="الفواتير"
+                    img="../../src/images/icons/home.png"
+                    bg="#EAECF5"
+                    count="16"
+                    rate="30.2"
+                  >
+                  </order-box>
+                </div>
+                <!-- * Order 3 -->
+                <div
+                  class="col-span-4 md:col-span-2 lg:col-span-1 border rounded-[8px]"
+                >
+                  <order-box
+                    title="المدفوعة"
+                    img="../../src/images/icons/widgetBox.png"
+                    bg="#E6F6F4"
+                    count="30"
+                    rate="18.2"
+                    up="true"
+                  >
+                  </order-box>
+                </div>
+
+                <!-- * Order 4 -->
+                <div
+                  class="col-span-4 md:col-span-2 lg:col-span-1 border rounded-[8px]"
+                >
+                  <order-box
+                    title="غير مدفوعة"
+                    img="../../src/images/icons/rejected.png"
+                    bg="#FDE9EA"
+                    count="100"
+                    rate="10.2"
+                    up="true"
+                  >
+                  </order-box>
+                </div>
+              </div>
+              <!-- End Orders-->
+
+              <!-- Table -->
+              <table-builder
+              id="table"
+              addTitle="اضافة فاتورة جديد"
+              filter="true"
+              printer="true"
+              title="لفواتير"
+              columns="الاسم,البريد الإلكتروني,رقم الهاتف,العنوان,تاريخ الانضمام,الحالة"
+              rows='
+              [
+  {"name": "John Doe", "email": "john.doe@example.com", "phone": "1234567890", "address": "123 Main St, Cityville", "joinDate": "2023-01-01", "status": "نشط"},
+  {"name": "Jane Smith", "email": "jane.smith@example.com", "phone": "2345678901", "address": "456 Elm St, Townsville", "joinDate": "2023-02-15", "status": "نشط"},
+  {"name": "Alice Johnson", "email": "alice.johnson@example.com", "phone": "3456789012", "address": "789 Oak St, Villageton", "joinDate": "2023-03-10", "status": "غير نشط"},
+  {"name": "Bob Brown", "email": "bob.brown@example.com", "phone": "4567890123", "address": "101 Pine St, Hamletville", "joinDate": "2023-04-05", "status": "نشط"},
+  {"name": "Charlie Davis", "email": "charlie.davis@example.com", "phone": "5678901234", "address": "202 Maple St, Countryside", "joinDate": "2023-05-20", "status": "نشط"},
+  {"name": "Diana Evans", "email": "diana.evans@example.com", "phone": "6789012345", "address": "303 Birch St, Suburbia", "joinDate": "2023-06-25", "status": "غير نشط"},
+  {"name": "Eve Wilson", "email": "eve.wilson@example.com", "phone": "7890123456", "address": "404 Cedar St, Metropolis", "joinDate": "2023-07-30", "status": "نشط"},
+  {"name": "Frank Moore", "email": "frank.moore@example.com", "phone": "8901234567", "address": "505 Redwood St, Urbania", "joinDate": "2023-08-12", "status": "نشط"},
+  {"name": "Grace Taylor", "email": "grace.taylor@example.com", "phone": "9012345678", "address": "606 Spruce St, Downtown", "joinDate": "2023-09-18", "status": "غير نشط"},
+  {"name": "Hank Martinez", "email": "hank.martinez@example.com", "phone": "0123456789", "address": "707 Fir St, Uptown", "joinDate": "2023-10-22", "status": "نشط"},
+  {"name": "Ivy Anderson", "email": "ivy.anderson@example.com", "phone": "1234509876", "address": "808 Willow St, Midtown", "joinDate": "2023-11-05", "status": "نشط"},
+  {"name": "Jack White", "email": "jack.white@example.com", "phone": "2345610987", "address": "909 Palm St, Riverside", "joinDate": "2023-12-10", "status": "غير نشط"},
+  {"name": "Karen Harris", "email": "karen.harris@example.com", "phone": "3456721098", "address": "1010 Oak St, Lakeside", "joinDate": "2024-01-15", "status": "نشط"},
+  {"name": "Leo Clark", "email": "leo.clark@example.com", "phone": "4567832109", "address": "1111 Pine St, Hillside", "joinDate": "2024-02-20", "status": "نشط"},
+  {"name": "Mia Lewis", "email": "mia.lewis@example.com", "phone": "5678943210", "address": "1212 Maple St, Countryside", "joinDate": "2024-03-25", "status": "غير نشط"},
+  {"name": "Noah Walker", "email": "noah.walker@example.com", "phone": "6789054321", "address": "1313 Birch St, Suburbia", "joinDate": "2024-04-30", "status": "نشط"},
+  {"name": "Olivia Hall", "email": "olivia.hall@example.com", "phone": "7890165432", "address": "1414 Cedar St, Metropolis", "joinDate": "2024-05-05", "status": "نشط"},
+  {"name": "Paul Allen", "email": "paul.allen@example.com", "phone": "8901276543", "address": "1515 Redwood St, Urbania", "joinDate": "2024-06-10", "status": "غير نشط"},
+  {"name": "Quinn Young", "email": "quinn.young@example.com", "phone": "9012387654", "address": "1616 Spruce St, Downtown", "joinDate": "2024-07-15", "status": "نشط"},
+  {"name": "Rachel King", "email": "rachel.king@example.com", "phone": "0123498765", "address": "1717 Fir St, Uptown", "joinDate": "2024-08-20", "status": "نشط"}
+]
+              '
+              ></table-builder>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script defer src="../../sidebar.js"></script>
+    <script defer>
+            let table = new DataTable('#myTable');
+
+      table.filter = `
+          <div class='flex gap-x-2 items-center'>
+          <div class='text-sm cursor-pointer flex items-center gap-x-2 border rounded-[8px] border-[#D0D5DD] py-[10px] px-[16px]'>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.2253 7.50156C17.2253 7.6599 17.1669 7.81823 17.0419 7.94323L11.6086 13.3766C10.7253 14.2599 9.27526 14.2599 8.39193 13.3766L2.95859 7.94323C2.71693 7.70156 2.71693 7.30156 2.95859 7.0599C3.20026 6.81823 3.60026 6.81823 3.84193 7.0599L9.27526 12.4932C9.67526 12.8932 10.3253 12.8932 10.7253 12.4932L16.1586 7.0599C16.4003 6.81823 16.8003 6.81823 17.0419 7.0599C17.1586 7.1849 17.2253 7.34323 17.2253 7.50156Z" fill="#344054"/>
+</svg>
+
+      حالة الفاتورة 
+
+          </div>
+
+          <div class='text-sm cursor-pointer flex items-center gap-x-2 border rounded-[8px] border-[#D0D5DD] py-[10px] px-[16px] bg-[#EBF2FF] text-[#377DFF]'>
+            مسودة
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 1L1 11M1 1L11 11" stroke="#377DFF" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+
+          </div>
+      </div>
+    
+      `;
+      table.columns = [
+        "رقم الفاتورة",
+        "الحالة",
+        "الاسم",
+        "الكل",
+        "التاريخ",
+        "الحالة",
+      ];
+      table.rows = [
+        {
+          number: "#75756",
+          status: "مفعل",
+          name: "محمد علي",
+          total: "$565",
+          date: "29/11/2023",
+          status: "مدفوعة",
+        },
+        {
+          number: "#75756",
+          status: "مفعل",
+          name: "محمد علي",
+          total: "$565",
+          date: "29/11/2023",
+          status: "مدفوعة",
+        },
+        {
+          number: "#75756",
+          status: "مفعل",
+          name: "محمد علي",
+          total: "$565",
+          date: "29/11/2023",
+          status: "مدفوعة",
+        },
+        {
+          number: "#75756",
+          status: "مفعل",
+          name: "محمد علي",
+          total: "$565",
+          date: "29/11/2023",
+          status: "مدفوعة",
+        },
+        {
+          number: "#75756",
+          status: "مفعل",
+          name: "محمد علي",
+          total: "$565",
+          date: "29/11/2023",
+          status: "مدفوعة",
+        },
+      ];
+      table.img = "../../src/images/icons/avatar.png";
+
+      document.addEventListener('DOMContentLoaded', function() {
+    const openMenuButtons = document.querySelectorAll('.open-menu');
+    
+    openMenuButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.stopPropagation(); // Prevent the click from bubbling up
+            const menu = this.nextElementSibling; // Assuming the menu is the next sibling
+            menu.classList.toggle('show');
+        });
+    });
+
+    // Close the menu when clicking outside of it
+    document.addEventListener('click', function() {
+        const menus = document.querySelectorAll('.menu');
+        menus.forEach(menu => {
+            menu.classList.remove('show');
+        });
+    });
+});
+    </script>
+
+    <script src="../../main.js"></script>
+    <script src="../../src/js/atoms/apexChart/apexBar.js"></script>
+    <script src="../accounting-system/bar.analysis.js"></script>
+    <script src="../accounting-system/line.analysis.js"></script>
+    <!-- <script src="./index.js"></script> -->
+    <!-- <script src="../../src/js/index.js"></script> -->
+  </body>
+</html>

@@ -1,0 +1,169 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: "Cairo", serif;
+    
+}
+
+.background-container {
+    height: 100vh;
+    background-image: url('../../images/bg.png');
+    background-size: cover; 
+    background-position: center; 
+    position: relative;
+}
+
+.logo {
+    position: absolute; 
+    top: 20px; 
+    right: 20px;
+    z-index: 10;
+}
+
+.logo img {
+    width: 100px; 
+    height: auto;
+}
+
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; 
+    background: #fff;
+    width: 410px;
+    border-radius: 15px;
+    padding: 24px;
+}
+
+.overlay_icon {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay_center h2 
+{
+    color: black;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.overlay_center .overlay_center_data {
+    text-align: center;
+}
+
+.overlay_center .overlay_center_data p {
+    color: #414447;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.overlay_center .overlay_center_data a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #377DFF;
+}
+
+/* تنسيق نموذج البحث */
+.contact-form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.group
+{
+    width: 100%;
+    position: relative;
+
+}
+
+.group label {
+    color: #344054;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.group p {
+    color: #344054;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+
+.contact-form button {
+    padding: 17px 0;
+    font-family: "Cairo", serif;
+
+    width: 100%;
+    background-color: #377DFF;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.contact-form a {
+    text-decoration: none;
+    color: #B0B7C3;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.contact-form a span {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #377DFF;
+}
+
+
+
+.otp-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+  }
+  
+  .otp-input {
+    width: 65px;
+    height: 65px;
+    text-align: center;
+    font-size: 1.5rem;
+    border: 2px solid #F3F3F3;
+    border-radius: 15px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .otp-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  .otp-input::-webkit-inner-spin-button,
+  .otp-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }

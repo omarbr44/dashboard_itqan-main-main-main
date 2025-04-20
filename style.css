@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Cairo", serif;
+  font-weight: 400;
+
+}
+.box-shadow {
+  box-shadow: 0px 0px 12px 8px rgba(176, 183, 195, 0.14);
+
+}
+.button-shadow {
+  box-shadow: 0px 1.09px 2.18px 0px rgba(16, 24, 40, 0.05);
+}
+.activeSidePage {
+  background: #000;
+}
+.activeTapSelector{
+  color: #fff !important;
+  background: #377DFF;
+}
+
+body{
+  font-family: Tajawal, sans-serif;
+}
+.menu {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  right: 100%;
+  top: 10px;
+  transform: translateX(80%);
+}
+
+.menu.show {
+  display: block;
+}

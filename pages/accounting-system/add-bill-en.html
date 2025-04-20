@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Bill</title>
+    <link rel="stylesheet" href="../../style.css" />
+
+    <link href="../../src/css/output.css" rel="stylesheet" />
+    <!-- <script type="module" src="../../src/js/index.js" defer></script> -->
+    <script src="../../src/js/layout/header-en.js" ></script>
+    <script src="../../src/js/layout/layout.js" ></script>
+    <script src="../../src/js/shared/steper.js" ></script>
+    <script src="../../src/js/shared/table.js" ></script>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../../app.js"></script>
+  </head>
+  <body dir="ltr">
+    <main-header-en
+namee="محمد الشريف"
+role="مشرف رئيسى"
+/>
+<div id="sidebar-container">
+  <style>
+    .-translate-x-full {
+      --tw-translate-x: 440%;
+      transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    }
+    .sidebar-tooltip {
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      white-space: nowrap;
+      background: #f3f4f6;
+      padding: 4px 8px;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .sidebar-item:hover .sidebar-tooltip {
+      opacity: 1;
+    }
+    .dark .sidebar-tooltip {
+      background: #374151;
+    }
+  </style>
+
+  <!-- Sidebar Toggle Button (Visible on Small Screens) -->
+  <button
+    id="sidebar-button"
+    class="sm:hidden fixed top-4 right-2 ms-2 z-50 p-2 rounded-lg dark:bg-gray-800 dark:text-gray-200"
+  >
+    <svg
+      id="burger-icon"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="dark:text-gray-200"
+    >
+      <path d="M3 7H21H3Z" fill="currentColor" />
+      <path d="M3 7H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+      <path d="M3 12H21H3Z" fill="currentColor" />
+      <path d="M3 12H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+      <path d="M3 17H21H3Z" fill="currentColor" />
+      <path d="M3 17H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    </svg>
+    <svg 
+      id="close-icon"
+      class="hidden dark:text-gray-200" 
+      xmlns="http://www.w3.org/2000/svg" 
+      width="24" 
+      height="24" 
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+    </svg>
+  </button>
+
+  <!-- Sidebar -->
+  <aside
+    id="logo-sidebar"
+    class="fixed top-0 left-0 z-40 h-screen pt-20 transition-transform transform bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700 -translate-x-full sm:translate-x-0"
+    aria-label="Sidebar"
+  >
+    <div class="h-full px-3 pb-4 overflow-visible">
+      <!-- Logo and Close Button -->
+      <div class="gap-x-6 mt-4 justify-center hidden sm:flex">
+        <button id="desktop-sidebar-toggle" class="dark:text-gray-200">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M3 7H21H3Z" fill="currentColor" />
+            <path d="M3 7H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M3 12H21H3Z" fill="currentColor" />
+            <path d="M3 12H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M3 17H21H3Z" fill="currentColor" />
+            <path d="M3 17H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </button>
+        <img src="../../../src/images/logo.png" class="w-[108px] logo" alt="Logo" />
+      </div>
+
+      <!-- Menu Items -->
+      <ul class="space-y-1 mt-3 font-medium">
+        <li class="sidebar-item relative group">
+          <a
+            href="/"
+            class="flex items-center p-2 rounded-lg text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+          >
+            <span class="dark:text-gray-300">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="dark:text-white text-black">
+                <path d="M19 10.75H17C14.58 10.75 13.25 9.42 13.25 7V5C13.25 2.58 14.58 1.25 17 1.25H19C21.42 1.25 22.75 2.58 22.75 5V7C22.75 9.42 21.42 10.75 19 10.75ZM17 2.75C15.42 2.75 14.75 3.42 14.75 5V7C14.75 8.58 15.42 9.25 17 9.25H19C20.58 9.25 21.25 8.58 21.25 7V5C21.25 3.42 20.58 2.75 19 2.75H17Z" fill="currentColor"/>
+                <path d="M7 22.75H5C2.58 22.75 1.25 21.42 1.25 19V17C1.25 14.58 2.58 13.25 5 13.25H7C9.42 13.25 10.75 14.58 10.75 17V19C10.75 21.42 9.42 22.75 7 22.75ZM5 14.75C3.42 14.75 2.75 15.42 2.75 17V19C2.75 20.58 3.42 21.25 5 21.25H7C8.58 21.25 9.25 20.58 9.25 19V17C9.25 15.42 8.58 14.75 7 14.75H5Z" fill="currentColor"/>
+                <path d="M6 10.75C3.38 10.75 1.25 8.62 1.25 6C1.25 3.38 3.38 1.25 6 1.25C8.62 1.25 10.75 3.38 10.75 6C10.75 8.62 8.62 10.75 6 10.75ZM6 2.75C4.21 2.75 2.75 4.21 2.75 6C2.75 7.79 4.21 9.25 6 9.25C7.79 9.25 9.25 7.79 9.25 6C9.25 4.21 7.79 2.75 6 2.75Z" fill="currentColor"/>
+                <path d="M18 22.75C15.38 22.75 13.25 20.62 13.25 18C13.25 15.38 15.38 13.25 18 13.25C20.62 13.25 22.75 15.38 22.75 18C22.75 20.62 20.62 22.75 18 22.75ZM18 14.75C16.21 14.75 14.75 16.21 14.75 18C14.75 19.79 16.21 21.25 18 21.25C19.79 21.25 21.25 19.79 21.25 18C21.25 16.21 19.79 14.75 18 14.75Z" fill="currentColor"/>
+              </svg>
+            </span>
+            <span class="ms-3 text-[14px] sidebar-list">الصفحة الرئيسية</span>
+          </a>
+          <div class="sidebar-tooltip">الصفحة الرئيسية</div>
+        </li>
+        
+        <li class="sidebar-item relative group">
+          <a
+            href="../../../pages/settings/general-settings.html"
+            class="flex items-center p-2 rounded-lg text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+          >
+            <span class="dark:text-gray-300">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="dark:text-white text-black">
+                <path d="M12.1207 12.7805C12.0507 12.7705 11.9607 12.7705 11.8807 12.7805C10.1207 12.7205 8.7207 11.2805 8.7207 9.51047C8.7207 7.70047 10.1807 6.23047 12.0007 6.23047C13.8107 6.23047 15.2807 7.70047 15.2807 9.51047C15.2707 11.2805 13.8807 12.7205 12.1207 12.7805Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M18.7398 19.3805C16.9598 21.0105 14.5998 22.0005 11.9998 22.0005C9.39977 22.0005 7.03977 21.0105 5.25977 19.3805C5.35977 18.4405 5.95977 17.5205 7.02977 16.8005C9.76977 14.9805 14.2498 14.9805 16.9698 16.8005C18.0398 17.5205 18.6398 18.4405 18.7398 19.3805Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="ms-3 text-[14px] sidebar-list">خدمات إتقان</span>
+          </a>
+          <div class="sidebar-tooltip">خدمات إتقان</div>
+        </li>
+        
+        <!-- Add other menu items similarly -->
+        <!-- ... -->
+        
+        <li class="sidebar-item relative group">
+          <a
+            href="/"
+            class="flex items-center p-2 rounded-lg text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+          >
+            <span class="dark:text-gray-300">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.2405 22.2705H15.1105C10.6705 22.2705 8.5305 20.5205 8.1605 16.6005C8.1205 16.1905 8.4205 15.8205 8.8405 15.7805C9.2405 15.7405 9.6205 16.0505 9.6605 16.4605C9.9505 19.6005 11.4305 20.7705 15.1205 20.7705H15.2505C19.3205 20.7705 20.7605 19.3305 20.7605 15.2605V8.74047C20.7605 4.67047 19.3205 3.23047 15.2505 3.23047H15.1205C11.4105 3.23047 9.9305 4.42047 9.6605 7.62047C9.6105 8.03047 9.2605 8.34047 8.8405 8.30047C8.4205 8.27047 8.1205 7.90047 8.1505 7.49047C8.4905 3.51047 10.6405 1.73047 15.1105 1.73047H15.2405C20.1505 1.73047 22.2505 3.83047 22.2505 8.74047V15.2605C22.2505 20.1705 20.1505 22.2705 15.2405 22.2705Z" fill="#F04438"/>
+                <path d="M14.9991 12.75H3.61914C3.20914 12.75 2.86914 12.41 2.86914 12C2.86914 11.59 3.20914 11.25 3.61914 11.25H14.9991C15.4091 11.25 15.7491 11.59 15.7491 12C15.7491 12.41 15.4091 12.75 14.9991 12.75Z" fill="#F04438"/>
+                <path d="M5.84945 16.0998C5.65945 16.0998 5.46945 16.0298 5.31945 15.8798L1.96945 12.5298C1.67945 12.2398 1.67945 11.7598 1.96945 11.4698L5.31945 8.11984C5.60945 7.82984 6.08945 7.82984 6.37945 8.11984C6.66945 8.40984 6.66945 8.88984 6.37945 9.17984L3.55945 11.9998L6.37945 14.8198C6.66945 15.1098 6.66945 15.5898 6.37945 15.8798C6.23945 16.0298 6.03945 16.0998 5.84945 16.0998Z" fill="#F04438"/>
+              </svg>
+            </span>
+            <span class="ms-3 text-[14px] sidebar-list">تسجيل الخروج</span>
+          </a>
+          <div class="sidebar-tooltip">تسجيل الخروج</div>
+        </li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<script>
+  // Initialize sidebar state
+  let isSidebarOpen = window.innerWidth >= 640; // sm breakpoint
+  
+  // Get DOM elements
+  const sidebar = document.getElementById('logo-sidebar');
+  const sidebarButton = document.getElementById('sidebar-button');
+  const burgerIcon = document.getElementById('burger-icon');
+  const closeIcon = document.getElementById('close-icon');
+  const desktopSidebarToggle = document.getElementById('desktop-sidebar-toggle');
+  
+  // Set initial state
+  if (isSidebarOpen) {
+    sidebar.classList.remove('-translate-x-full');
+  } else {
+    sidebar.classList.add('-translate-x-full');
+  }
+  
+  // Toggle sidebar function
+  function toggleSidebarr() {
+    isSidebarOpen = !isSidebarOpen;
+    
+    if (isSidebarOpen) {
+      sidebar.classList.remove('-translate-x-full');
+    } else {
+      sidebar.classList.add('-translate-x-full');
+    }
+    
+    // Toggle icons visibility
+    burgerIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+  }
+
+  const sidebarList = document.querySelectorAll('.sidebar-list')
+const logo = document.querySelector('.logo')
+const mainBody = document.querySelector('#main-body')
+function toggleSidebar() {
+  sidebarList.forEach(e => {
+    if(e.classList.contains('hidden')) {
+      e.classList.remove('hidden')
+    }
+    else
+    e.classList.add('hidden')
+  })
+      if(logo.classList.contains('hidden')) {
+      logo.classList.remove('hidden')
+      mainBody.classList.remove('sm:mr-12')
+    }
+    else {
+      logo.classList.add('hidden')
+      mainBody.classList.add('sm:mr-12')
+    }
+  }
+  
+  // Event listeners
+  sidebarButton.addEventListener('click', toggleSidebarr);
+  desktopSidebarToggle.addEventListener('click', toggleSidebar);
+  
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 640) {
+      isSidebarOpen = true;
+      sidebar.classList.remove('-translate-x-full');
+    } else {
+      isSidebarOpen = false;
+      sidebar.classList.add('-translate-x-full');
+    }
+  });
+  
+  // Handle active menu items based on current page
+  function setActiveMenuItem() {
+    const url = window.location.pathname.split('/');
+    let currentPage;
+    
+    if (!window.location.pathname.includes('pages')) {
+      currentPage = '/';
+    } else if (url[url.length - 1] == 'index.html') {
+      currentPage = url[url.length - 2] + '/' + url[url.length - 1];
+    } else {
+      currentPage = url[url.length - 1];
+    }
+    
+    document.querySelectorAll('#logo-sidebar a').forEach(link => {
+      const href = link.getAttribute('href');
+      const isActive = 
+        (currentPage === '/' && href === '/') ||
+        (currentPage !== '/' && href.includes(currentPage));
+      
+      if (isActive) {
+        link.classList.add('bg-[#377DFF]', 'text-white');
+        link.classList.remove('text-gray-700', 'hover:bg-gray-100', 'dark:text-gray-300', 'dark:hover:bg-gray-700');
+      }
+    });
+  }
+  
+  // Call on page load
+  setActiveMenuItem();
+</script>
+<div class="p-4 sm:ml-48 dark:bg-gray-800 bg-white" id="main-body">
+  <div class="p-4 border-2 border-gray-200 rounded-lg dark:border-gray-700 mt-14 bg-white dark:bg-gray-800">
+    <page-steper
+      baseStep="../../src/images/icons/home.png"
+      firstStep="../../src/images/icons/users.png"
+      firstTitle="نظام إتقان المحاسبي"
+      secStep="../../src/images/icons/note.png"
+      secTitle="الفواتير"
+    >
+    </page-steper>
+    
+    <!-- Head -->
+    <div class="flex justify-between items-center my-4 flex-wrap gap-3">
+      <h4 class="text-[#12161C] text-[24px] font-bold dark:text-white">إضافة فاتورة</h4>
+  
+      <div class="flex gap-3 items-center flex-wrap">
+        <button
+          class="min-w-[200px] bg-[#377DFF] text-white py-[12px] px-[32px] rounded-[6px] flex items-center gap-x-2 font-semibold hover:bg-blue-600 transition-colors"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="dark:text-white"
+          >
+            <path
+              d="M4.39969 3.32015L12.8897 0.490154C16.6997 -0.779846 18.7697 1.30015 17.5097 5.11015L14.6797 13.6002C12.7797 19.3102 9.65969 19.3102 7.75969 13.6002L6.91969 11.0802L4.39969 10.2402C-1.31031 8.34015 -1.31031 5.23015 4.39969 3.32015Z"
+              fill="currentColor"
+            />
+          </svg>
+          <span class="">ارسل الفاتورة</span>
+        </button>
+  
+        <button
+          class="min-w-[200px] block bg-[#EBF2FF] text-[#377DFF] py-[12px] px-[32px] rounded-[6px] font-semibold dark:bg-gray-700 dark:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+        >
+          <span>حفظ</span>
+        </button>
+        
+        <div class="flex gap-x-1">
+          <div
+            class="border h-fit border-[#EBEBEC] p-[10px] rounded-[8px] cursor-pointer hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="text-[#377DFF] dark:text-blue-400"
+            >
+              <path
+                d="M21.25 9.14969C18.94 5.51969 15.56 3.42969 12 3.42969C10.22 3.42969 8.49 3.94969 6.91 4.91969C5.33 5.89969 3.91 7.32969 2.75 9.14969C1.75 10.7197 1.75 13.2697 2.75 14.8397C5.06 18.4797 8.44 20.5597 12 20.5597C13.78 20.5597 15.51 20.0397 17.09 19.0697C18.67 18.0897 20.09 16.6597 21.25 14.8397C22.25 13.2797 22.25 10.7197 21.25 9.14969ZM12 16.0397C9.76 16.0397 7.96 14.2297 7.96 11.9997C7.96 9.76969 9.76 7.95969 12 7.95969C14.24 7.95969 16.04 9.76969 16.04 11.9997C16.04 14.2297 14.24 16.0397 12 16.0397Z"
+                fill="currentColor"
+              />
+              <path
+                d="M12.0004 9.14062C10.4304 9.14062 9.15039 10.4206 9.15039 12.0006C9.15039 13.5706 10.4304 14.8506 12.0004 14.8506C13.5704 14.8506 14.8604 13.5706 14.8604 12.0006C14.8604 10.4306 13.5704 9.14062 12.0004 9.14062Z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+  
+          <div
+            class="border h-fit border-[#EBEBEC] p-[10px] rounded-[8px] cursor-pointer hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="text-[#377DFF] dark:text-blue-400"
+            >
+              <path
+                d="M7 5C7 3.34 8.34 2 10 2H14C15.66 2 17 3.34 17 5C17 5.55 16.55 6 16 6H8C7.45 6 7 5.55 7 5Z"
+                fill="currentColor"
+              />
+              <path
+                d="M17.75 15C17.75 15.41 17.41 15.75 17 15.75H16V19C16 20.66 14.66 22 13 22H11C9.34 22 8 20.66 8 19V15.75H7C6.59 15.75 6.25 15.41 6.25 15C6.25 14.59 6.59 14.25 7 14.25H17C17.41 14.25 17.75 14.59 17.75 15Z"
+                fill="currentColor"
+              />
+              <path
+                d="M18 7H6C4 7 3 8 3 10V15C3 17 4 18 6 18H6.375C6.72018 18 7 17.7202 7 17.375C7 17.0298 6.71131 16.7604 6.38841 16.6384C5.72619 16.3882 5.25 15.7453 5.25 15C5.25 14.04 6.04 13.25 7 13.25H17C17.96 13.25 18.75 14.04 18.75 15C18.75 15.7453 18.2738 16.3882 17.6116 16.6384C17.2887 16.7604 17 17.0298 17 17.375C17 17.7202 17.2798 18 17.625 18H18C20 18 21 17 21 15V10C21 8 20 7 18 7ZM10 11.75H7C6.59 11.75 6.25 11.41 6.25 11C6.25 10.59 6.59 10.25 7 10.25H10C10.41 10.25 10.75 10.59 10.75 11C10.75 11.41 10.41 11.75 10 11.75Z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+  
+          <div
+            class="border h-fit border-[#EBEBEC] p-[10px] rounded-[8px] cursor-pointer hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="text-[#377DFF] dark:text-blue-400"
+            >
+              <path
+                d="M20.5 10.19H17.61C15.24 10.19 13.31 8.26 13.31 5.89V3C13.31 2.45 12.86 2 12.31 2H8.07C4.99 2 2.5 4 2.5 7.57V16.43C2.5 20 4.99 22 8.07 22H15.93C19.01 22 21.5 20 21.5 16.43V11.19C21.5 10.64 21.05 10.19 20.5 10.19ZM12.28 15.78L10.28 17.78C10.21 17.85 10.12 17.91 10.03 17.94C9.94 17.98 9.85 18 9.75 18C9.65 18 9.56 17.98 9.47 17.94C9.39 17.91 9.31 17.85 9.25 17.79C9.24 17.78 9.23 17.78 9.23 17.77L7.23 15.77C6.94 15.48 6.94 15 7.23 14.71C7.52 14.42 8 14.42 8.29 14.71L9 15.44V11.25C9 10.84 9.34 10.5 9.75 10.5C10.16 10.5 10.5 10.84 10.5 11.25V15.44L11.22 14.72C11.51 14.43 11.99 14.43 12.28 14.72C12.57 15.01 12.57 15.49 12.28 15.78Z"
+                fill="currentColor"
+              />
+              <path
+                d="M17.4297 8.81048C18.3797 8.82048 19.6997 8.82048 20.8297 8.82048C21.3997 8.82048 21.6997 8.15048 21.2997 7.75048C19.8597 6.30048 17.2797 3.69048 15.7997 2.21048C15.3897 1.80048 14.6797 2.08048 14.6797 2.65048V6.14048C14.6797 7.60048 15.9197 8.81048 17.4297 8.81048Z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End Head  -->
+  
+    <!-- * Start reset Info -->
+    <form
+      class="my-5 rounded-[12px] p-[24px] bg-white dark:bg-gray-700"
+      style="box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.09)"
+    >
+      <img src="../../src/images/logo.png" class="w-[109px] h-[38px]" />
+      <h2 class="font-bold text-[20px] text-[#12161C] my-5 dark:text-white">
+        تفاصيل الفاتورة
+      </h2>
+      <div class="grid gap-4 mb-4 grid-cols-12">
+        <div class="col-span-12">
+          <label
+            for="name"
+            class="block mb-2 text-sm font-semibold text-[#414447] dark:text-gray-300"
+            >الفاتورة من
+          </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="placeholder:font-semibold placeholder:text-[#767A80] dark:placeholder:text-gray-400 border border-[#EBEBEC] dark:border-gray-600 text-gray-900 dark:text-white dark:bg-gray-600 text-sm rounded-[6px] w-full p-[12px] focus:ring-0 focus:border-[#EBEBEC] dark:focus:border-gray-500"
+            placeholder="محمد احمد صالح-طريق الملك عبد العزيز- الرياض- السعودية"
+            required=""
+          />
+        </div>
+  
+        <div class="col-span-4">
+          <label
+            for="name"
+            class="block mb-2 text-sm font-semibold text-[#414447] dark:text-gray-300"
+            >رقم الفاتورة</label
+          >
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="placeholder:font-semibold placeholder:text-[#767A80] dark:placeholder:text-gray-400 border border-[#EBEBEC] dark:border-gray-600 text-gray-900 dark:text-white dark:bg-gray-600 text-sm rounded-[6px] w-full p-[12px] focus:ring-0 focus:border-[#EBEBEC] dark:focus:border-gray-500"
+            placeholder="#56646"
+            required=""
+          />
+        </div>
+  
+        <div class="col-span-4">
+          <label
+            for="name"
+            class="block mb-2 text-sm font-semibold text-[#414447] dark:text-gray-300"
+            >التاريخ من</label
+          >
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="placeholder:font-semibold placeholder:text-[#767A80] dark:placeholder:text-gray-400 border border-[#EBEBEC] dark:border-gray-600 text-gray-900 dark:text-white dark:bg-gray-600 text-sm rounded-[6px] w-full p-[12px] focus:ring-0 focus:border-[#EBEBEC] dark:focus:border-gray-500"
+            placeholder="29/11/2023"
+            required=""
+          />
+        </div>
+  
+        <div class="col-span-4">
+          <label
+            for="name"
+            class="block mb-2 text-sm font-semibold text-[#414447] dark:text-gray-300"
+            >التاريخ الى</label
+          >
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="placeholder:font-semibold placeholder:text-[#767A80] dark:placeholder:text-gray-400 border border-[#EBEBEC] dark:border-gray-600 text-gray-900 dark:text-white dark:bg-gray-600 text-sm rounded-[6px] w-full p-[12px] focus:ring-0 focus:border-[#EBEBEC] dark:focus:border-gray-500"
+            placeholder="#56646"
+            required=""
+          />
+        </div>
+  
+        <div class="col-span-12">
+          <label
+            for="category"
+            class="block mb-2 text-sm font-semibold text-[#414447] dark:text-gray-300"
+            >الدفع عن طريق</label
+          >
+          <select
+            id="category"
+            class="border border-[#EBEBEC] dark:border-gray-600 text-[#767A80] dark:text-gray-300 dark:bg-gray-600 text-sm rounded-[6px] w-full p-[12px] focus:ring-0 focus:border-[#EBEBEC] dark:focus:border-gray-500"
+          >
+            <option selected="" class="text-[#767A80] dark:text-gray-400">
+              الحساب البنكى
+            </option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+  
+        <div class="col-span-4 flex items-center">
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" value="" class="sr-only peer">
+            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-[90%] peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
+          </label>
+          <span class="ms-3 text-sm font-semibold text-[#12161C] dark:text-gray-300">الضريبة</span>
+        </div>
+  
+        <div class="col-span-4 flex items-center">
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" value="" class="sr-only peer">
+            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-[90%] peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
+          </label>
+          <span class="ms-3 text-sm font-semibold text-[#12161C] dark:text-gray-300">ملاحظات العميل</span>
+        </div>
+  
+        <div class="col-span-4 flex items-center">
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" value="" class="sr-only peer">
+            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-[90%] peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
+          </label>
+          <span class="ms-3 text-sm font-semibold text-[#12161C] dark:text-gray-300">كعب الدفع</span>
+        </div>
+      </div>
+    </form>
+    <!-- End Reset Info -->
+  
+    <!-- * Client Order Info -->
+    <form
+      class="my-5 rounded-[12px] p-[24px] bg-white dark:bg-gray-700"
+      style="box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.09)"
+    >
+      <h2 class="font-bold text-[20px] text-[#12161C] my-5 dark:text-white">
+        الفاتورة خاصة ب
+      </h2>
+  
+      <div>
+        <label
+          for="category"
+          class="block mb-2 text-sm font-semibold text-[#414447] dark:text-gray-300"
+          >العميل</label
+        >
+        <select
+          id="category"
+          class="border border-[#EBEBEC] dark:border-gray-600 text-[#767A80] dark:text-gray-300 dark:bg-gray-600 text-sm rounded-[6px] w-full p-[12px] focus:ring-0 focus:border-[#EBEBEC] dark:focus:border-gray-500"
+        >
+          <option selected="" class="text-[#767A80] dark:text-gray-400">محمد الشريف</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+  
+      <div
+        class="flex flex-col flex-wrap gap-1 my-5 border text-sm font-semibold bg-[#FCFCFD] dark:bg-gray-600 border-[#EAECF0] dark:border-gray-500 rounded-[6px] p-[12px]"
+      >
+        <div>
+          <span class="text-[#414447] dark:text-gray-300 font-semibold">العنوان:</span>
+          <span class="text-[#767A80] dark:text-gray-400"
+            >465 محمد احمد صالح-طريق الملك عبد العزيز- الرياض- السعودية</span
+          >
+        </div>
+        <div>
+          <span class="text-[#414447] dark:text-gray-300 font-semibold">المبلغ الكلى:</span>
+          <span class="text-[#767A80] dark:text-gray-400 font-semibold">$6878</span>
+        </div>
+  
+        <div>
+          <span class="text-[#414447] dark:text-gray-300 font-semibold">اسم البنك:</span>
+          <span class="text-[#767A80] dark:text-gray-400 font-semibold">محمد الشريف</span>
+        </div>
+        <div>
+          <span class="text-[#767A80] dark:text-gray-400 font-semibold">KJKDFH</span>
+          <span class="text-[#414447] dark:text-gray-300 font-semibold">:IBAN</span>
+        </div>
+        <div>
+          <span class="text-[#767A80] dark:text-gray-400 font-semibold">KJ336545</span>
+          <span class="text-[#414447] dark:text-gray-300 font-semibold">:SWIFT CODE</span>
+        </div>
+      </div>
+    </form>
+    <!-- End Client Order Info -->
+  
+    <!-- Table Data -->
+    <table-builder id="table" addTitle="أضف عنصر" title="العناصر"></table-builder>
+  
+    <!-- * total -->
+    <div>
+      <h2 class="font-bold text-[20px] text-[#12161C] my-5 dark:text-white">
+        الإجمالى
+      </h2>
+  
+      <div
+        class="flex flex-col flex-wrap gap-1 my-5 border text-sm font-semibold bg-[#FCFCFD] dark:bg-gray-600 border-[#EAECF0] dark:border-gray-500 rounded-[6px] p-[12px]"
+      >
+        <div>
+          <span class="text-[#767A80] dark:text-gray-400 font-semibold">الكل:</span>
+          <span class="text-[#414447] dark:text-gray-300">$5747</span>
+        </div>
+        <div>
+          <span class="text-[#767A80] dark:text-gray-400 font-semibold">التخفيضات:</span>
+          <span class="text-[#414447] dark:text-gray-300 font-semibold">$5747</span>
+        </div>
+  
+        <div>
+          <span class="text-[#767A80] dark:text-gray-400 font-semibold">الضريبة:</span>
+          <span class="text-[#414447] dark:text-gray-300 font-semibold">$5747</span>
+        </div>
+        <div>
+          <span class="text-[#767A80] dark:text-gray-400 font-semibold">المبلغ الكلى:</span>
+          <span class="text-[#414447] dark:text-gray-300 font-semibold">$5747</span>
+        </div>
+      </div>
+    </div>
+    <!-- End Total -->
+  
+    <!-- Start Emp seller -->
+    <div class="p-[24px] rounded-[12px] bg-white dark:bg-gray-700" style="box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.09)">
+      <div class="">
+        <label
+          for="category"
+          class="block mb-2 text-sm font-semibold text-[#414447] dark:text-gray-300"
+          >موظف المبيعات</label
+        >
+        <select
+          id="category"
+          class="border border-[#EBEBEC] dark:border-gray-600 text-[#767A80] dark:text-gray-300 dark:bg-gray-600 text-sm rounded-[6px] w-full p-[12px] focus:ring-0 focus:border-[#EBEBEC] dark:focus:border-gray-500"
+        >
+          <option selected="" class="text-[#767A80] dark:text-gray-400">
+            محمد الشريف
+          </option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+  
+      <div class="mt-2">
+        <label
+          for="name"
+          class="block mb-2 text-sm font-semibold text-[#414447] dark:text-gray-300"
+          >الملاحظات</label
+        >
+        <input
+          type="text"
+          name="name"
+          id="name"
+          class="placeholder:font-semibold placeholder:text-[#12161C] dark:placeholder:text-gray-400 border border-[#EBEBEC] dark:border-gray-600 text-gray-900 dark:text-white dark:bg-gray-600 text-sm rounded-[6px] w-full p-[12px] focus:ring-0 focus:border-[#EBEBEC] dark:focus:border-gray-500"
+          placeholder="لقد كان من دواعي سروري العمل معك ومع فريقك. نأمل أن تضعونا في الاعتبار في مشاريع العمل الحر المستقبلية. شكرًا لك!"
+          required=""
+        />
+      </div>
+    </div>
+  </div>
+</div>
+<script defer src="../../sidebar.js"></script>
+<script defer>
+  const table = document.getElementById("table");
+  table.filter = `<div> </div>`
+  table.columns = [
+    "رقم العنصر",
+    "العنصر",
+    "سعر الوحدة",
+    "الكمية",
+    "السعر",
+    "الملاحظات",
+  ];
+  table.rows = [
+    {
+      number: "#1",
+      element: "تطبيق اتقان",
+      price: "$565",
+      quantity: "$565",
+      total: "$565",
+      notes: "الملاحظات",
+    },
+    {
+      number: "#1",
+      element: "تطبيق اتقان",
+      price: "$565",
+      quantity: "$565",
+      total: "$565",
+      notes: "الملاحظات",
+    },
+  ];
+  table.img = "../../src/images/icons/avatar.png";
+</script>
+</body>
+</html>

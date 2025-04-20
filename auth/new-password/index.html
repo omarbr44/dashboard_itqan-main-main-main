@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- إضافة Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- style -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <main>
+        <div class="background-container">
+
+            <div class="logo">
+                <img src="../../images/logo.png" alt="logo">
+            </div>
+
+            <div class="overlay">
+
+                <div class="overlay_info">
+                    <h2> كلمة المرور الجديدة </h2>
+                    <p> أدخل كلمة المرور الجديدة الخاصة بك  </p>
+                </div>
+
+                <form class="contact-form">
+
+                    <div class="group">
+                        <label for="password"> كلمة السر </label>
+                        <div class="input-container">
+                            <div class="icon-container">
+                                <img src="../../images/icons/lock.svg" alt="icon">
+                            </div>
+                            <input type="password" id="password" class="input" placeholder=" * * * * * * * * "
+                                required />
+                        </div>
+                    </div>
+
+                    <div class="group">
+                        <label for="repassword"> تأكيد كلمة السر </label>
+                        <div class="input-container">
+                            <div class="icon-container">
+                                <img src="../../images/icons/lock.svg" alt="icon">
+                            </div>
+                            <input type="password" id="repassword" class="input" placeholder=" * * * * * * * * "
+                                required />
+                        </div>
+                        <p>تأكد من أن كلمة المرور متطابقة</p>
+                    </div>
+
+                    <button > حفظ </button>
+
+                    <a href="../login/index.html"> 
+                        <span> <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            العودة إلى تسجيل الدخول  </span> </a>
+
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

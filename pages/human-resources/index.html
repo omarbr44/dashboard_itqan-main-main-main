@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Human Resources</title>
+    <link rel="stylesheet" href="../../style.css" />
+
+    <link href="../../src/css/output.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.1/dist/flowbite.min.css" rel="stylesheet" />
+
+    <script src="../../src/js/layout/sidebar.js" ></script>
+    <script src="../../src/js/layout/header.js" ></script>
+    <script src="../../src/js/layout/layout.js" ></script>
+    <script src="../../src/js/shared/steper.js" ></script>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../../app.js"></script>
+  </head>
+  <body dir="rtl" class="dark:bg-gray-800 bg-white">
+    <main-header
+    namee="محمد الشريف"
+    role="مشرف رئيسى"
+    />
+    <main-layout />
+    <div class="p-4 sm:mr-48" id="main-body">
+      <div
+        class="p-4 border-2 border-gray-200 rounded-lg dark:border-gray-700 mt-14"
+      >
+        <page-steper
+          baseStep="../../src/images/icons/home.png"
+          firstStep="../../src/images/icons/users.png"
+          firstTitle="الموارد البشرية"
+        >
+        </page-steper>
+
+
+        <div class="grid grid-cols-12 gap-[20px]">
+          
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <div >
+              <div class="border flex flex-col justify-center items-center p-[24px] gap-[8px] rounded-[8px] border-[#EBEBEC]">
+                <img src="../../src/images/icons/jobs.png" class="w-[83px] h-[83px] rounded-[12px]"/>
+                <h3 class="text-[18px] font-bold text-[#121212] dark:text-white">انواع الوظائف</h3>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <div class="border flex flex-col justify-center items-center p-[24px] gap-[8px] rounded-[8px] border-[#EBEBEC]">
+              <img src="../../src/images/icons/jobsPaper.png" class="w-[83px] h-[83px] rounded-[12px]"/>
+              <h3 class="text-[18px] font-bold text-[#121212] dark:text-white">المسميات الوظيفية</h3>
+            </div>
+          </div>
+
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <div class="border flex flex-col justify-center items-center p-[24px] gap-[8px] rounded-[8px] border-[#EBEBEC]">
+              <img src="../../src/images/icons/tasks.png" class="w-[83px] h-[83px] rounded-[12px]"/>
+              <h3 class="text-[18px] font-bold text-[#121212] dark:text-white">الاقسام<h3>
+            </div>
+          </div>
+
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <div class="border flex flex-col justify-center items-center p-[24px] gap-[8px] rounded-[8px] border-[#EBEBEC]">
+              <img src="../../src/images/icons/units.png" class="w-[83px] h-[83px] rounded-[12px]"/>
+              <h3 class="text-[18px] font-bold text-[#121212] dark:text-white">الوحدات</h3>
+            </div>
+          </div>
+
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <div class="border flex flex-col justify-center items-center p-[24px] gap-[8px] rounded-[8px] border-[#EBEBEC]">
+              <img src="../../src/images/icons/journy.png" class="w-[83px] h-[83px] rounded-[12px]"/>
+              <h3 class="text-[18px] font-bold text-[#121212] dark:text-white">انواع الاجازات<h3>
+            </div>
+          </div>
+
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <div class="border flex flex-col justify-center items-center p-[24px] gap-[8px] rounded-[8px] border-[#EBEBEC]">
+              <img src="../../src/images/icons/emploeOrder.png" class="w-[83px] h-[83px] rounded-[12px]"/>
+              <h3 class="text-[18px] font-bold text-[#121212] dark:text-white">طلبات الموظفين<h3>
+            </div>
+          </div>
+
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <div class="border flex flex-col justify-center items-center p-[24px] gap-[8px] rounded-[8px] border-[#EBEBEC]">
+              <img src="../../src/images/icons/emploes.png" class="w-[83px] h-[83px] rounded-[12px]"/>
+              <h3 class="text-[18px] font-bold text-[#121212] dark:text-white">الموظفين<h3>
+            </div>
+          </div>
+
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <div class="border flex flex-col justify-center items-center p-[24px] gap-[8px] rounded-[8px] border-[#EBEBEC]">
+              <img src="../../src/images/icons/docEmploe.png" class="w-[83px] h-[83px] rounded-[12px]"/>
+              <h3 class="text-[18px] font-bold text-[#121212] dark:text-white">عقود الموظفين<h3>
+            </div>
+          </div>
+
+          <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <div class="border flex flex-col justify-center items-center p-[24px] gap-[8px] rounded-[8px] border-[#EBEBEC]">
+              <img src="../../src/images/icons/swirls.png" class="w-[83px] h-[83px] rounded-[12px]"/>
+              <h3 class="text-[18px] font-bold text-[#121212] dark:text-white">الدوامات<h3>
+            </div>
+          </div>
+
+
+
+        </div>
+    
+      
+
+
+      </div>
+    </div>
+    <script defer src="../../sidebar.js"></script>
+  </body>
+</html>

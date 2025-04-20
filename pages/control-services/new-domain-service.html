@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New domain service</title>
+    <link rel="stylesheet" href="../../style.css" />
+
+    <link href="../../src/css/output.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.1/dist/flowbite.min.css" rel="stylesheet" />
+    <!-- <script type="module" src="../../src/js/index.js" defer></script> -->
+    <script src="../../src/js/layout/sidebar.js" ></script>
+    <script src="../../src/js/layout/header.js" ></script>
+    <script src="../../src/js/layout/layout.js" ></script>
+    <script src="../../src/js/shared/steper.js" ></script>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../../app.js"></script>
+  </head>
+  <body dir="rtl">
+    <main-header
+    namee="محمد الشريف"
+    role="مشرف رئيسى"
+    />
+    <main-layout />
+    <div class="p-4 sm:mr-48" id="main-body">
+      <div class="p-4 rounded-lg mt-14">
+        <page-steper
+          baseStep="../../src/images/icons/home.png"
+          firstStep="../../src/images/icons/dashCategory.png"
+          firstTitle="لوحة التحكم"
+          secStep="../../src/images/icons/elecZi.png"
+          secTitle="خدمة نطاق جديد"
+          backHref="/"
+          backTitle="رجوع الصفحة السابقة"
+        >
+        </page-steper>
+
+        <ol
+          class="wizard-navs flex items-center flex-wrap gap-5 w-full p-3 space-x-2 text-sm font-medium text-center text-gray-500 bg-white rounded-lg shadow-xs dark:text-gray-400 sm:text-base dark:bg-gray-800 dark:border-gray-700 sm:p-4 sm:space-x-4 rtl:space-x-reverse"
+        >
+          <li class="flex items-center cursor-pointer" data-step="1">
+            <span
+              class="flex items-center justify-center me-2 text-xs rounded-full shrink-0 bg-[#EBF2FF] w-[70px] h-[70px]"
+            >
+              <svg
+                width="37"
+                height="37"
+                viewBox="0 0 37 37"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M24.7264 3.83984H12.1564C6.69641 3.83984 3.44141 7.09484 3.44141 12.5548V25.1098C3.44141 30.5848 6.69641 33.8398 12.1564 33.8398H24.7114C30.1714 33.8398 33.4264 30.5848 33.4264 25.1248V12.5548C33.4414 7.09484 30.1864 3.83984 24.7264 3.83984ZM13.1914 10.4098C14.7364 10.4098 16.0114 11.6698 16.0114 13.2298C16.0114 14.7898 14.7514 16.0498 13.1914 16.0498C11.6314 16.0498 10.3714 14.7598 10.3714 13.2148C10.3714 11.6698 11.6464 10.4098 13.1914 10.4098ZM18.4414 29.4598C14.4064 29.4598 11.1214 26.1748 11.1214 22.1398C11.1214 21.0898 11.9764 20.2198 13.0264 20.2198H23.8264C24.8764 20.2198 25.7314 21.0748 25.7314 22.1398C25.7614 26.1748 22.4764 29.4598 18.4414 29.4598ZM23.6914 16.0198C22.1464 16.0198 20.8714 14.7598 20.8714 13.1998C20.8714 11.6398 22.1314 10.3798 23.6914 10.3798C25.2514 10.3798 26.5114 11.6398 26.5114 13.1998C26.5114 14.7598 25.2364 16.0198 23.6914 16.0198Z"
+                  fill="#377DFF"
+                />
+              </svg>
+            </span>
+            <div class="flex flex-col text-right gap-2 me-3">
+              <h4 class="font-bold text-[20px] text-[#12161C]">البدء</h4>
+              <span class="text-[#414447] text-[18px] font-medium"
+                >04/01/2025</span
+              >
+            </div>
+            <svg
+              width="141"
+              height="14"
+              viewBox="0 0 141 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.384033 6.38482C0.044281 6.72457 0.044281 7.27543 0.384033 7.61518L5.92068 13.1518C6.26044 13.4916 6.81129 13.4916 7.15105 13.1518C7.49081 12.8121 7.49081 12.2612 7.15105 11.9215L2.22958 7L7.15105 2.07854C7.49081 1.73878 7.49081 1.18793 7.15105 0.848171C6.81129 0.508415 6.26044 0.508415 5.92068 0.848171L0.384033 6.38482ZM140.199 6.13L0.999222 6.13V7.87L140.199 7.87V6.13Z"
+                fill="#EBEBEC"
+              />
+            </svg>
+          </li>
+
+          <li class="flex items-center cursor-pointer" data-step="2">
+            <span
+              class="flex items-center justify-center me-2 text-xs rounded-full shrink-0 bg-[#EBEBEC] w-[70px] h-[70px]"
+            >
+              <svg
+                width="37"
+                height="37"
+                viewBox="0 0 37 37"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M27.3023 16.9212H22.6673V6.12115C22.6673 3.60115 21.3023 3.09115 19.6373 4.98115L18.4373 6.34615L8.28227 17.8962C6.88727 19.4712 7.47227 20.7612 9.57227 20.7612H14.2073V31.5612C14.2073 34.0812 15.5723 34.5912 17.2373 32.7012L18.4373 31.3362L28.5923 19.7862C29.9873 18.2112 29.4023 16.9212 27.3023 16.9212Z"
+                  fill="#C1C2C3"
+                />
+              </svg>
+            </span>
+            <div class="flex flex-col text-right gap-2 me-3">
+              <h4 class="font-bold text-[20px] text-[#C1C2C3]">قيد الإنجاز</h4>
+              <span class="text-[#C1C2C3] text-[18px] font-medium"
+                >0 أيام مرت</span
+              >
+            </div>
+            <svg
+              width="141"
+              height="14"
+              viewBox="0 0 141 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.384033 6.38482C0.044281 6.72457 0.044281 7.27543 0.384033 7.61518L5.92068 13.1518C6.26044 13.4916 6.81129 13.4916 7.15105 13.1518C7.49081 12.8121 7.49081 12.2612 7.15105 11.9215L2.22958 7L7.15105 2.07854C7.49081 1.73878 7.49081 1.18793 7.15105 0.848171C6.81129 0.508415 6.26044 0.508415 5.92068 0.848171L0.384033 6.38482ZM140.199 6.13L0.999222 6.13V7.87L140.199 7.87V6.13Z"
+                fill="#EBEBEC"
+              />
+            </svg>
+          </li>
+
+          <li class="flex items-center cursor-pointer" data-step="3">
+            <span
+              class="flex items-center justify-center me-2 text-xs rounded-full shrink-0 bg-[#EBEBEC] w-[70px] h-[70px]"
+            >
+              <svg
+                width="37"
+                height="37"
+                viewBox="0 0 37 37"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M32.7778 16.9497L30.7378 14.5797C30.3478 14.1297 30.0328 13.2897 30.0328 12.6897V10.1397C30.0328 8.54969 28.7278 7.24469 27.1378 7.24469H24.5878C24.0028 7.24469 23.1478 6.92969 22.6978 6.53969L20.3278 4.49969C19.2928 3.61469 17.5978 3.61469 16.5478 4.49969L14.1928 6.55469C13.7428 6.92969 12.8878 7.24469 12.3028 7.24469H9.70781C8.11781 7.24469 6.81281 8.54969 6.81281 10.1397V12.7047C6.81281 13.2897 6.49781 14.1297 6.12281 14.5797L4.09781 16.9647C3.22781 17.9997 3.22781 19.6797 4.09781 20.7147L6.12281 23.0997C6.49781 23.5497 6.81281 24.3897 6.81281 24.9747V27.5397C6.81281 29.1297 8.11781 30.4347 9.70781 30.4347H12.3028C12.8878 30.4347 13.7428 30.7497 14.1928 31.1397L16.5628 33.1797C17.5978 34.0647 19.2928 34.0647 20.3428 33.1797L22.7128 31.1397C23.1628 30.7497 24.0028 30.4347 24.6028 30.4347H27.1528C28.7428 30.4347 30.0478 29.1297 30.0478 27.5397V24.9897C30.0478 24.4047 30.3628 23.5497 30.7528 23.0997L32.7928 20.7297C33.6628 19.6947 33.6628 17.9847 32.7778 16.9497ZM24.6778 16.0047L17.4328 23.2497C17.2228 23.4597 16.9378 23.5797 16.6378 23.5797C16.3378 23.5797 16.0528 23.4597 15.8428 23.2497L12.2128 19.6197C11.7778 19.1847 11.7778 18.4647 12.2128 18.0297C12.6478 17.5947 13.3678 17.5947 13.8028 18.0297L16.6378 20.8647L23.0878 14.4147C23.5228 13.9797 24.2428 13.9797 24.6778 14.4147C25.1128 14.8497 25.1128 15.5697 24.6778 16.0047Z"
+                  fill="#C1C2C3"
+                />
+              </svg>
+            </span>
+            <div class="flex flex-col text-right gap-2 me-3">
+              <h4 class="font-bold text-[20px] text-[#C1C2C3]">اكتمال</h4>
+              <span class="text-[#C1C2C3] text-[18px] font-medium"
+                >08/01/2025</span
+              >
+            </div>
+          </li>
+        </ol>
+
+        <div
+          data-step="1"
+          class="wizard-component border border-[#EAECF0] p-[20px] rounded-[15px] mt-6 grid grid-cols-12 gap-y-4"
+        >
+          <div class="flex gap-3 col-span-12 lg:col-span-9">
+            <svg
+              width="66"
+              height="66"
+              viewBox="0 0 66 66"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                x="3.625"
+                y="4.05469"
+                width="58"
+                height="58"
+                rx="29"
+                fill="#FFEAD5"
+              />
+              <rect
+                x="3.625"
+                y="4.05469"
+                width="58"
+                height="58"
+                rx="29"
+                stroke="#FFF6EE"
+                stroke-width="7.25"
+              />
+              <path
+                d="M20.5391 36.0755L32.6224 42.1172L44.7057 36.0755M32.6224 23.9922L20.5391 30.0339L32.6224 36.0755L44.7057 30.0339L32.6224 23.9922Z"
+                stroke="#F88F2D"
+                stroke-width="2.41667"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <div>
+              <h3 class="text-[20px] text-[#344054]">
+                مدة الطلب 4 أيام حتى 08/01/2025
+              </h3>
+              <p class="text-[16px] mt-2 text-[#475467]">
+                خدمة حجز النطاق هي عملية تسجيل اسم موقع ويب فريد على الإنترنت،
+                مما يسمح لك بإنشاء هويتك الرقمية. النطاق هو العنوان الذي يستخدمه
+                الزوار للوصول إلى موقعك، مثل "example.com".
+              </p>
+            </div>
+          </div>
+          <div class="col-span-1"></div>
+          <button
+            data-modal-target="crud-modal"
+            data-modal-toggle="crud-modal"
+            class="py-[10px] px-[32px] w-fit bg-[#EBF2FF] rounded-[6px] col-span-12 lg:col-span-2 h-fit text-[#377DFF]"
+          >
+            ارسال رسالة
+          </button>
+          <!-- Main modal -->
+          <div
+            id="crud-modal"
+            tabindex="-1"
+            aria-hidden="true"
+            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[9999] justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+          >
+            <div class="relative p-2 w-full max-w-[50%] max-h-full">
+              <!-- Modal content -->
+              <div
+                class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700"
+              >
+                <!-- Modal header -->
+                <div
+                  class="flex items-center justify-between p-4 md:p-[15px] border-b rounded-t bg-[#EBF2FF] border-gray-200"
+                >
+                  <h3 class="text-lg font-bold text-[#377DFF]">ارسال رسالة</h3>
+                  <button
+                    type="button"
+                    class="text-[#377DFF] bg-transparent rounded-lg ms-auto inline-flex justify-center items-center"
+                    data-modal-toggle="crud-modal"
+                  >
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.0013 30.3327C8.09464 30.3327 1.66797 23.906 1.66797 15.9993C1.66797 8.09268 8.09464 1.66602 16.0013 1.66602C23.908 1.66602 30.3346 8.09268 30.3346 15.9993C30.3346 23.906 23.908 30.3327 16.0013 30.3327ZM16.0013 3.66602C9.2013 3.66602 3.66797 9.19935 3.66797 15.9993C3.66797 22.7993 9.2013 28.3327 16.0013 28.3327C22.8013 28.3327 28.3346 22.7993 28.3346 15.9993C28.3346 9.19935 22.8013 3.66602 16.0013 3.66602Z"
+                        fill="#377DFF"
+                      />
+                      <path
+                        d="M12.2271 20.7738C11.9738 20.7738 11.7205 20.6805 11.5205 20.4805C11.1338 20.0938 11.1338 19.4538 11.5205 19.0671L19.0671 11.5205C19.4538 11.1338 20.0938 11.1338 20.4805 11.5205C20.8671 11.9071 20.8671 12.5471 20.4805 12.9338L12.9338 20.4805C12.7471 20.6805 12.4805 20.7738 12.2271 20.7738Z"
+                        fill="#377DFF"
+                      />
+                      <path
+                        d="M19.7738 20.7738C19.5205 20.7738 19.2671 20.6805 19.0671 20.4805L11.5205 12.9338C11.1338 12.5471 11.1338 11.9071 11.5205 11.5205C11.9071 11.1338 12.5471 11.1338 12.9338 11.5205L20.4805 19.0671C20.8671 19.4538 20.8671 20.0938 20.4805 20.4805C20.2805 20.6805 20.0271 20.7738 19.7738 20.7738Z"
+                        fill="#377DFF"
+                      />
+                    </svg>
+
+                    <span class="sr-only">Close modal</span>
+                  </button>
+                </div>
+                <!-- Modal body -->
+                <form class="p-4 md:p-5">
+                  <div class="grid gap-4 mb-4 grid-cols-2">
+                    <div class="col-span-2">
+                      <label
+                        for="name"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >عنوان الرسالة</label
+                      >
+                      <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        class="border-[#EBEBEC] text-gray-900 text-sm rounded-lg block w-full p-2.5 focus:ring-0 focus:border-[#EBEBEC]"
+                        placeholder="اكتب عنوان رسالتك هنا"
+                        required=""
+                      />
+                    </div>
+
+                    <div class="col-span-2">
+                      <label
+                        for="description"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >محتوي الرسالة</label
+                      >
+                      <textarea
+                        id="description"
+                        rows="4"
+                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="اكتب محتوي رسالتك هنا"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="flex justify-between">
+                    <button
+                      type="submit"
+                      class=" !bg-[#377DFF] text-white inline-flex w-auto py-[16px] px-[32px] items-center hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center"
+                    >
+                      ارسال
+                    </button>
+                    <button
+                      data-modal-toggle="crud-modal"
+                      type="button"
+                      class="text-[#377DFF] inline-flex py-[16px] px-[32px] items-center bg-[#EBF2FF] font-medium rounded-lg text-sm text-center"
+                    >
+                      إلغاء
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          data-step="2"
+          class="wizard-component border border-[#EAECF0] p-[20px] rounded-[15px] mt-6 grid grid-cols-12 gap-y-4"
+        >
+          <div class="flex gap-3 col-span-12 lg:col-span-9">
+            <svg
+              width="66"
+              height="66"
+              viewBox="0 0 66 66"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                x="3.625"
+                y="4.05469"
+                width="58"
+                height="58"
+                rx="29"
+                fill="#FFEAD5"
+              />
+              <rect
+                x="3.625"
+                y="4.05469"
+                width="58"
+                height="58"
+                rx="29"
+                stroke="#FFF6EE"
+                stroke-width="7.25"
+              />
+              <path
+                d="M20.5391 36.0755L32.6224 42.1172L44.7057 36.0755M32.6224 23.9922L20.5391 30.0339L32.6224 36.0755L44.7057 30.0339L32.6224 23.9922Z"
+                stroke="#F88F2D"
+                stroke-width="2.41667"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <div>
+              <h3 class="text-[20px] text-[#344054]">
+                مدة الطلب 5 أيام حتى 08/01/2025
+              </h3>
+              <p class="text-[16px] mt-2 text-[#475467]">
+                خدمة حجز النطاق هي عملية تسجيل اسم موقع ويب فريد على الإنترنت،
+                مما يسمح لك بإنشاء هويتك الرقمية. النطاق هو العنوان الذي يستخدمه
+                الزوار للوصول إلى موقعك، مثل "example.com".
+              </p>
+            </div>
+          </div>
+          <div class="col-span-1"></div>
+          <button
+            data-modal-target="crud-modal"
+            data-modal-toggle="crud-modal"
+            class="py-[10px] px-[32px] w-fit bg-[#EBF2FF] rounded-[6px] col-span-12 lg:col-span-2 h-fit text-[#377DFF]"
+          >
+            ارسال رسالة
+          </button>
+          <!-- Main modal -->
+          <div
+            id="crud-modal"
+            tabindex="-1"
+            aria-hidden="true"
+            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[9999] justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+          >
+            <div class="relative p-2 w-full max-w-[50%] max-h-full">
+              <!-- Modal content -->
+              <div
+                class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700"
+              >
+                <!-- Modal header -->
+                <div
+                  class="flex items-center justify-between p-4 md:p-[15px] border-b rounded-t bg-[#EBF2FF] border-gray-200"
+                >
+                  <h3 class="text-lg font-bold text-[#377DFF]">ارسال رسالة</h3>
+                  <button
+                    type="button"
+                    class="text-[#377DFF] bg-transparent rounded-lg ms-auto inline-flex justify-center items-center"
+                    data-modal-toggle="crud-modal"
+                  >
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.0013 30.3327C8.09464 30.3327 1.66797 23.906 1.66797 15.9993C1.66797 8.09268 8.09464 1.66602 16.0013 1.66602C23.908 1.66602 30.3346 8.09268 30.3346 15.9993C30.3346 23.906 23.908 30.3327 16.0013 30.3327ZM16.0013 3.66602C9.2013 3.66602 3.66797 9.19935 3.66797 15.9993C3.66797 22.7993 9.2013 28.3327 16.0013 28.3327C22.8013 28.3327 28.3346 22.7993 28.3346 15.9993C28.3346 9.19935 22.8013 3.66602 16.0013 3.66602Z"
+                        fill="#377DFF"
+                      />
+                      <path
+                        d="M12.2271 20.7738C11.9738 20.7738 11.7205 20.6805 11.5205 20.4805C11.1338 20.0938 11.1338 19.4538 11.5205 19.0671L19.0671 11.5205C19.4538 11.1338 20.0938 11.1338 20.4805 11.5205C20.8671 11.9071 20.8671 12.5471 20.4805 12.9338L12.9338 20.4805C12.7471 20.6805 12.4805 20.7738 12.2271 20.7738Z"
+                        fill="#377DFF"
+                      />
+                      <path
+                        d="M19.7738 20.7738C19.5205 20.7738 19.2671 20.6805 19.0671 20.4805L11.5205 12.9338C11.1338 12.5471 11.1338 11.9071 11.5205 11.5205C11.9071 11.1338 12.5471 11.1338 12.9338 11.5205L20.4805 19.0671C20.8671 19.4538 20.8671 20.0938 20.4805 20.4805C20.2805 20.6805 20.0271 20.7738 19.7738 20.7738Z"
+                        fill="#377DFF"
+                      />
+                    </svg>
+
+                    <span class="sr-only">Close modal</span>
+                  </button>
+                </div>
+                <!-- Modal body -->
+                <form class="p-4 md:p-5">
+                  <div class="grid gap-4 mb-4 grid-cols-2">
+                    <div class="col-span-2">
+                      <label
+                        for="name"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >عنوان الرسالة</label
+                      >
+                      <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        class="border-[#EBEBEC] text-gray-900 text-sm rounded-lg block w-full p-2.5 focus:ring-0 focus:border-[#EBEBEC]"
+                        placeholder="اكتب عنوان رسالتك هنا"
+                        required=""
+                      />
+                    </div>
+
+                    <div class="col-span-2">
+                      <label
+                        for="description"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >محتوي الرسالة</label
+                      >
+                      <textarea
+                        id="description"
+                        rows="4"
+                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="اكتب محتوي رسالتك هنا"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="flex justify-between">
+                    <button
+                      type="submit"
+                      class=" !bg-[#377DFF] text-white inline-flex w-auto py-[16px] px-[32px] items-center hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center"
+                    >
+                      ارسال
+                    </button>
+                    <button
+                      data-modal-toggle="crud-modal"
+                      type="button"
+                      class="text-[#377DFF] inline-flex py-[16px] px-[32px] items-center bg-[#EBF2FF] font-medium rounded-lg text-sm text-center"
+                    >
+                      إلغاء
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          data-step="3"
+          class="wizard-component border border-[#EAECF0] p-[20px] rounded-[15px] mt-6 grid grid-cols-12 gap-y-4"
+        >
+          <div class="flex gap-3 col-span-12 lg:col-span-9">
+            <svg
+              width="66"
+              height="66"
+              viewBox="0 0 66 66"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                x="3.625"
+                y="4.05469"
+                width="58"
+                height="58"
+                rx="29"
+                fill="#FFEAD5"
+              />
+              <rect
+                x="3.625"
+                y="4.05469"
+                width="58"
+                height="58"
+                rx="29"
+                stroke="#FFF6EE"
+                stroke-width="7.25"
+              />
+              <path
+                d="M20.5391 36.0755L32.6224 42.1172L44.7057 36.0755M32.6224 23.9922L20.5391 30.0339L32.6224 36.0755L44.7057 30.0339L32.6224 23.9922Z"
+                stroke="#F88F2D"
+                stroke-width="2.41667"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <div>
+              <h3 class="text-[20px] text-[#344054]">
+                مدة الطلب 6 أيام حتى 08/01/2025
+              </h3>
+              <p class="text-[16px] mt-2 text-[#475467]">
+                خدمة حجز النطاق هي عملية تسجيل اسم موقع ويب فريد على الإنترنت،
+                مما يسمح لك بإنشاء هويتك الرقمية. النطاق هو العنوان الذي يستخدمه
+                الزوار للوصول إلى موقعك، مثل "example.com".
+              </p>
+            </div>
+          </div>
+          <div class="col-span-1"></div>
+          <button
+            data-modal-target="crud-modal"
+            data-modal-toggle="crud-modal"
+            class="py-[10px] px-[32px] w-fit bg-[#EBF2FF] rounded-[6px] col-span-12 lg:col-span-2 h-fit text-[#377DFF]"
+          >
+            ارسال رسالة
+          </button>
+          <!-- Main modal -->
+          <div
+            id="crud-modal"
+            tabindex="-1"
+            aria-hidden="true"
+            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[9999] justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+          >
+            <div class="relative p-2 w-full max-w-[50%] max-h-full">
+              <!-- Modal content -->
+              <div
+                class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700"
+              >
+                <!-- Modal header -->
+                <div
+                  class="flex items-center justify-between p-4 md:p-[15px] border-b rounded-t bg-[#EBF2FF] border-gray-200"
+                >
+                  <h3 class="text-lg font-bold text-[#377DFF]">ارسال رسالة</h3>
+                  <button
+                    type="button"
+                    class="text-[#377DFF] bg-transparent rounded-lg ms-auto inline-flex justify-center items-center"
+                    data-modal-toggle="crud-modal"
+                  >
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.0013 30.3327C8.09464 30.3327 1.66797 23.906 1.66797 15.9993C1.66797 8.09268 8.09464 1.66602 16.0013 1.66602C23.908 1.66602 30.3346 8.09268 30.3346 15.9993C30.3346 23.906 23.908 30.3327 16.0013 30.3327ZM16.0013 3.66602C9.2013 3.66602 3.66797 9.19935 3.66797 15.9993C3.66797 22.7993 9.2013 28.3327 16.0013 28.3327C22.8013 28.3327 28.3346 22.7993 28.3346 15.9993C28.3346 9.19935 22.8013 3.66602 16.0013 3.66602Z"
+                        fill="#377DFF"
+                      />
+                      <path
+                        d="M12.2271 20.7738C11.9738 20.7738 11.7205 20.6805 11.5205 20.4805C11.1338 20.0938 11.1338 19.4538 11.5205 19.0671L19.0671 11.5205C19.4538 11.1338 20.0938 11.1338 20.4805 11.5205C20.8671 11.9071 20.8671 12.5471 20.4805 12.9338L12.9338 20.4805C12.7471 20.6805 12.4805 20.7738 12.2271 20.7738Z"
+                        fill="#377DFF"
+                      />
+                      <path
+                        d="M19.7738 20.7738C19.5205 20.7738 19.2671 20.6805 19.0671 20.4805L11.5205 12.9338C11.1338 12.5471 11.1338 11.9071 11.5205 11.5205C11.9071 11.1338 12.5471 11.1338 12.9338 11.5205L20.4805 19.0671C20.8671 19.4538 20.8671 20.0938 20.4805 20.4805C20.2805 20.6805 20.0271 20.7738 19.7738 20.7738Z"
+                        fill="#377DFF"
+                      />
+                    </svg>
+
+                    <span class="sr-only">Close modal</span>
+                  </button>
+                </div>
+                <!-- Modal body -->
+                <form class="p-4 md:p-5">
+                  <div class="grid gap-4 mb-4 grid-cols-2">
+                    <div class="col-span-2">
+                      <label
+                        for="name"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >عنوان الرسالة</label
+                      >
+                      <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        class="border-[#EBEBEC] text-gray-900 text-sm rounded-lg block w-full p-2.5 focus:ring-0 focus:border-[#EBEBEC]"
+                        placeholder="اكتب عنوان رسالتك هنا"
+                        required=""
+                      />
+                    </div>
+
+                    <div class="col-span-2">
+                      <label
+                        for="description"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >محتوي الرسالة</label
+                      >
+                      <textarea
+                        id="description"
+                        rows="4"
+                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="اكتب محتوي رسالتك هنا"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="flex justify-between">
+                    <button
+                      type="submit"
+                      class=" !bg-[#377DFF] text-white inline-flex w-auto py-[16px] px-[32px] items-center hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center"
+                    >
+                      ارسال
+                    </button>
+                    <button
+                      data-modal-toggle="crud-modal"
+                      type="button"
+                      class="text-[#377DFF] inline-flex py-[16px] px-[32px] items-center bg-[#EBF2FF] font-medium rounded-lg text-sm text-center"
+                    >
+                      إلغاء
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script defer src="../../sidebar.js"></script>
+    <script>
+      // Get all wizard steps and components
+      const wizardSteps = document.querySelectorAll('.wizard-navs li');
+      const wizardComponents = document.querySelectorAll('.wizard-component');
+    
+      // Function to update the wizard UI
+      function updateWizard(activeStepIndex) {
+        wizardSteps.forEach((step, index) => {
+          // Get elements within the step
+          const circle = step.querySelector('span');
+          const title = step.querySelector('h4');
+          const date = step.querySelector('span:last-of-type');
+          const arrow = step.querySelector('svg:last-of-type path');
+          const icon = step.querySelector('svg:first-of-type path');
+    
+          // Apply styles based on the active step
+          if (index <= activeStepIndex) {
+            // Active or completed step
+            circle.classList.remove('bg-[#EBEBEC]');
+            circle.classList.add('bg-[#EBF2FF]');
+            title.classList.remove('text-[#C1C2C3]');
+            title.classList.add('text-[#12161C]');
+            date.classList.remove('text-[#C1C2C3]');
+            date.classList.add('text-[#414447]');
+            arrow.setAttribute('fill', '#377DFF');
+            icon.setAttribute('fill', '#377DFF');
+          } else {
+            // Inactive step
+            circle.classList.remove('bg-[#EBF2FF]');
+            circle.classList.add('bg-[#EBEBEC]');
+            title.classList.remove('text-[#12161C]');
+            title.classList.add('text-[#C1C2C3]');
+            date.classList.remove('text-[#414447]');
+            date.classList.add('text-[#C1C2C3]');
+            arrow.setAttribute('fill', '#EBEBEC');
+            icon.setAttribute('fill', '#C1C2C3');
+          }
+        });
+    
+        // Hide all wizard components
+        wizardComponents.forEach((component) => {
+          component.style.display = 'none';
+        });
+    
+        // Show the current wizard component
+        const currentComponent = document.querySelector(`.wizard-component[data-step="${activeStepIndex + 1}"]`);
+        if (currentComponent) {
+          currentComponent.style.display = 'grid';
+        }
+      }
+    
+      // Initialize the wizard
+      updateWizard(0); // Start with the first step (index 0)
+    
+      // Add event listeners to wizard steps
+      wizardSteps.forEach((step, index) => {
+        step.addEventListener('click', () => {
+          updateWizard(index);
+        });
+      });
+    </script>
+  </body>
+</html>

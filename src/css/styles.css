@@ -1,0 +1,381 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap");
+/* ----Sidebar-nav---- */
+li {
+  list-style: none;
+  border-right: 3px rgba(0, 0, 0, 0) solid;
+  height: 100%;
+  padding-right: 5px;
+  padding-top: 3px;
+  
+}
+li:hover {
+  list-style: none;
+  border-right: 3px #3b82f6 solid;
+  height: 100%;
+  padding-right: 5px;
+  padding-top: 3px;
+}
+.action-li {
+  list-style: none;
+  border-right: 3px #3b83f600 solid;
+  height: 100%;
+  padding-right: 5px;
+  padding-top: 3px;
+}
+.waves-dark {
+  background-color: rgba(222, 184, 135, 0);
+  width: 160px;
+  height: 36px;
+  border-radius: 4px;
+  justify-content: start;
+  padding: 10px 8px 0px 0px;
+  display: flex;
+}
+/* ///out-sing// */
+.waves-dark-out {
+  width: 160px;
+  height: 36px;
+  border-radius: 4px;
+  justify-content: start;
+  padding: 10px 10px 0px 0px;
+  display: flex;
+}
+.div-out{
+  list-style: none;
+  border-right: 3px rgba(0, 0, 0, 0) solid;
+  height: 100%;
+  padding-right: 5px;
+  padding-top: 3px;
+}
+
+
+.action-waves-dark {
+  background-color:#3b82f6;
+  width: 160px;
+  height: 36px;
+  border-radius: 4px;
+  justify-content: start;
+  padding: 10px 10px 0px 0px;
+  overflow:auto;
+  display: flex;
+}
+.actionwaved{
+  background-color: #0015cd00;
+  
+}
+.actionwa{
+  display: none;
+  transition: 0.6s;
+}
+.actionwa1{
+  display: none;
+  transition: 0.6s;
+}
+.actionwa2 {
+  display: none;
+  transition: 0.6s;
+}
+.actionwa3 {
+  display: none;
+  transition: 0.6s;
+}
+.actionwa4 {
+  display: none;
+  transition: 0.6s;
+}
+.actionwa5 {
+  display: none;
+  transition: 0.6s;
+}
+.actionwa6 {
+  display: none;
+  transition: 0.6s;
+}
+
+.actionwa8 {
+  display: none;
+  transition: 0.6s;
+}
+.actionwa9 {
+  display: none;
+  transition: 0.6s;
+}
+
+ .colout{
+  background-color: #fee2e2;
+ 
+ }
+ .actionwa7{
+  background-color:#ff101000;
+ 
+ }
+.sidebar-nav {
+  background-color: rgba(255, 0, 0, 0);
+  border: 1px rgba(208, 213, 221, 1) solid;
+  border-top: none;
+  height: 529px;
+  width: 200px;
+  overflow: hidden;
+  transition: 0.6s;
+}
+#sidebarnav {
+  float: right;
+  margin-right: 1px;
+  margin-top: 10px;
+}
+.hide-menu {
+  padding-right: 11.5px;
+  font-weight: 500;
+}
+
+
+.currentColor {
+  display: flex;
+  padding-bottom: 10px;
+  padding-right: 15px;
+}
+li a {
+  text-decoration: none;
+  display: flex;
+  font-family: "Cairo", serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+
+
+
+.hide-menu-action {
+  color: rgb(255, 255, 255);
+  float: left;
+
+  margin-left: -8px;
+}
+.fa-loc {
+  font-size: 18px;
+}
+.collapsed {
+  width: 58px;
+  transition: 0.4s;
+}
+.group-text {
+  font-family: "Cairo", serif;
+}
+.text-fot {
+  font-weight: 600;
+}
+.size-font {
+  font-size: 11px;
+}
+.size-font2 {
+  font-size: 13px;
+}
+.fle{
+  float: left;
+  margin-top: -30px;
+}
+.box-show{
+  box-shadow: 0px 0px 2px 0px rgba(53, 53, 53, 0.15) !important;
+  border-radius: 6px;
+  /* border: 1px rgba(130, 130, 130, 0.808) solid; */
+  width: 167px !important;
+  
+}
+
+.box-show2{
+  box-shadow: 0px 0px 2px 0px rgba(53, 53, 53, 0.15) !important;
+  border-radius: 6px;
+  /* border: 1px rgba(130, 130, 130, 0.808) solid; */
+  width: 36% !important;
+  
+}
+.col-box{
+  background: rgb(231, 239, 253);
+  
+  
+}
+
+input[type="checkbox"] {
+  border: none;
+  outline: none;
+
+ 
+}
+
+.text-gray{
+  color: #5c6370 !important;
+  font-weight: 500;
+}
+.thead-bg{
+  background-color: #f0f0f0 !important;
+}
+
+.pagination a {
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+
+
+}
+.w{
+  width: 100% !important;
+  height: 10% !important;
+}
+/* للهواتف الذكية */
+@media (max-width: 480px) {
+  .sidebar-nav {
+    background-color: rgb(255, 255, 255);
+    border: 1px rgba(208, 213, 221, 1) solid;
+    height: 529px;
+    width: 48px;
+    position: absolute;
+   
+  }
+  .all-box {
+    position: relative;
+    z-index: -10px;
+    flex-direction: column;
+    float: right;
+    margin-right: 35px !important;
+    margin-top: 10px;
+  }
+  .box-text{
+    padding: 10px !important;
+  }
+  .d {
+    width: 200px;
+  }
+  .Section {
+    float: right;
+    margin-right: 120px;
+    margin-top: 31px;
+  }
+
+
+  .Requests{
+    flex-wrap: wrap;
+    width: 300px;
+    height: 400px;
+  }
+  .fo-text{
+    padding-bottom: 200px !important;
+    box-shadow: 1px 1px 8px 2px #c7c7c7 !important;
+    width: 200px !important;
+  }
+  .fle{
+    float: left;
+    margin-top: -16px;
+  }
+
+}
+
+/* للأجهزة اللوحية */
+@media (min-width: 481px) and (max-width: 768px) {
+  .sidebar-nav {
+    background-color: rgb(255, 255, 255);
+    border: 1px rgba(208, 213, 221, 1) solid;
+    height: 529px;
+    width: 30px;
+    overflow: hidden;
+    transition: 0.5s;
+    position: absolute;
+    z-index: 10px;
+    float: left;
+    margin-left: -300px;
+  }
+  /* .d {
+    width: 450px;
+    
+  } */
+  .Requests{
+    flex-wrap: wrap;
+    width: 70px;
+    height: 300px;    
+  }
+
+}
+#servicer{
+  display: none;
+}
+.scroo-j{
+  background-color:#3b82f6;
+  height: 36px;
+  width: 40px;
+  padding: 5px;
+  margin-right: -10px;
+  display: flex;
+  justify-content: center;
+  border-radius: 2px;
+  align-items: center;
+  margin-top: -10px;
+}
+
+.scroo-gj{
+  background-color: #fee2e2;
+  height: 36px;
+  width: 40px;
+  padding: 5px;
+  margin-right: -10px;
+  display: flex;
+  justify-content: center;
+  border-radius: 2px;
+  align-items: center;
+  margin-top: -10px;
+}
+
+.transition-bg {
+  transition: background-color 0.5s ease;
+} .buttonf:hover {
+  background-color: #3b82f6; /* لون الخلفية الأزرق عند التحويم */
+}
+
+.buttonf:hover .pfont {
+  color: white; /* لون النص الأبيض عند التحويم */
+}
+
+.buttonf:hover .d path {
+  stroke: white; /* لون الحدود الأبيض عند التحويم */
+}
+
+.pfont {
+  color: #3b82f6; /* لون النص الأزرق الافتراضي */
+}
+
+
+
+.step-active {
+  background-color: #3b82f6; /* Blue-500 */
+  color: white;
+}
+.step-inactive {
+  background-color: #d4d4d4; /* Gray-500 */
+  color: white;
+}
+.text-active {
+  color: #3b82f6; /* Blue-500 */
+}
+.text-inactive {
+  color: #6b7280; /* Gray-500 */
+}
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+#relative-hider{
+  display: none;
+}
+
+#relativestep{
+  display: none;
+  
+}
+

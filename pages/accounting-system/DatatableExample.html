@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accounting System</title>
+    <link rel="stylesheet" href="../../style.css" />
+
+    <link href="../../src/css/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="itqan.css?v=1.011" />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.1/dist/flowbite.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="../../src/js/layout/sidebar.js"></script>
+    <script src="../../src/js/layout/header.js"></script>
+    <script src="../../src/js/layout/layout.js"></script>
+    <script src="../../src/js/shared/steper.js"></script>
+    <script src="../../src/js/shared/table.js"></script>
+    <script src="../../src/js/atoms/orderBox/orderBox.js"></script>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap"
+          rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../../app.js"></script>
+</head>
+  <body class="dark:bg-gray-800 bg-white" dir="rtl">
+    <main-header namee="محمد الشريف" role="مشرف رئيسى" />
+    <main-layout />
+    <div class="p-4 sm:mr-48" id="main-body">
+        <div class="p-4 border-2 border-gray-200 rounded-lg dark:border-gray-700 mt-14">
+            <page-steper baseStep="/assets2/images/icons/home.png"
+                         firstStep="/assets2/images/icons/users.png"
+                         firstTitle="المستخدمين">
+            </page-steper>
+            <div class="flex justify-between items-center my-4 flex-wrap px-4">
+                <h4 class="text-[#12161C] text-[24px] font-bold dark:text-white">إضافة عنصر</h4>
+                <div class="flex gap-3 items-center flex-wrap">
+                    <button onclick="show_dialog(0,this,'#addnew_md')" data-modal-target="addnew_md" data-modal-toggle="addnew_md" class="min-w-[100px] bg-[#377DFF] text-white py-[12px] px-[32px] rounded-[6px] flex items-center gap-x-2 font-semibold">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.39969 3.32015L12.8897 0.490154C16.6997 -0.779846 18.7697 1.30015 17.5097 5.11015L14.6797 13.6002C12.7797 19.3102 9.65969 19.3102 7.75969 13.6002L6.91969 11.0802L4.39969 10.2402C-1.31031 8.34015 -1.31031 5.23015 4.39969 3.32015Z" fill="white" />
+                        </svg>
+                        <span class="">اضافة جديد </span>
+                    </button>
+                </div>
+            </div>
+            <div class="mx-auto mt-10 bg-white rounded-lg dark:bg-gray-800">
+                <!--* Head Selector -->
+                <div class="table-responsive">
+                    <table id="tbl_data" class="table table-hover table-centered w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400" style="width:100%">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr class="table-title">
+                                <th scope="col" class="text-right">الرقم</th>
+                                <th scope="col" class="text-right">الاسم</th>
+                                <th scope="col" class="text-right">الوصف</th>
+                                <th scope="col" class="text-right">القسم</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-title">
+                                <td scope="col" class="text-right">1</td>
+                                <td scope="col" class="text-right">عمر محمد سالم عمر محمد</td>
+                                <td scope="col" class="text-right">عبدالله</td>
+                                <td scope="col" class="text-right">علي</td>
+                                <td scope="col" class="text-right">عمر محمد</td>
+                                <td scope="col" class="text-right">عبدالله</td>
+                                <td scope="col" class="text-right">علي</td>
+                                <td scope="col"></td>
+                                <td>
+                                    <div class="relative inline-block text-left">
+                                        <button class="inline-flex justify-center w-full px-2 py-1 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700" id="dropdownButton1">
+                                            <svg class="cursor-pointer" class="text-[#292D32] dark:text-white" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.48828 17.6115C9.48828 18.6126 10.3074 19.4316 11.3085 19.4316C12.3096 19.4316 13.1286 18.6126 13.1286 17.6115C13.1286 16.6104 12.3096 15.7913 11.3085 15.7913C10.3074 15.7913 9.48828 16.6104 9.48828 17.6115Z" stroke="currentColor" stroke-width="1.63816" />
+                                                <path d="M9.48828 4.87123C9.48828 5.87233 10.3074 6.69141 11.3085 6.69141C12.3096 6.69141 13.1286 5.87233 13.1286 4.87123C13.1286 3.87013 12.3096 3.05106 11.3085 3.05106C10.3074 3.05106 9.48828 3.87013 9.48828 4.87123Z" stroke="currentColor" stroke-width="1.63816" />
+                                                <path d="M9.48828 11.2404C9.48828 12.2415 10.3074 13.0605 11.3085 13.0605C12.3096 13.0605 13.1286 12.2415 13.1286 11.2404C13.1286 10.2393 12.3096 9.4202 11.3085 9.4202C10.3074 9.4202 9.48828 10.2393 9.48828 11.2404Z" stroke="currentColor" stroke-width="1.63816" />
+                                            </svg>
+                                        </button>
+                                        <div class="hidden absolute left-0 z-10 bg-white shadow-lg rounded-md mt-2 py-2 w-32 dark:bg-gray-700" role="menu" aria-orientation="vertical" aria-labelledby="dropdownButton1">
+                                            <div class="py-1" role="none">
+                                                <a href="#" class="edit-btn block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600" role="menuitem">تعديل</a>
+                                                <a href="#" class="del-btn block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600" role="menuitem">حذف</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="relative z-[70] hidden" id="addnew_md" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div id="addnew_md_overlay" class="fixed inset-0 bg-gray-500/75 dark:bg-gray-900/75" aria-hidden="true"></div>
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center text-center sm:items-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-3 sm:w-full sm:max-w-[58%] h-[560px] dark:bg-gray-800">
+                    <div class="bg-white w-full dark:bg-gray-800">
+                        <div class="w-full flex-col overflow-hidden">
+                            <div class="flex bg-blue-100 justify-between items-center w-full h-12 p-2 border-b-[1px] border-blue-600 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="alert" class="block text-[16px] py-2 text-[13px] group-text text-blue-600 font-bold dark:text-blue-400">اضافة/تعديل عنصر</label>
+                                <svg class="cursor-pointer" data-modal-hide="addnew_md" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.0013 30.3327C8.09464 30.3327 1.66797 23.906 1.66797 15.9993C1.66797 8.09268 8.09464 1.66602 16.0013 1.66602C23.908 1.66602 30.3346 8.09268 30.3346 15.9993C30.3346 23.906 23.908 30.3327 16.0013 30.3327ZM16.0013 3.66602C9.2013 3.66602 3.66797 9.19935 3.66797 15.9993C3.66797 22.7993 9.2013 28.3327 16.0013 28.3327C22.8013 28.3327 28.3346 22.7993 28.3346 15.9993C28.3346 9.19935 22.8013 3.66602 16.0013 3.66602Z" fill="#3b82f6"></path>
+                                    <path d="M12.2271 20.7738C11.9738 20.7738 11.7205 20.6805 11.5205 20.4805C11.1338 20.0938 11.1338 19.4538 11.5205 19.0671L19.0671 11.5205C19.4538 11.1338 20.0938 11.1338 20.4805 11.5205C20.8671 11.9071 20.8671 12.5471 20.4805 12.9338L12.9338 20.4805C12.7471 20.6805 12.4805 20.7738 12.2271 20.7738Z" fill="#3b82f6"></path>
+                                    <path d="M19.7738 20.7738C19.5205 20.7738 19.2671 20.6805 19.0671 20.4805L11.5205 12.9338C11.1338 12.5471 11.1338 11.9071 11.5205 11.5205C11.9071 11.1338 12.5471 11.1338 12.9338 11.5205L20.4805 19.0671C20.8671 19.4538 20.8671 20.0938 20.4805 20.4805C20.2805 20.6805 20.0271 20.7738 19.7738 20.7738Z" fill="#3b82f6"></path>
+                                </svg>
+                            </div>
+                            <div id="addnew_md_cd" class="flex-col flex m-3">
+                                <div class="row">
+                                    <!-- form group -->
+                                    <form id="frmAdd" asp-action="Save" asp-controller="Test2" asp-area="Exmaples" method="post" class="p-4 md:p-5">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class="modal-input-container">
+                                            <input type="hidden" name="Id" value="{{id}}" />
+                                            <div class="grid gap-4 mb-4 grid-cols-2">
+                                                <svg id="svg-circle" width="60" height="60" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="40" cy="40" r="40" fill="#EBF2FF" />
+                                                    <path d="M40.1979 41.3014C40.0813 41.2848 39.9313 41.2848 39.7979 41.3014C36.8646 41.2014 34.5312 38.8014 34.5312 35.8514C34.5312 32.8348 36.9646 30.3848 39.9979 30.3848C43.0146 30.3848 45.4646 32.8348 45.4646 35.8514C45.4479 38.8014 43.1313 41.2014 40.1979 41.3014Z" stroke="#377DFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path d="M51.2362 52.3016C48.2695 55.0182 44.3362 56.6682 40.0029 56.6682C35.6695 56.6682 31.7362 55.0182 28.7695 52.3016C28.9362 50.7349 29.9362 49.2016 31.7195 48.0016C36.2862 44.9682 43.7529 44.9682 48.2862 48.0016C50.0695 49.2016 51.0695 50.7349 51.2362 52.3016Z" stroke="#377DFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path d="M39.9987 56.6673C49.2034 56.6673 56.6654 49.2054 56.6654 40.0007C56.6654 30.7959 49.2034 23.334 39.9987 23.334C30.794 23.334 23.332 30.7959 23.332 40.0007C23.332 49.2054 30.794 56.6673 39.9987 56.6673Z" stroke="#377DFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <rect x="0.625" y="55.625" width="29.75" height="29.75" rx="11.875" fill="#EBF2FF" />
+                                                    <rect x="0.625" y="55.625" width="29.75" height="29.75" rx="11.875" stroke="white" stroke-width="1.25" />
+                                                    <path d="M13.2856 62.249L8.15439 67.6803C7.96064 67.8865 7.77314 68.2928 7.73564 68.574L7.50439 70.599C7.42314 71.3303 7.94814 71.8303 8.67314 71.7053L10.6856 71.3615C10.9669 71.3115 11.3606 71.1053 11.5544 70.8928L16.6856 65.4615C17.5731 64.524 17.9731 63.4553 16.5919 62.149C15.2169 60.8553 14.1731 61.3115 13.2856 62.249Z" stroke="#377DFF" stroke-width="0.9375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path d="M12.4297 63.1562C12.6984 64.8812 14.0984 66.2 15.8359 66.375" stroke="#377DFF" stroke-width="0.9375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path d="M6.875 73.75H18.125" stroke="#377DFF" stroke-width="0.9375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <image id="profile-image" href="" x="10" y="10" width="60" height="60" clip-path="circle(40 at 40 40)" />
+                                                </svg>
+                                                <input type="file" style="display: none;" id="file-input">
+                                            </div>
+                                            <div class="grid gap-4 mb-4 grid-cols-2">
+                                                <div>
+                                                    <label for="name" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">عنوان الرسالة</label>
+                                                    <input type="text" name="name" value="{{name}}" id="name"                                                          class="border-[#EBEBEC] text-gray-900 text-sm rounded-lg block w-full p-2.5 focus:ring-0 focus:border-[#EBEBEC] dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400" placeholder="اكتب عنوان رسالتك هنا" required="" />
+                                                </div>
+                                                <div>
+                                                    <label for="description" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">محتوي الرسالة</label>
+                                                    <select name="dept" class="drp w-[100%] h-9 py-2 border-1 border-gray-400 rounded-[4px] outline-none focus:border-blue-500 ignore-validation dark:bg-gray-700 dark:border-gray-600 dark:text-white" required data-bind="{{dept}}">
+                                                        <option value="">اختر</option>
+                                                        <option value="المبيعات">المبيعات</option>
+                                                        <option value="المشتريات">المشتريات</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="grid gap-4 mb-4 grid-cols-2">
+                                                <div>
+                                                    <label for="name" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">عنوان الرسالة</label>
+                                                    <input type="text" name="name" value="{{name}}" id="name" class="border-[#EBEBEC] text-gray-900 text-sm rounded-lg block w-full p-2.5 focus:ring-0 focus:border-[#EBEBEC] dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400" placeholder="اكتب عنوان رسالتك هنا" required="" />
+                                                </div>
+                                                <div>
+                                                    <label for="description" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">محتوي الرسالة</label>
+                                                    <select name="dept" class="drp w-[100%] h-9 py-2 border-1 border-gray-400 rounded-[4px] outline-none focus:border-blue-500 ignore-validation dark:bg-gray-700 dark:border-gray-600 dark:text-white" required data-bind="{{dept}}">
+                                                        <option value="">اختر</option>
+                                                        <option value="المبيعات">المبيعات</option>
+                                                        <option value="المشتريات">المشتريات</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="grid gap-4 mb-4 grid-cols-2">
+                                                <div>
+                                                    <label for="name" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">عنوان الرسالة</label>
+                                                    <input type="text" name="name" value="{{name}}" id="name" class="border-[#EBEBEC] text-gray-900 text-sm rounded-lg block w-full p-2.5 focus:ring-0 focus:border-[#EBEBEC] dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400" placeholder="اكتب عنوان رسالتك هنا" required="" />
+                                                </div>
+                                                <div>
+                                                    <label for="description" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">محتوي الرسالة</label>
+                                                    <select name="dept" class="drp w-[100%] h-9 py-2 border-1 border-gray-400 rounded-[4px] outline-none focus:border-blue-500 ignore-validation dark:bg-gray-700 dark:border-gray-600 dark:text-white" required data-bind="{{dept}}">
+                                                        <option value="">اختر</option>
+                                                        <option value="المبيعات">المبيعات</option>
+                                                        <option value="المشتريات">المشتريات</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="grid gap-4 mb-4 grid-cols-2">
+                                                <div class="col-span-2">
+                                                    <label for="name" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">عنوان الرسالة</label>
+                                                    <input type="text" name="name" value="{{name}}" id="name" class="border-[#EBEBEC] text-gray-900 text-sm rounded-lg block w-full p-2.5 focus:ring-0 focus:border-[#EBEBEC] dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400" placeholder="اكتب عنوان رسالتك هنا" required="" />
+                                                </div>
+                                                <div class="col-span-2">
+                                                    <label for="description" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">محتوي الرسالة</label>
+                                                    <textarea id="description" rows="4" name="desc" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="اكتب محتوي رسالتك هنا">{{desc}}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 col-12 form-outline hidden">
+                                                <select name="dept" class="drp w-[100%] h-9 py-2 border-1 border-gray-400 rounded-[4px] outline-none focus:border-blue-500 ignore-validation dark:bg-gray-700 dark:border-gray-600 dark:text-white" required data-bind="{{dept}}">
+                                                    <option value="">اختر</option>
+                                                    <option value="المبيعات">المبيعات</option>
+                                                    <option value="المشتريات">المشتريات</option>
+                                                </select>
+                                                <label for="inputBasicD" class="form-label">القسم </label>
+                                            </div>
+                                            <div class="row hidden">
+                                                <div class="mb-3 col-6">
+                                                    <div class="form-check form-switch d-flex justify-content-center mb-4">
+                                                        <input class="chk ignore-validation form-check-input me-2" id="op1" name="op1" type="CheckBox" required data-bind="{{op1}}" />
+                                                        <label class="form-check-label" for="op1">
+                                                            اختيار 1
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3 col-6">
+                                                    <div class="form-check form-switch d-flex justify-content-center mb-4">
+                                                        <input class="chk ignore-validation form-check-input me-2" id="op2" name="op2" type="CheckBox" required data-bind="{{op2}}" />
+                                                        <label class="form-check-label" for="op2">
+                                                            اختيار 2
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-between my-2 ml-3 mr-3">
+                                            <button id="addnew_md_btn" onclick="form_Save('#frmAdd',this)" class="bg-blue-500 w-[20%] h-10 rounded-md mt-2 text-white group-text text-md">
+                                                <i class="fas fa-spinner animate-spin mr-3 hidden"></i>
+                                                حفظ
+                                            </button>
+                                            <button id="addnew_md_cls" data-modal-hide="addnew_md" class="bg-blue-100 w-[20%] h-10 rounded-md mt-2 text-blue-700 group-text text-md dark:bg-gray-700 dark:text-blue-400">اغلاق</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <script defer src="../../sidebar.js"></script>
+
+      <script src="op.js"></script>
+      <script src="../../main.js"></script>
+      <script src="../../src/js/libs/jquery/dist/jquery.min.js"></script>
+      <script src="../../src/js/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/plug-ins/1.11.3/i18n/ar.json"></script>
+
+      <!-- <script src="./index.js"></script> -->
+      <!-- <script src="../../src/js/index.js"></script> -->
+      <script>
+          const TABLE_ID = '#tbl_data';
+          $(document).ready(function () {
+              var tbl = Init_DataTable_NoAjax(TABLE_ID, 10);
+          //-----------
+              $(document).on('click', '[id^=dropdownButton]', function (event) {
+                  const menu = $(this).siblings('.absolute');
+                  menu.toggleClass('hidden');
+                  event.stopPropagation();
+              });
+
+              // Hide dropdown when clicking outside
+              $(document).click(function () {
+                  $('.absolute').addClass('hidden');
+              });
+          });
+      </script>
+  </body>
+</html>

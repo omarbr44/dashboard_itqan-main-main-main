@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users</title>
+    <link rel="stylesheet" href="../../style.css" />
+
+    <link href="../../src/css/output.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.1/dist/flowbite.min.css" rel="stylesheet" />
+
+    <script src="../../src/js/layout/sidebar.js" ></script>
+    <script src="../../src/js/layout/header.js" ></script>
+    <script src="../../src/js/layout/layout.js" ></script>
+    <script src="../../src/js/shared/steper.js" ></script>
+    <script src="../../src/js/shared/table.js" ></script>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../../app.js"></script>
+  </head>
+  <body dir="rtl">
+    <main-header
+    namee="محمد الشريف"
+    role="مشرف رئيسى"
+    />
+    <main-layout />
+    <div class="p-4 sm:mr-48" id="main-body">
+      <div
+        class="p-4 border-2 border-gray-200 rounded-lg dark:border-gray-700 mt-14"
+      >
+        <page-steper
+          baseStep="../../src/images/icons/home.png"
+          firstStep="../../src/images/icons/users.png"
+          firstTitle="الاعدادات العامة"
+          secStep="../../src/images/icons/elecZi.png"
+          secTitle="المستخدمين"
+          backTitle="رجوع الصفحة السابقة"
+        >
+        </page-steper>
+
+<!--         <table-builder
+          addTitle="اضافة مستخدم جديد"
+          filter="true"
+          printer="true"
+          title="المستخدمين"
+          id="table"
+        ></table-builder> -->
+        <table-builder
+          id="table"
+          addTitle="اضافة مستخدم جديد"
+          filter="true"
+          printer="true"
+          title="المستخدمين"
+          columns="الاسم,البريد الإلكتروني,رقم الهاتف,العنوان,تاريخ الانضمام,الحالة"
+          rows='
+          [
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"},
+          {"name": "John Doe", "email": "john@example.com", "phone": "123456789", "address": "123 Main St", "joinDate": "2023-01-01", "status": "نشط"}
+          ]
+          '
+        ></table-builder>
+      </div>
+    </div>
+    <script defer src="../../sidebar.js"></script>
+    <script defer>
+      const table = document.getElementById("table");
+      const columns = [
+    "الاسم",
+    "البريد الإلكتروني",
+    "رقم الهاتف",
+    "العنوان",
+    "تاريخ الانضمام",
+    "الحالة",
+  ];
+      const columnsString = columns.join(",");
+      table.setAttribute("columns", columnsString);
+      table.filter = `
+          <div class='flex gap-x-2 items-center'>
+          <div class='text-sm cursor-pointer flex items-center gap-x-2 border rounded-[8px] border-[#D0D5DD] py-[10px] px-[16px]'>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 10H15M2.5 5H17.5M7.5 15H12.5" stroke="#344054" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          فلتر حسب
+
+          </div>
+
+          <div class='text-sm cursor-pointer flex items-center gap-x-2 border rounded-[8px] border-[#D0D5DD] py-[10px] px-[16px]'>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 1L1 11M1 1L11 11" stroke="#377DFF" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+          المجموعة
+
+          </div>
+      </div>
+    
+      `;
+      table.columns = [
+        "الاسم",
+        "البريد الإلكتروني",
+        "رقم الهاتف",
+        "العنوان",
+        "تاريخ الانضمام",
+        "الحالة",
+      ];
+      const rows = [
+        {
+          name: "محمد الشريف",
+          email: "example@gmail.com",
+          phone: "+966 53 012 3456",
+          address: "22 شارع الملك فهد، الرياض",
+          joinDate: "12:35 ص 29/11/2023",
+          status: "مفعل",
+        },
+        {
+          name: "محمد رضا",
+          email: "engReda@gmail.com",
+          phone: "+966 53 654 7890",
+          address: "24 شارع التخصصي، الرياض",
+          joinDate: "02:10 م 30/11/2023",
+          status: "مفعل",
+        },
+        {
+          name: "محمد رضا",
+          email: "engReda@gmail.com",
+          phone: "+966 53 654 7890",
+          address: "24 شارع التخصصي، الرياض",
+          joinDate: "02:10 م 30/11/2023",
+          status: "مفعل",
+        },
+        {
+          name: "محمد رضا",
+          email: "engReda@gmail.com",
+          phone: "+966 53 654 7890",
+          address: "24 شارع التخصصي، الرياض",
+          joinDate: "02:10 م 30/11/2023",
+          status: "مفعل",
+        },
+        {
+          name: "محمد رضا",
+          email: "engReda@gmail.com",
+          phone: "+966 53 654 7890",
+          address: "24 شارع التخصصي، الرياض",
+          joinDate: "02:10 م 30/11/2023",
+          status: "مفعل",
+        },
+        {
+          name: "محمد رضا",
+          email: "engReda@gmail.com",
+          phone: "+966 53 654 7890",
+          address: "24 شارع التخصصي، الرياض",
+          joinDate: "02:10 م 30/11/2023",
+          status: "مفعل",
+        },
+        {
+          name: "محمد رضا",
+          email: "engReda@gmail.com",
+          phone: "+966 53 654 7890",
+          address: "24 شارع التخصصي، الرياض",
+          joinDate: "02:10 م 30/11/2023",
+          status: "مفعل",
+        },
+      ];
+      table.img = "../../src/images/icons/avatar.png";
+    </script>
+  </body>
+</html>

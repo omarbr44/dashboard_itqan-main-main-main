@@ -1,0 +1,84 @@
+.width-request{
+    width: 30% !important;
+}
+.request-show{
+  box-shadow: 0px 0px 2px 0px rgba(53, 53, 53, 0.15) !important;
+  border-radius: 6px;
+}
+#example::placeholder {
+  color: black;
+  font-family: "Cairo", serif;
+  font-size: 13px;
+}
+#relative-hider {
+  display: none;
+}
+
+#relative-hider.show {
+  display: block;
+}
+#more {
+  display: none; /* إخفاء العنصر افتراضيًا */
+}
+
+#more.show {
+  display: block; /* إظهار العنصر عند إضافة class "show" */
+}
+#relative-hid{
+  display: none;
+}
+
+#relativebox{
+  display: none;
+}
+#relativebox1{
+  display: none;
+}
+#relativebox12{
+  display: none;
+}
+input:checked + #toggle-bg1 {
+  background-color: #0051ff; /* لون الخلفية عند التفعيل */
+}
+
+input:checked + #toggle-bg1 + #toggle-circle1 {
+  transform: translateX(100%); /* تحريك الدائرة إلى اليمين */
+}
+
+input:checked + #toggle-bg2 {
+  background-color: #0051ff; /* لون الخلفية عند التفعيل */
+}
+
+input:checked + #toggle-bg2 + #toggle-circle2 {
+  transform: translateX(100%);}
+  input:checked + div > div {
+    transform: scale(1); /* تكبير النقطة الداخلية */
+}
+#relativeb{
+  display: none;
+}
+@keyframes fadeInOut {
+  0% { display: block; }
+  100% { display: none; }
+}
+.animate-fade {
+  animation: fadeInOut 1.5s forwards;
+ 
+}
+#showbox{
+  display: none;
+}
+#updata{
+  display: none;
+}
+#updatabox{
+  display: none;
+}
+#updaa{
+  display: none;
+}
+.locclor{
+  color: black;
+  
+}
+

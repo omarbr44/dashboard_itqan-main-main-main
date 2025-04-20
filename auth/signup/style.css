@@ -1,0 +1,168 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: "Cairo", serif;
+    
+}
+
+.background-container {
+    height: 100vh;
+    background-image: url('../../images/bg.png');
+    background-size: cover; 
+    background-position: center; 
+    position: relative;
+}
+
+.logo {
+    position: absolute; 
+    top: 20px; 
+    right: 20px;
+    z-index: 10;
+}
+
+.logo img {
+    width: 100px; 
+    height: auto;
+}
+
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; 
+    background: #fff;
+    width: 410px;
+    border-radius: 15px;
+    padding: 24px;
+}
+
+.overlay_info {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* gap: 10px; */
+}
+
+.overlay_info h2 
+{
+    color: black;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.overlay_info p
+{
+    color: #414447;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+
+
+/* تنسيق نموذج البحث */
+.contact-form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.group
+{
+    width: 100%;
+    position: relative;
+
+}
+
+.group label {
+    color: #344054;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.group p {
+    color: #344054;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* تنسيق الحقل */
+.input-container {
+    position: relative;
+    margin: 5px 0 ;
+}
+
+.icon-container {
+    position: absolute;
+    top: 53%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.input {
+    width: 100%;
+    padding: 10px 40px 10px 10px; /* مكان للأيقونة */
+    height: 44px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+}
+
+.input:focus {
+    border-color: #2563eb;
+}
+
+.checkmark {
+    color: #B0B7C3;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.contact-form button {
+    padding: 17px 0;
+    font-family: "Cairo", serif;
+
+    width: 100%;
+    background-color: #377DFF;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.contact-form a {
+    text-decoration: none;
+    color: #B0B7C3;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.contact-form a span {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #377DFF;
+}

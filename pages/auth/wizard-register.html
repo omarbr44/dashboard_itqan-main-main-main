@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول / التسجيل</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css">
+    <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.1/dist/flowbite.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../new-style.css" />
+    
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../../app.js"></script>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-2 flex flex-col justify-center items-center">
+        <!-- Logo -->
+        <img src="../../src/images/logo.png" class="w-[108px] mb-8 md:absolute md:top-8 md:right-14">
+
+        <!-- Content Container -->
+        <div class="bg-white p-4 rounded-lg shadow-md w-full lg:max-w-fit max-w-md">
+            <!-- Step Indicator Container -->
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center justify-center">
+                    <div class="step-indicator-container flex items-center flex-wrap gap-3 sm:gap-0 justify-center">
+                        <!-- Step 1 -->
+                        <div class="flex gap-2 items-center">
+                            <div class="step-indicator w-8 h-8 rounded-full bg-[#377dff] text-white flex items-center justify-center relative" data-step="1">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="step-indicator-check hidden w-5 h-5 absolute">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414l3.293 3.293 7.707-7.707a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                                <span>1</span>
+                            </div>
+                            <span class="text-sm sm:text-base">إنشاء حساب</span>
+                        </div>
+                        <div class="step-indicator-line hidden sm:block"></div>
+    
+                        <!-- Step 2 -->
+                        <div class="flex gap-2 items-center">
+                            <div class="step-indicator w-8 h-8 rounded-full bg-gray-300 text-gray-500 flex items-center justify-center relative" data-step="2">
+                                <span>2</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="step-indicator-check hidden w-5 h-5 absolute">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414l3.293 3.293 7.707-7.707a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <span class="text-sm sm:text-base">نتعرف عليك</span>
+                        </div>
+                        <div class="step-indicator-line hidden sm:block"></div>
+    
+                        <!-- Step 3 -->
+                        <div class="flex gap-2 items-center">
+                            <div class="step-indicator w-8 h-8 rounded-full bg-gray-300 text-gray-500 flex items-center justify-center relative" data-step="3">
+                                <span>3</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="step-indicator-check hidden w-5 h-5 absolute">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414l3.293 3.293 7.707-7.707a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <span class="text-sm sm:text-base">جاهزية متجرك</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Step 1 Content -->
+            <div id="step-1" class="step">
+                <h2 class="text-xl sm:text-2xl font-semibold my-2 text-center sm:text-right">ساعدنا نتعرف عليك لنقدم تجربة مميزة</h2>
+                <p class="text-gray-600 mb-2 text-center sm:text-right">هل لديك خبرة في التجارة؟</p>
+                
+                <!-- New Input Fields -->
+                <div class="mb-2">
+                    <label for="fullName" class="block text-sm font-medium text-gray-700">الاسم الكامل</label>
+                    <input type="text" id="fullName" placeholder="أدخل اسمك الكامل" class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+                </div>
+                
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-700">البريد الإلكتروني</label>
+                    <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+                </div>
+
+                <div class="mb-4">
+                    <label for="experience" class="block text-sm font-medium text-gray-700">هل لديك خبرة في التجارة؟</label>
+                    <select id="experience" class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+                        <option value="" disabled selected>اختر خياراً</option>
+                        <option value="yes">نعم</option>
+                        <option value="no">لا</option>
+                    </select>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="fileUpload" class="block text-sm font-medium text-gray-700">تحميل ملف (اختياري)</label>
+                    <input type="file" id="fileUpload" class="mt-1 border border-gray-300 rounded-md w-full">
+                </div>
+
+                <hr>
+                <div class="mt-10 mb-5 flex justify-end">
+                    <button onclick="nextStep(1)" class="bg-[#377dff] hover:bg-indigo-600 text-white font-bold px-4 py-2 rounded-md">التالي</button>
+                </div>
+            </div>
+
+            <!-- Step 2 Content -->
+            <div id="step-2" class="step hidden">
+                <h2 class="text-xl sm:text-2xl font-semibold my-8 text-center sm:text-right">ساعدنا نتعرف عليك لنقدم تجربة مميزة</h2>
+                <p class="text-gray-600 mb-6 text-center sm:text-right">هل لديك خبرة في التجارة؟</p>
+                <hr>
+                <div class="mt-10 mb-5 flex gap-3 justify-end">
+                    <button onclick="prevStep(2)" class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold px-4 py-2 rounded-md mr-2">السابق</button>
+                    <button onclick="nextStep(2)" class="bg-[#377dff] hover:bg-indigo-600 text-white font-bold px-4 py-2 rounded-md">التالي</button>
+                </div>
+            </div>
+    
+            <!-- Step 3 Content -->
+            <div id="step-3" class="step hidden">
+                <h2 class="text-xl sm:text-2xl font-semibold my-8 text-center sm:text-right">ساعدنا نتعرف عليك لنقدم تجربة مميزة</h2>
+                <p class="text-gray-600 mb-6 text-center sm:text-right">هل لديك خبرة في التجارة؟</p>
+                <hr>
+                <div class="mt-10 mb-5 flex gap-3 justify-end">
+                    <button onclick="prevStep(3)" class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold px-4 py-2 rounded-md mr-2">السابق</button>
+                    <button class="bg-[#377dff] hover:bg-indigo-600 text-white font-bold px-4 py-2 rounded-md">إنهاء</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const steps = document.querySelectorAll('.step');
+        const indicators = document.querySelectorAll('.step-indicator');
+        let currentStep = 1;
+
+        function showStep(stepIndex) {
+            console.log(stepIndex);
+            steps.forEach((step, index) => {
+                if (index === stepIndex - 1) {
+                    step.classList.remove('hidden');
+                } else {
+                    step.classList.add('hidden');
+                }
+            });
+
+            indicators.forEach((indicator, index) => {
+                if (index < stepIndex - 1) {
+                    indicator.classList.remove('bg-gray-300', 'text-gray-500');
+                    indicator.classList.add('bg-[#377dff]', 'text-white');
+                } else if (index === stepIndex - 1) {
+                    indicator.classList.remove('bg-gray-300', 'text-gray-500');
+                    indicator.classList.add('bg-[#377dff]', 'text-white');
+                } else {
+                    indicator.classList.remove('bg-[#377dff]', 'text-white');
+                    indicator.classList.add('bg-gray-300', 'text-gray-500');
+                }
+            });
+        }
+
+        function nextStep(currentStep) {
+            if (currentStep < steps.length) {
+                showStep(currentStep + 1);
+            }
+        }
+
+        function prevStep(currentStep) {
+            if (currentStep > 1) {
+                showStep(currentStep - 1);
+            }
+        }
+
+        showStep(currentStep); // Show the first step initially
+    </script>
+</body>
+</html>
