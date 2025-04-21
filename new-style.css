@@ -176,17 +176,18 @@ a {
 }
 
 .otp-input {
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   text-align: center;
   font-size: 24px;
   border: 2px solid #ccc;
   border-radius: 5px;
   outline: none;
   transition: border-color 0.3s ease;
+  padding: 0 10px;
 }
 
-@media(max-width: 400px) {
+@media(max-width: 500px) {
   .otp-input {
     width: 35px;
     height: 35px;
