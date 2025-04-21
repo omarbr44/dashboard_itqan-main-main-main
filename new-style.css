@@ -176,8 +176,8 @@ a {
 }
 
 .otp-input {
-  width: 75px;
-  height: 75px;
+  width: 60px;
+  height: 60px;
   text-align: center;
   font-size: 24px;
   border: 2px solid #ccc;
@@ -188,8 +188,9 @@ a {
 
 @media(max-width: 400px) {
   .otp-input {
-    width: 55px;
-    height: 55px;
+    width: 35px;
+    height: 35px;
+    font-size: 15px;
   }
 }
 
