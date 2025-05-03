@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Bill</title>
+    <link rel="stylesheet" href="../../style.css" />
+
+    <link href="../../src/css/output.css" rel="stylesheet" />
+    <!-- <script type="module" src="../../src/js/index.js" defer></script> -->
+    <script src="../../src/js/layout/sidebar.js" ></script>
+    <script src="../../src/js/layout/header.js" ></script>
+    <script src="../../src/js/layout/layout.js" ></script>
+    <script src="../../src/js/shared/steper.js" ></script>
+    <script src="../../src/js/shared/table.js" ></script>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../../app.js"></script>
+  </head>
+  <body dir="rtl">
+    <main-header
+namee="محمد الشريف"
+role="مشرف رئيسى"
+/>
+<main-layout />
+<div class="p-4 sm:mr-48 dark:bg-gray-800 bg-white" id="main-body">
+  <div class="p-4 border-2 border-gray-200 rounded-lg dark:border-gray-700 mt-14 bg-white dark:bg-gray-800">
+    <page-steper
+      baseStep="../../src/images/icons/home.png"
+      firstStep="../../src/images/icons/users.png"
+      firstTitle="نظام إتقان المحاسبي"
+      secStep="../../src/images/icons/note.png"
+      secTitle="الفواتير"
+    >
+    </page-steper>
+    
+    <!-- Pos -->
+   
+<section class="m-8">
+    <div class="bg-white rounded-lg shadow">
+        <div class="border-b p-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-xl font-bold mb-0">فاتورة نقطة بيع</h3>
+                    <span></span>
+                </div>
+                <div class="flex items-end justify-between">
+                    <a title="رجوع" href="/Accounting/BuyInvoice/sellsearch?id=0" class="mx-2 p-2 rounded font-semibold btn btn-sm bg-blue-500 text-white">
+                        <span class="mdi mdi-arrow-right-circle-outline"></span> تراجع
+                    </a>
+                    <div>
+                        <div class="dropdown relative mt-1">
+                            <button type="button" class="btn bg-blue-500 text-white p-2 rounded font-semibold dropdown-toggle flex items-center" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                                <i class="fe fe-settings"></i> فاتورة جديدة
+                            </button>
+                            <ul class="dropdown-menu absolute hidden bg-white shadow-lg rounded mt-1 py-1 z-10">
+                                <li>
+                                    <a class="dropdown-item px-4 py-2 hover:bg-gray-100 flex items-center" href="/Accounting/POS/Index/?id=0" id="btnAddNew1" target="_blank">
+                                        <span class="mdi mdi-plus-circle text-xl mx-1"></span>
+                                        فاتورة بيع
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-4">
+            <div class="bg-white rounded-lg">
+                <a class="text-lg text-dark font-semibold flex items-center justify-end" data-bs-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">
+                    <span class="chevron-arrow float-end">
+                                        <i class="bi bi-chevron-down"> </i>
+                                    </span>
+                </a>
+                <div>
+<!--                     <form id="frmAdd" method="post" action="/dashboard/Currency/Save">
+                        <input type="hidden" name="Id" value="0">
+                        <input type="hidden" name="InvoiceType" value="فاتورة البيع">
+                        <div class="collapse" id="collapseOne">
+                            <div class="mt-3">
+                                <div class="grid grid-cols-12 gap-4">
+                                    <div class="col-span-12 lg:col-span-2">
+                                        <div class="relative">
+                                            <input id="NumInvoice" class="w-full p-1 text-blue-500 text-center border rounded focus:outline-none focus:ring-1 focus:ring-blue-500" type="text" required="" name=" " value="14">
+                                            <label class="absolute -top-2 left-2 bg-white px-1 text-xs text-blue-500">الرقم التسلسلي</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-12 lg:col-span-2 hidden">
+                                        <div class="relative">
+                                            <input id="serialNo" class="w-full p-1 text-blue-500 text-center border rounded focus:outline-none focus:ring-1 focus:ring-blue-500" type="number" required="" name="NumInvoice" value="14">
+                                            <label class="absolute -top-2 left-2 bg-white px-1 text-xs text-blue-500">رقم الفاتورة</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-12 lg:col-span-2">
+                                        <div class="relative">
+                                            <input id="date" class="w-full p-1 text-blue-500 border rounded focus:outline-none focus:ring-1 focus:ring-blue-500" required="" type="date" name="createdIn" value="2025-05-01">
+                                            <label for="inputBasicD" class="absolute -top-2 left-2 bg-white px-1 text-xs text-blue-500">تاريخ الفاتورة</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-12 lg:col-span-2 hidden" id="v_hint">
+                                        <div class="mt-2 border text-center rounded-lg p-1 hover:underline cursor-pointer">
+                                            <a class="mt-3 text-center" onclick="gotoVoucherByLink()" href="#">قيد رقم #</a>
+                                            <label class="block text-xs text-blue-500">رقم المرجع</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-12 lg:col-span-2 hidden">
+                                        <div class="relative">
+                                            <input readonly="" class="w-full p-1 text-blue-500 border rounded focus:outline-none focus:ring-1 focus:ring-blue-500" type="number" required="" name="Reference" value="">
+                                            <label class="absolute -top-2 left-2 bg-white px-1 text-xs text-blue-500">رقم المرجع</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-12 lg:col-span-6">
+                                        <div class="relative">
+                                            <select id="Storeid" name="Storeid" class="w-full p-1 border rounded focus:outline-none focus:ring-1 focus:ring-blue-500" required="" data-bind="" data-val="" data-url="/dashboard/Store/ListStor">
+                                                <option value="">اختر</option>
+                                                <option value="6">مخزن المدينه المنوره</option>
+                                            </select>
+                                            <label for="inputBasicD" class="absolute -top-2 left-2 bg-white px-1">المستودع</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-span-12 lg:col-span-6 mt-2">
+                                        <div class="relative">
+                                            <select id="CustomerId" name="CustomerId" class="w-full p-1 border rounded focus:outline-none focus:ring-1 focus:ring-blue-500" required="" data-bind="" data-val="" data-url="/dashboard/Customer/Listcust">
+                                                <option value="">اختر</option>
+                                                <option value="14">المركز الوطنى للنخيل والتمور</option>
+                                            </select>
+                                            <label for="inputBasicD" class="absolute -top-2 left-2 bg-white px-1">اسم العميل</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-12 lg:col-span-6 mt-2">
+                                        <div class="relative">
+                                            <input id=" " class="w-full p-1 text-blue-500 border rounded focus:outline-none focus:ring-1 focus:ring-blue-500" type="text" required="" name="note" value="">
+                                            <label class="absolute -top-2 left-2 bg-white px-1 text-xs text-blue-500">ملاحظة</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="invoice_details" class="hidden">
+                            <div id="item_no_28" style="border-bottom:solid 1px #eee" class="flex items-center py-2">
+                                <input type="hidden" class="price_text" name="price" value="28.75">
+                                <input type="hidden" name="productId" value="28">
+                                <input type="hidden" name="noteDetails" value="">
+                                <input type="hidden" name="unit" value="">
+                                <input type="hidden" name="tax" value="">
+                                <input type="hidden" name="tax2" value="">
+                                <input type="hidden" name="accName" value="تمر المدينة">
+                                <input type="hidden" name="unit" value="">
+                                <div class="w-1/6"><img style="width:35px;height:35px;" src="../../assets/images/hero-example-image-4.jpg" alt="Item Image" class="item-image"></div>
+                                <div class="w-1/3"><h6 class="text-sm">تمر المدينة</h6></div>
+                                <div class="w-1/6"><input type="number" class="qty_text w-full text-center p-0 border rounded" name="qty" min="1" value="1"></div>
+                                <div class="w-1/4"><h5 class="text-lg">28.75</h5></div>
+                                <div class="w-1/12">
+                                    <button onclick="delfromCart(this);" data-id="28" class="btn btn-sm border rounded-full p-0 hover:bg-gray-100">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8M3xl2zmzQJMgqubIzuvV6PP_JgOoFdjnDgAX98269RklyxJ5yre8bbFFjpg0g_KqojXWVXuOTStmAc28PM1Cy-QCzQUtwoeXW4PdA-A3lANFxNvm6lZi1AUKs8-Mv64fCwVggps6mtuaqgl52Lg7X8x4os97HZCf8yPtLkvqMvJQNixO70uJKDic1ybJTyw8A">
+                    </form> -->
+                </div>
+
+                <div class="nav-wrapper mb-2">
+                    <nav class="container flex justify-start my-4">
+                        <div class="flex" id="swiper-wrapper-5cbbce10d2657f6100" aria-live="polite">
+                            <div class="mr-4 " role="group" aria-label="2 / 9">
+                                <a href="/Accounting/POS" class="btn border border-gray-300 bg-white hover:bg-gray-100 rounded p-2">
+                                    <span>الكل</span>
+                                </a>
+                            </div>
+                            <div class="mr-4" role="group" aria-label="2 / 9">
+                                <a href="/Accounting/POS?catId=7" class="btn border border-gray-300 bg-white hover:bg-gray-100 rounded p-2">
+                                    <span>منتجات التمور</span>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="grid grid-cols-12 gap-4">
+                    <!-- Menu Section -->
+                    <div class="col-span-12 md:col-span-8">
+                        <input id="Search" type="text" class="w-full mb-3 p-2 border rounded focus:outline-none focus:ring-1 focus:ring-blue-500" oninput="search()" placeholder="البحث...">
+                        <div id="card" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                            <div class="col-span-1">
+                                <div class="card border rounded-lg overflow-hidden">
+                                    <img src="../../images/hero-example-image-4.jpg" class="w-full h-32 object-cover" alt="تمر المدينة">
+                                    <div class="p-3 text-center">
+                                        <h6 class="font-bold">تمر المدينة</h6>
+                                        <p class="text-sm">28.75 ر.س</p>
+                                    </div>
+                                    <button data-id="28" data-name="تمر المدينة" data-unit="4" data-pic="../../images/hero-example-image-4.jpg" data-price="28.75" value="28" class="btn_add w-full bg-blue-500 text-white py-2 hover:bg-blue-600">اضف الصنف</button>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="card border rounded-lg overflow-hidden">
+                                    <img src="../../images/hero-example-image-4.jpg" class="w-full h-32 object-cover" alt="عجوه المدينه">
+                                    <div class="p-3 text-center">
+                                        <h6 class="font-bold">عجوه المدينه</h6>
+                                        <p class="text-sm">40.25 ر.س</p>
+                                    </div>
+                                    <button data-id="29" data-name="عجوه المدينه" data-unit="4" data-pic="../../images/hero-example-image-4.jpg" data-price="40.25" value="29" class="btn_add w-full bg-blue-500 text-white py-2 hover:bg-blue-600">اضف الصنف</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Checkout Section -->
+                    <div class="col-span-12 md:col-span-4">
+                        <div class="bg-white p-3 rounded-lg shadow sticky top-4">
+                            <!-- Header Section -->
+                            <div class="flex justify-between items-center mb-3">
+                                <div class="flex items-center">
+                                    <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">0</span>
+                                    <h6 class="m-0">الفاتورة</h6>
+                                </div>
+                                <button class=" hover:bg-gray-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                      </svg>
+                                </button>
+                            </div>
+
+                            <!-- Cart Items -->
+                            <div id="cart" class="mb-3">
+                                <div id="item_no_28" style="border-bottom:solid 1px #eee" class="flex items-center py-2">
+                                    <input type="hidden" class="price_text" name="price" value="28.75">
+                                    <input type="hidden" name="productId" value="28">
+                                    <input type="hidden" name="noteDetails" value="">
+                                    <input type="hidden" name="unit" value="">
+                                    <input type="hidden" name="tax" value="">
+                                    <input type="hidden" name="tax2" value="">
+                                    <input type="hidden" name="accName" value="تمر المدينة">
+                                    <input type="hidden" name="unit" value="">
+                                    <div class="w-1/6"><img style="width:35px;height:35px;" src="../../images/hero-example-image-4.jpg" alt="Item Image" class="item-image"></div>
+                                    <div class="w-1/3"><h6 class="text-sm">تمر المدينة</h6></div>
+                                    <div class="w-1/6"><input type="number" class="qty_text w-full text-center p-0 border rounded" name="qty" min="1" value="1"></div>
+                                    <div class="w-1/4"><h5 class="text-lg">28.75</h5></div>
+                                    <div class="w-1/12">
+                                        <button onclick="delfromCart(this);" data-id="28" class=" hover:bg-gray-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                              </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Total Section -->
+                            <div class="flex justify-between font-bold mb-1">
+                                <span>المجموع</span>
+                                <span id="PriceSubtotal">28.75</span>
+                            </div>
+                            <div class="flex justify-between font-bold mb-1">
+                                <span>الضريبة</span>
+                                <span id="PriceTax">3.75</span>
+                            </div>
+                            <div class="flex justify-between font-bold mb-3">
+                                <span>الاجمالي</span>
+                                <span id="PriceTotal">00.000</span>
+                            </div>
+                            <!-- Submit Button -->
+                            <button onclick="form_Save11('#frmAdd',this)" type="button" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">حفظ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+  </div>
+</div>
+<script defer src="../../sidebar.js"></script>
+<script defer>
+</script>
+</body>
+</html>
