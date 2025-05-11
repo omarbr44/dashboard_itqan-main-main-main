@@ -23,3 +23,15 @@
   .dark .sidebar-tooltip {
     background: #374151;
   }
+
+  .toggle-buttons button:first-child {
+    border-radius: 8px 0 0 8px;
+    border-left: 0;
+  }
+  .toggle-buttons button:last-child {
+    border-radius: 0 8px 8px 0;
+  }
+  .toggle-password {
+    left: unset;
+    right: 10px;
+  }
