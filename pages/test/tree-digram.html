@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tree Diagram</title>
+  <link rel="stylesheet" href="../../lib/treant-js-master/Treant.css">
+  <link rel="stylesheet" href="../../lib/treant-js-master/examples/basic-example/basic-example.css">
+  <script src="../../lib/treant-js-master/vendor/raphael.js"></script>
+  <script src="../../lib/treant-js-master/Treant.js"></script>
+</head>
+<body>
+  <div id="tree-simple" class="Treant"></div>
+
+  <script>
+    // Tree configuration
+    const simple_chart_config = {
+      chart: {
+        container: "#tree-simple",
+        nodeAlign: "CENTER",
+        connectors: {
+          type: "step"
+        },
+        node: {
+          HTMLclass: "nodeExample1"
+        }
+      },
+      nodeStructure: {
+        text: { name: "Parent Node" },
+        children: [
+          {
+            text: { name: "Child 1" },
+            children: [
+              { text: { name: "Grandchild 1" } },
+              { text: { name: "Grandchild 2" } }
+            ]
+          },
+          {
+            text: { name: "Child 2" },
+            children: [
+              { text: { name: "Grandchild 3" } },
+              { text: { name: "Grandchild 4" } }
+            ]
+          }
+        ]
+      }
+    };
+
+    // Initialize the tree
+    new Treant(simple_chart_config);
+  </script>
+</body>
+</html>
