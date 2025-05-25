@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل الدخول / التسجيل</title>
+    <title>Login / Register</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css">
     <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.1/dist/flowbite.min.css" rel="stylesheet" />
@@ -35,7 +35,7 @@
                                 </span>
                                 <span>1</span>
                             </div>
-                            <span class="text-sm sm:text-base">إنشاء حساب</span>
+                            <span class="text-sm sm:text-base">Create Account</span>
                         </div>
                         <div class="step-indicator-line hidden sm:block"></div>
     
@@ -47,7 +47,7 @@
                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414l3.293 3.293 7.707-7.707a1 1 0 011.414 0z" clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <span class="text-sm sm:text-base">نتعرف عليك</span>
+                            <span class="text-sm sm:text-base">Tell Us About You</span>
                         </div>
                         <div class="step-indicator-line hidden sm:block"></div>
     
@@ -59,7 +59,7 @@
                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414l3.293 3.293 7.707-7.707a1 1 0 011.414 0z" clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <span class="text-sm sm:text-base">جاهزية متجرك</span>
+                            <span class="text-sm sm:text-base">Store Readiness</span>
                         </div>
                     </div>
                 </div>
@@ -67,59 +67,59 @@
     
             <!-- Step 1 Content -->
             <div id="step-1" class="step">
-                <h2 class="text-xl sm:text-2xl font-semibold my-2 text-center sm:text-right">ساعدنا نتعرف عليك لنقدم تجربة مميزة</h2>
-                <p class="text-gray-600 mb-2 text-center sm:text-right">هل لديك خبرة في التجارة؟</p>
+                <h2 class="text-xl sm:text-2xl font-semibold my-2 text-center sm:text-left">Help us get to know you for a better experience</h2>
+                <p class="text-gray-600 mb-2 text-center sm:text-left">Do you have experience in commerce?</p>
                 
                 <!-- New Input Fields -->
                 <div class="mb-2">
-                    <label for="fullName" class="block text-sm font-medium text-gray-700">الاسم الكامل</label>
-                    <input type="text" id="fullName" placeholder="أدخل اسمك الكامل" class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+                    <label for="fullName" class="block text-sm font-medium text-gray-700">Full Name</label>
+                    <input type="text" id="fullName" placeholder="Enter your full name" class="mt-1 p-2 border border-gray-300 rounded-md w-full">
                 </div>
                 
                 <div class="mb-4">
-                    <label for="email" class="block text-sm font-medium text-gray-700">البريد الإلكتروني</label>
-                    <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" class="mt-1 p-2 border border-gray-300 rounded-md w-full">
                 </div>
 
                 <div class="mb-4">
-                    <label for="experience" class="block text-sm font-medium text-gray-700">هل لديك خبرة في التجارة؟</label>
+                    <label for="experience" class="block text-sm font-medium text-gray-700">Do you have experience in commerce?</label>
                     <select id="experience" class="mt-1 p-2 border border-gray-300 rounded-md w-full">
-                        <option value="" disabled selected>اختر خياراً</option>
-                        <option value="yes">نعم</option>
-                        <option value="no">لا</option>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
                     </select>
                 </div>
                 
                 <div class="mb-4">
-                    <label for="fileUpload" class="block text-sm font-medium text-gray-700">تحميل ملف (اختياري)</label>
+                    <label for="fileUpload" class="block text-sm font-medium text-gray-700">Upload File (optional)</label>
                     <input type="file" id="fileUpload" class="mt-1 border border-gray-300 rounded-md w-full">
                 </div>
 
                 <hr>
                 <div class="mt-10 mb-5 flex justify-end">
-                    <button onclick="nextStep(1)" class="bg-[#377dff] hover:bg-indigo-600 text-white font-bold px-4 py-2 rounded-md">التالي</button>
+                    <button onclick="nextStep(1)" class="bg-[#377dff] hover:bg-indigo-600 text-white font-bold px-4 py-2 rounded-md">Next</button>
                 </div>
             </div>
 
             <!-- Step 2 Content -->
             <div id="step-2" class="step hidden">
-                <h2 class="text-xl sm:text-2xl font-semibold my-8 text-center sm:text-right">ساعدنا نتعرف عليك لنقدم تجربة مميزة</h2>
-                <p class="text-gray-600 mb-6 text-center sm:text-right">هل لديك خبرة في التجارة؟</p>
+                <h2 class="text-xl sm:text-2xl font-semibold my-8 text-center sm:text-left">Help us get to know you for a better experience</h2>
+                <p class="text-gray-600 mb-6 text-center sm:text-left">Do you have experience in commerce?</p>
                 <hr>
                 <div class="mt-10 mb-5 flex gap-3 justify-end">
-                    <button onclick="prevStep(2)" class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold px-4 py-2 rounded-md mr-2">السابق</button>
-                    <button onclick="nextStep(2)" class="bg-[#377dff] hover:bg-indigo-600 text-white font-bold px-4 py-2 rounded-md">التالي</button>
+                    <button onclick="prevStep(2)" class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold px-4 py-2 rounded-md mr-2">Previous</button>
+                    <button onclick="nextStep(2)" class="bg-[#377dff] hover:bg-indigo-600 text-white font-bold px-4 py-2 rounded-md">Next</button>
                 </div>
             </div>
     
             <!-- Step 3 Content -->
             <div id="step-3" class="step hidden">
-                <h2 class="text-xl sm:text-2xl font-semibold my-8 text-center sm:text-right">ساعدنا نتعرف عليك لنقدم تجربة مميزة</h2>
-                <p class="text-gray-600 mb-6 text-center sm:text-right">هل لديك خبرة في التجارة؟</p>
+                <h2 class="text-xl sm:text-2xl font-semibold my-8 text-center sm:text-left">Help us get to know you for a better experience</h2>
+                <p class="text-gray-600 mb-6 text-center sm:text-left">Do you have experience in commerce?</p>
                 <hr>
                 <div class="mt-10 mb-5 flex gap-3 justify-end">
-                    <button onclick="prevStep(3)" class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold px-4 py-2 rounded-md mr-2">السابق</button>
-                    <button class="bg-[#377dff] hover:bg-indigo-600 text-white font-bold px-4 py-2 rounded-md">إنهاء</button>
+                    <button onclick="prevStep(3)" class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold px-4 py-2 rounded-md mr-2">Previous</button>
+                    <button class="bg-[#377dff] hover:bg-indigo-600 text-white font-bold px-4 py-2 rounded-md">Finish</button>
                 </div>
             </div>
         </div>
@@ -130,7 +130,6 @@
         let currentStep = 1;
 
         function showStep(stepIndex) {
-            console.log(stepIndex);
             steps.forEach((step, index) => {
                 if (index === stepIndex - 1) {
                     step.classList.remove('hidden');
