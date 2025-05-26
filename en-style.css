@@ -35,3 +35,13 @@
     left: unset;
     right: 10px;
   }
+  .previous::before
+ {
+    margin-right: 8px;
+    transform: rotate(180deg);
+}
+  .next::after
+ {
+    margin-left: 8px;
+    transform: rotate(180deg);
+}
