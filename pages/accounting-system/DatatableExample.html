@@ -67,7 +67,40 @@
                             <tr class="table-title">
                                 <td scope="col" class="text-right">1</td>
                                 <td scope="col" class="text-right">عمر محمد سالم عمر محمد</td>
-                                <td scope="col" class="text-right">عبدالله</td>
+                                <td scope="col" class="text-right">
+                                            <!-- Three dots dropdown -->
+<!-- Three dots dropdown with submenu on click -->
+<div class="relative inline-block text-left">
+  <button id="dotsDropdownBtn" type="button" class="inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-2 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none dark:bg-gray-700 dark:text-white dark:border-gray-600">
+    <!-- Three dots SVG -->
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+      <circle cx="10" cy="4" r="1.5"/>
+      <circle cx="10" cy="10" r="1.5"/>
+      <circle cx="10" cy="16" r="1.5"/>
+    </svg>
+  </button>
+  <!-- Main dropdown -->
+  <div id="mainDropdown" class="hidden absolute left-0 mt-2 w-32 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 dark:bg-gray-800">
+    <ul>
+      <li class="relative">
+  <select class="dropdown-select w-full text-right px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:bg-gray-700 dark:hover:bg-gray-700 rounded-md">
+    <option>عنصر 1 - فرعي 1</option>
+    <option>عنصر 1 - فرعي 2</option>
+    <option>عنصر 1 - فرعي 3</option>
+  </select>
+      </li>
+      <li>
+  <select class="dropdown-select w-full text-right px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:bg-gray-700 dark:hover:bg-gray-700 rounded-md">
+    <option>عنصر 1 - فرعي 1</option>
+    <option>عنصر 1 - فرعي 2</option>
+    <option>عنصر 1 - فرعي 3</option>
+  </select>
+      </li>
+    </ul>
+  </div>
+</div>
+
+                                </td>
                                 <td scope="col" class="text-right">علي</td>
                                 <td scope="col" class="text-right">عمر محمد</td>
                                 <td scope="col" class="text-right">عبدالله</td>
@@ -253,9 +286,46 @@
 
               // Hide dropdown when clicking outside
               $(document).click(function () {
-                  $('.absolute').addClass('hidden');
+                     if ($(e.target).closest('.dropdown-select').length === 0) {
+                        $('.absolute').addClass('hidden');
+    }
               });
+              
           });
+
+// Show/hide main dropdown
+  const dotsBtn = document.getElementById('dotsDropdownBtn');
+  const mainDropdown = document.getElementById('mainDropdown');
+/*   const submenuBtn = document.getElementById('submenuBtn');
+ */  const submenu = document.getElementById('submenu');
+
+  dotsBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    mainDropdown.classList.toggle('hidden');
+    submenu.classList.add('hidden'); // Always hide submenu when opening main
+  });
+
+/*   submenuBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    submenu.classList.toggle('hidden');
+  }); */
+
+  // Hide dropdowns when clicking outside
+/*   document.addEventListener('click', function() {
+    mainDropdown.classList.add('hidden');
+    submenu.classList.add('hidden');
+  }); */
+
+document.querySelectorAll('.dropdown-select').forEach(function(sel) {
+  sel.addEventListener('mousedown', function(e) {
+    console.log('Dropdown mousedown');
+    e.stopPropagation();
+  });
+  sel.addEventListener('focus', function(e) {
+    console.log('Dropdown focus');
+    e.stopPropagation();
+  });
+});
       </script>
   </body>
 </html>
