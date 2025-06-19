@@ -249,6 +249,26 @@
     </table>
   </div>
 </div>
+     <div class="checkbox-select">
+            <input type="text" class="select-display" placeholder="Select options..." tabindex="0">
+            <div class="options-container" tabindex="0">
+                <label class="option-item">
+                    <input type="checkbox" value="option1"> Option 1
+                </label>
+                <label class="option-item">
+                    <input type="checkbox" value="option2"> Option 2
+                </label>
+                <label class="option-item">
+                    <input type="checkbox" value="option3"> Option 3
+                </label>
+                <label class="option-item">
+                    <input type="checkbox" value="option4"> Option 4
+                </label>
+                <label class="option-item">
+                    <input type="checkbox" value="option5"> Option 5
+                </label>
+            </div>
+        </div>
     </div>
     <script>
     // Initialize tooltips
@@ -272,7 +292,80 @@
         });
       }
     });
+
+    const selectDisplay = document.querySelector('.select-display');
+            const optionsContainer = document.querySelector('.options-container');
+            const checkboxes = document.querySelectorAll('.options-container input[type="checkbox"]');
+            
+            // Toggle dropdown visibility
+            selectDisplay.addEventListener('click', function() {
+                optionsContainer.style.display = optionsContainer.style.display === 'block' ? 'none' : 'block';
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.checkbox-select')) {
+                    optionsContainer.style.display = 'none';
+                }
+            });
+            
+            // Update display text when checkboxes change
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateSelectedDisplay);
+            });
+            
+            // Keyboard navigation
+            selectDisplay.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowDown' || e.key === 'Enter') {
+                    e.preventDefault();
+                    optionsContainer.style.display = 'block';
+                    if (optionsContainer.querySelector('input:checked')) {
+                        optionsContainer.querySelector('input:checked').focus();
+                    } else {
+                        checkboxes[0].focus();
+                    }
+                }
+            });
+            
+            optionsContainer.addEventListener('keydown', function(e) {
+                const focusedCheckbox = document.activeElement;
+                
+                if (e.key === 'Escape') {
+                    e.preventDefault();
+                    optionsContainer.style.display = 'none';
+                    selectDisplay.focus();
+                } else if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    const next = focusedCheckbox.parentElement.nextElementSibling;
+                    if (next && next.querySelector('input')) {
+                        next.querySelector('input').focus();
+                    }
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    const prev = focusedCheckbox.parentElement.previousElementSibling;
+                    if (prev && prev.querySelector('input')) {
+                        prev.querySelector('input').focus();
+                    } else {
+                        selectDisplay.focus();
+                        optionsContainer.style.display = 'none';
+                    }
+                }
+            });
+            
+            function updateSelectedDisplay() {
+                const selectedOptions = Array.from(checkboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.parentElement.textContent.trim());
+                
+                if (selectedOptions.length === 0) {
+                    selectDisplay.value = '';
+                    selectDisplay.placeholder = 'Select options...';
+                } else {
+                    selectDisplay.value = selectedOptions.join(', ');
+                }
+            }
   });
+
     </script>
     <script defer src="../../sidebar.js"></script>
   </body>

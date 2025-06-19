@@ -41,3 +41,60 @@ body{
 .menu.show {
   display: block;
 }
+
+.checkbox-select {
+            position: relative;
+            width: 200px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .select-display {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: white;
+            cursor: pointer;
+            text-align: left;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .options-container {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: white;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .option-item {
+            padding: 8px 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        
+        .option-item:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .option-item input {
+            margin-right: 8px;
+            margin-left: 8px;
+        }
+        
+
+        .select-display:focus + .options-container,
+.options-container:focus,
+.options-container:focus-within {
+    display: block;
+}
