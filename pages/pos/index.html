@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Left Pane - Order Section -->
+        <div class="w-1/3 bg-white shadow-lg flex flex-col">
+            <!-- Order Tabs -->
+            <div class="bg-gray-800 text-white p-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex space-x-2">
+                        <div class="bg-blue-600 px-3 py-1 rounded">#1</div>
+                        <span>11:05 PM</span>
+                    </div>
+                    <button class="bg-blue-600 p-2 rounded">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Customer Info -->
+            <div class="p-4 border-b flex">
+                <button class="bg-blue-600 text-white px-4 py-2 rounded-r w-full text-right">
+                    المركز الوطنى
+                </button>
+                <button onclick="toggleOrderOptions()" class="bg-blue-600 text-white px-4 py-2 rounded-l border-r border-white">
+                    <svg viewBox="0 0 24 24" fill="white" height="24" width="24" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"></path></svg>
+                </button>
+            </div>
+            
+            <!-- Order Options Panel -->
+<div id="order-options" class="fixed bottom-0 left-0 right-0 bg-white shadow-lg rounded-t-lg border-t border-gray-200 transform translate-y-full transition-transform duration-300 ease-in-out z-40">
+  <div class="container mx-auto px-4 py-3">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
+      <!-- Cancel Order Button -->
+      <button class="flex flex-col items-center justify-center p-3 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors duration-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z"/>
+        </svg>
+        <span class="mt-1 text-sm">الغاء الطلب</span>
+      </button>
+
+      <!-- Wait Button -->
+      <button class="flex flex-col items-center justify-center p-3 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg transition-colors duration-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M9,9H15V15H9"/>
+        </svg>
+        <span class="mt-1 text-sm">انتظار</span>
+      </button>
+
+      <!-- Remove All Products Button -->
+      <button class="flex flex-col items-center justify-center p-3 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg transition-colors duration-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M14.46,15.88L15.88,14.46L18,16.59L20.12,14.46L21.54,15.88L19.41,18L21.54,20.12L20.12,21.54L18,19.41L15.88,21.54L14.46,20.12L16.59,18L14.46,15.88M12,17V15H7V17H12M17,11H7V13H14.69C13.07,14.07 12,15.91 12,18C12,19.09 12.29,20.12 12.8,21H5C3.89,21 3,20.1 3,19V5C3,3.89 3.89,3 5,3H19A2,2 0 0,1 21,5V12.8C20.12,12.29 19.09,12 18,12L17,12.08V11M17,9V7H7V9H17Z"/>
+        </svg>
+        <span class="mt-1 text-sm">إزالة كل المنتجات</span>
+      </button>
+
+      <!-- Invoice Details Button -->
+      <button class="flex flex-col items-center justify-center p-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+        </svg>
+        <span class="mt-1 text-sm">بيانات الفاتورة</span>
+      </button>
+
+      <!-- Shipping Options Button -->
+      <button class="flex flex-col items-center justify-center p-3 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg transition-colors duration-200 opacity-50 cursor-not-allowed">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3,4A2,2 0 0,0 1,6V17H3A3,3 0 0,0 6,20A3,3 0 0,0 9,17H15A3,3 0 0,0 18,20A3,3 0 0,0 21,17H23V12L20,8H17V4M10,6L14,10L10,14V11H4V9H10M17,9.5H19.5L21.47,12H17M6,15.5A1.5,1.5 0 0,1 7.5,17A1.5,1.5 0 0,1 6,18.5A1.5,1.5 0 0,1 4.5,17A1.5,1.5 0 0,1 6,15.5M18,15.5A1.5,1.5 0 0,1 19.5,17A1.5,1.5 0 0,1 18,18.5A1.5,1.5 0 0,1 16.5,17A1.5,1.5 0 0,1 18,15.5Z"/>
+        </svg>
+        <span class="mt-1 text-sm">خيارات الشحن</span>
+      </button>
+
+      <!-- Back Button -->
+      <button class="flex flex-col items-center justify-center p-3 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg transition-colors duration-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20,9V15H12V19.84L4.16,12L12,4.16V9H20Z"/>
+        </svg>
+        <span class="mt-1 text-sm">رجوع</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+            <!-- Order Items -->
+            <div class="flex-1 overflow-y-auto">
+                <div class="p-4 border-b bg-blue-50">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <span class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center">5</span>
+                            <span class="mr-2">كجم</span>
+                        </div>
+                        <div class="text-right">
+                            <h4 class="font-bold">عجوة المدينة</h4>
+                            <p class="text-gray-600">السعر: <span class="font-bold">35</span></p>
+                        </div>
+                        <div class="text-left">
+                            <span class="font-bold">175</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Order Summary -->
+            <div class="border-t p-4 bg-gray-50">
+                <div class="flex justify-between mb-2">
+                    <span>المجموع:</span>
+                    <span class="font-bold">175.00 ر.س</span>
+                </div>
+                <div class="flex justify-between mb-2">
+                    <span>القيمة المضافة:</span>
+                    <span class="font-bold">26.25 ر.س</span>
+                </div>
+                <div class="flex justify-between mb-4">
+                    <span>معافاة:</span>
+                    <span class="font-bold">0.00 ر.س</span>
+                </div>
+                <div class="border-t pt-3">
+                    <div class="flex justify-between items-center">
+                        <span>5 بنود</span>
+                        <div class="flex items-center">
+                            <span class="font-bold text-lg">الإجمالي:</span>
+                            <span class="font-bold text-green-600 text-lg mr-2">201.25 ر.س</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="p-4 bg-white border-t">
+                <div class="grid grid-cols-2 gap-2 mb-2">
+                    <button class="bg-gray-200 p-2 rounded flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <button class="bg-gray-200 p-2 rounded flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+                <button class="bg-green-600 text-white py-3 rounded w-full font-bold">
+                    عملية الدفع
+                </button>
+            </div>
+        </div>
+        
+        <!-- Right Pane - Products Section -->
+        <div class="flex-1 flex flex-col">
+            <!-- Header -->
+            <div class="bg-blue-600 text-white p-4 flex justify-between items-center">
+                <h2 class="text-xl font-bold">تمور المدينة المنورة</h2>
+                <div class="relative">
+                    <input type="text" placeholder="بحث عن منتج" class="bg-blue-500 text-white placeholder-blue-200 rounded px-4 py-2 w-64">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-3 top-3 text-blue-200" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+            </div>
+            <div class="rightpane-header flex items-center bg-gray-50 p-3 border-b border-gray-200">
+  <!-- Dropdown section -->
+<div class="relative mr-2">
+  <button id="dropdown-button" class="flex items-center justify-between ml-4 px-4 py-2 bg-white border border-gray-300 rounded text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 w-40 text-right" type="button">
+    <span>المنتجات</span>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+    </svg>
+  </button>
+  
+  <!-- Dropdown menu -->
+  <div id="dropdown-menu" class="hidden absolute z-10 mt-1 w-40 bg-white shadow-lg rounded-md py-1 border border-gray-200">
+    <a href="#" class="dropdown-option block px-4 py-2 text-right text-gray-700 hover:bg-gray-100" data-view="product">بحث عن منتج</a>
+    <a href="#" class="dropdown-option block px-4 py-2 text-right text-gray-700 hover:bg-gray-100" data-view="invoice">بحث عن فاتورة</a>
+    <a href="#" class="dropdown-option block px-4 py-2 text-right text-gray-700 hover:bg-gray-100" data-view="customer">بحث عن عميل</a>
+  </div>
+</div>
+
+  <!-- Search field section -->
+  <div class="relative flex-1">
+    <input type="text" dir="rtl" class="w-full px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="بحث...">
+  </div>
+
+  <!-- Info button section -->
+  <button class="mr-2 p-2 bg-white border border-gray-300 rounded-md text-gray-500 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9z" clip-rule="evenodd"></path>
+    </svg>
+  </button>
+</div>
+            
+            
+            <!-- Content Area -->
+  <div class="content-area flex-1 overflow-auto">
+    <!-- Default Product Grid (shown by default) -->
+            <div id="product-view" class=" view flex-1 grid grid-cols-4 gap-4 p-4 overflow-y-auto">
+                <!-- Product cards would go here -->
+                <div class="bg-white rounded-lg shadow p-4 text-center">
+                    <div class="h-24 bg-gray-200 rounded mb-2"></div>
+                    <h3 class="font-bold">منتج 1</h3>
+                    <p class="text-gray-600">50 ر.س</p>
+                </div>
+                <div class="bg-white rounded-lg shadow p-4 text-center">
+                    <div class="h-24 bg-gray-200 rounded mb-2"></div>
+                    <h3 class="font-bold">منتج 2</h3>
+                    <p class="text-gray-600">75 ر.س</p>
+                </div>
+                <!-- More product cards... -->
+            </div>
+
+    <!-- Empty Invoice State (hidden by default) -->
+    <div id="invoice-view" class="view hidden flex flex-col items-center justify-center h-full bg-white p-6 text-center">
+      <div class="mb-5">
+        <img src="/pos/assets/images/no-invoices-added.png" alt="No invoices" class="max-w-[200px] mx-auto">
+      </div>
+      <h3 class="text-xl font-semibold text-gray-800 mb-2">
+        لم تتم إضافة أي فواتير حتى الآن في الجلسة الحالية
+      </h3>
+      <p class="text-gray-600 max-w-md">
+        يمكنك البحث عن الفواتير من الدورات السابقة.
+      </p>
+    </div>
+
+    <!-- Empty Customer State (example for other options) -->
+<!-- Client View Container -->
+<div id="customer-view" class="view hidden h-full w-full overflow-auto p-4 bg-gray-50">
+  <!-- Client List Grid -->
+  <!-- Add Client Button -->
+  <button id="openClientModal" class="bg-white p-6 mb-6 rounded-lg w-full shadow-sm border border-gray-200 hover:bg-blue-50 transition-colors duration-200 flex flex-col items-center justify-center">
+    <div class="text-blue-600 mb-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 14H14V20H10V14H4V10H10V4H14V10H20V14Z"/>
+      </svg>
+    </div>
+    <h3 class="text-lg font-medium text-gray-800 text-center">أضف عميل</h3>
+  </button>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+    <!-- Client Card 1 -->
+    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-lg font-medium text-gray-800 mb-1">المركز الوطني</h3>
+        </div>
+        <div class="flex space-x-2 space-x-reverse">
+          <!-- View Button -->
+          <button id="openViewClientModal" class="text-gray-500 hover:text-blue-600 p-1 rounded-full hover:bg-blue-50">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
+            </svg>
+          </button>
+          
+          <!-- Edit Button -->
+          <button class="text-gray-500 hover:text-green-600 p-1 rounded-full hover:bg-green-50">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"/>
+            </svg>
+          </button>
+          
+          <!-- Addresses Button -->
+          <button class="text-gray-500 hover:text-purple-600 p-1 rounded-full hover:bg-purple-50 relative group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14,11.5A2.5,2.5 0 0,0 16.5,9A2.5,2.5 0 0,0 14,6.5A2.5,2.5 0 0,0 11.5,9A2.5,2.5 0 0,0 14,11.5M14,2C17.86,2 21,5.13 21,9C21,14.25 14,22 14,22C14,22 7,14.25 7,9A7,7 0 0,1 14,2M5,9C5,13.5 10.08,19.66 11,20.81L10,22C10,22 3,14.25 3,9C3,5.83 5.11,3.15 8,2.29C6.16,3.94 5,6.33 5,9Z"/>
+            </svg>
+            <!-- Addresses Dropdown -->
+            <div class="absolute z-10 right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block border border-gray-200">
+              <div class="px-4 py-2">
+                <h4 class="text-sm font-medium text-gray-800">المركز الوطني</h4>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Client Card 2 -->
+    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-lg font-medium text-gray-800 mb-1">عميل نقدي</h3>
+        </div>
+        <div class="flex space-x-2 space-x-reverse">
+          <!-- View Button -->
+          <button id="openViewClientModal" class="text-gray-500 hover:text-blue-600 p-1 rounded-full hover:bg-blue-50">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
+            </svg>
+          </button>
+          
+          <!-- Edit Button -->
+          <button class="text-gray-500 hover:text-green-600 p-1 rounded-full hover:bg-green-50">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"/>
+            </svg>
+          </button>
+          
+          <!-- Addresses Button -->
+          <button class="text-gray-500 hover:text-purple-600 p-1 rounded-full hover:bg-purple-50 relative group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14,11.5A2.5,2.5 0 0,0 16.5,9A2.5,2.5 0 0,0 14,6.5A2.5,2.5 0 0,0 11.5,9A2.5,2.5 0 0,0 14,11.5M14,2C17.86,2 21,5.13 21,9C21,14.25 14,22 14,22C14,22 7,14.25 7,9A7,7 0 0,1 14,2M5,9C5,13.5 10.08,19.66 11,20.81L10,22C10,22 3,14.25 3,9C3,5.83 5.11,3.15 8,2.29C6.16,3.94 5,6.33 5,9Z"/>
+            </svg>
+            <!-- Addresses Dropdown -->
+            <div class="absolute z-10 right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block border border-gray-200">
+              <div class="px-4 py-2">
+                <h4 class="text-sm font-medium text-gray-800">عميل نقدي</h4>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Client Card 3 -->
+    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-lg font-medium text-gray-800 mb-1">فندق ملكته</h3>
+        </div>
+        <div class="flex space-x-2 space-x-reverse">
+          <!-- View Button -->
+          <button id="openViewClientModal" class="text-gray-500 hover:text-blue-600 p-1 rounded-full hover:bg-blue-50">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
+            </svg>
+          </button>
+          
+          <!-- Edit Button -->
+          <button class="text-gray-500 hover:text-green-600 p-1 rounded-full hover:bg-green-50">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"/>
+            </svg>
+          </button>
+          
+          <!-- Addresses Button -->
+          <button class="text-gray-500 hover:text-purple-600 p-1 rounded-full hover:bg-purple-50 relative group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14,11.5A2.5,2.5 0 0,0 16.5,9A2.5,2.5 0 0,0 14,6.5A2.5,2.5 0 0,0 11.5,9A2.5,2.5 0 0,0 14,11.5M14,2C17.86,2 21,5.13 21,9C21,14.25 14,22 14,22C14,22 7,14.25 7,9A7,7 0 0,1 14,2M5,9C5,13.5 10.08,19.66 11,20.81L10,22C10,22 3,14.25 3,9C3,5.83 5.11,3.15 8,2.29C6.16,3.94 5,6.33 5,9Z"/>
+            </svg>
+            <!-- Addresses Dropdown -->
+            <div class="absolute z-10 right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block border border-gray-200">
+              <div class="px-4 py-2">
+                <h4 class="text-sm font-medium text-gray-800">فندق ملكته</h4>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Backdrop -->
+<div id="clientModal" class="hidden fixed inset-0 z-50 overflow-y-auto" aria-hidden="true">
+  <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity"></div>
+  
+  <!-- Modal Container -->
+  <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+    <!-- Modal Content -->
+    <div class="inline-block align-bottom bg-white rounded-lg text-right overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
+      <!-- Modal Header -->
+      <div class="bg-gray-50 px-4 py-3 border-b border-gray-200 flex justify-between items-center">
+        <h3 class="text-lg font-medium text-gray-900"> بيانات العميل</h3>
+        <button id="closeClientModal" type="button" class="text-gray-400 hover:text-gray-500 focus:outline-none">
+          <span class="sr-only">Close</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Modal Body -->
+      <div class="px-6 py-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Left Column -->
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">رقم الكود * (طريقة الفقرة)</label>
+              <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">العملة (SAR سعودي)</label>
+              <select class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                <option>SAR - ريال سعودي</option>
+              </select>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">البريد الإلكتروني</label>
+              <input type="email" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">الصنيف</label>
+              <select class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                <option>اختر صنف</option>
+              </select>
+            </div>
+          </div>
+          
+          <!-- Right Column -->
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">نوع العميل</label>
+              <select class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                <option>خارج</option>
+              </select>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">الاسم التجاري (بالاسم الأخير)</label>
+              <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">عنوان الشارع 1</label>
+              <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">عنوان الشارع 2</label>
+              <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Full Width Fields -->
+        <div class="mt-4 space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">الملاحظات</label>
+            <textarea rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">المنطقة</label>
+              <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">المدينة</label>
+              <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">الرمز البريدي</label>
+              <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Modal Footer -->
+      <div class="bg-gray-50 px-4 py-3 border-t border-gray-200 flex justify-end space-x-3 space-x-reverse">
+        <button type="button" class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+          إلغاء
+        </button>
+        <button type="button" class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+          حفظ
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- View Client Modal -->
+<div id="viewClientModal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-hidden="true">
+  <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity"></div>
+  
+  <!-- Modal Container -->
+  <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+    <!-- Modal Content -->
+    <div class="inline-block align-bottom bg-white rounded-lg text-right overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full">
+      <!-- Modal Header -->
+      <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+        <h3 class="text-lg font-medium text-gray-900">عمل نقدي</h3>
+        <button id="closeViewClientModal" type="button" class="text-gray-400 hover:text-gray-500 focus:outline-none" onclick="document.getElementById('viewClientModal').classList.add('hidden')">
+          <span class="sr-only">Close</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Modal Body -->
+      <div class="px-6 py-4">
+        <!-- Country Code -->
+        <div class="mb-6">
+          <h4 class="text-md font-medium text-gray-700 mb-2">رمز الدولة</h4>
+          <div class="bg-gray-100 px-4 py-2 rounded-md inline-block">
+            <span class="font-medium">SA</span>
+          </div>
+        </div>
+        
+        <!-- Quick Info Section -->
+        <div class="mb-6">
+          <h4 class="text-md font-medium text-gray-700 mb-3">معلومات سريعة</h4>
+          <div class="bg-gray-50 p-4 rounded-md">
+            <table class="w-full">
+              <tbody>
+                <tr class="border-b border-gray-200">
+                  <td class="py-2 font-medium text-gray-700">عدد العوامل:</td>
+                  <td class="py-2 text-gray-600">لا يؤشر منشأة بعد</td>
+                </tr>
+                <tr>
+                  <td class="py-2 font-medium text-gray-700">عدد العوامل المستحقة:</td>
+                  <td class="py-2 text-gray-600">لا توجد مؤشر مستحقة للدفع</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <!-- Divider -->
+        <div class="border-t border-gray-200 my-4"></div>
+        
+        <!-- No Payments Section -->
+        <div class="mb-6 text-center py-4 bg-gray-50 rounded-md">
+          <h4 class="text-md font-medium text-gray-700 mb-2">لا يؤشر منشأة بعد</h4>
+          <p class="text-gray-600">لم تتم إضافة أي مدفوعات</p>
+        </div>
+        
+        <!-- Divider -->
+        <div class="border-t border-gray-200 my-4"></div>
+        
+        <!-- Last Lists Section -->
+        <div class="mb-4">
+          <h4 class="text-md font-medium text-gray-700 mb-2">أخر القوائم المنسأة:</h4>
+          <p class="text-gray-600">أخر عملية دفع</p>
+        </div>
+        
+        <!-- Payment Process Section -->
+        <div>
+          <h4 class="text-md font-medium text-gray-700 mb-2">عملية الدفع</h4>
+          <div class="bg-gray-50 p-4 rounded-md">
+            <!-- Empty state for payment process -->
+            <p class="text-gray-500 text-center">لا توجد بيانات متاحة</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Modal Footer -->
+      <div class="bg-gray-50 px-4 py-3 border-t border-gray-200 flex justify-end space-x-3 space-x-reverse">
+        <button type="button" class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" onclick="document.getElementById('viewClientModal').classList.add('hidden')">
+          إغلاق
+        </button>
+        <button type="button" class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+          طباعة
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+  </div>
+        </div>
+    </div>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdownButton = document.getElementById('dropdown-button');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+    const dropdownOptions = document.querySelectorAll('.dropdown-option');
+    const views = document.querySelectorAll('.view');
+    
+    // Toggle dropdown menu
+    dropdownButton.addEventListener('click', function(e) {
+      e.stopPropagation();
+      dropdownMenu.classList.toggle('hidden');
+    });
+    
+    // Handle option selection
+    dropdownOptions.forEach(option => {
+      option.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Update button text
+        dropdownButton.querySelector('span').textContent = this.textContent;
+        
+        // Hide dropdown
+        dropdownMenu.classList.add('hidden');
+        
+        // Show selected view
+        const viewToShow = this.getAttribute('data-view');
+        views.forEach(view => {
+          view.classList.add('hidden');
+          if (view.id === `${viewToShow}-view`) {
+            view.classList.remove('hidden');
+          }
+        });
+      });
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function() {
+      dropdownMenu.classList.add('hidden');   
+    });
+    // Show client modal
+document.getElementById('openClientModal').addEventListener('click', function() {
+  document.getElementById('clientModal').classList.remove('hidden');
+});
+
+// Hide client modal
+document.querySelector('#closeClientModal').addEventListener('click', function() {
+  document.getElementById('clientModal').classList.add('hidden');
+});
+
+    // Show client view modal
+document.getElementById('openViewClientModal').addEventListener('click', function() {
+  document.getElementById('viewClientModal').classList.remove('hidden');
+});
+
+// Hide client view modal
+document.querySelector('#closeViewClientModal').addEventListener('click', function() {
+  document.getElementById('viewClientModal').classList.add('hidden');
+});
+  });
+
+    function toggleOrderOptions() {
+    const panel = document.getElementById('order-options');
+    panel.classList.toggle('translate-y-full');
+    panel.classList.toggle('-translate-y-0');
+  }
+    </script>
+</body>
+</html>
