@@ -10,6 +10,15 @@
         body {
             font-family: 'Tajawal', sans-serif;
         }
+          .num-btn {
+    @apply p-6 text-2xl font-bold bg-gray-100 hover:bg-gray-200 rounded-xl 
+           flex items-center justify-center transition-all duration-200;
+    min-height: 5rem;  /* Larger touch target */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  .num-btn:active {
+    @apply transform scale-95;
+  }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -141,23 +150,83 @@
             </div>
             
             <!-- Action Buttons -->
-            <div class="p-4 bg-white border-t">
-                <div class="grid grid-cols-2 gap-2 mb-2">
-                    <button class="bg-gray-200 p-2 rounded flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <button class="bg-gray-200 p-2 rounded flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                </div>
-                <button class="bg-green-600 text-white py-3 rounded w-full font-bold">
-                    عملية الدفع
-                </button>
-            </div>
+<div class="bg-white border-t border-gray-200 p-4 shadow-md">
+  <!-- Quantity Units Toggle -->
+  <div class="flex mb-4 space-x-2 space-x-reverse">
+    <button class="px-4 py-2 bg-blue-100 text-blue-800 rounded-lg font-medium">كجم</button>
+    <button class="px-4 py-2 bg-gray-100 text-gray-800 rounded-lg font-medium hover:bg-gray-200">طن</button>
+  </div>
+
+  <!-- Action Buttons Row -->
+  <div class="grid grid-cols-3 gap-2 mb-4">
+    <!-- Quantity Button -->
+    <button data-action="quantity" class="flex items-center justify-center p-3 bg-gray-100 hover:bg-gray-200 rounded-lg">
+      <span>الكمية</span>
+    </button>
+    
+    <!-- Discount Dropdown -->
+    <div class="relative group">
+      <button data-action="discount" class="w-full flex items-center justify-center p-3 bg-gray-100 hover:bg-gray-200 rounded-lg">
+        <span>خصم $</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+        </svg>
+      </button>
+      <div class="hidden group-hover:block absolute bottom-full left-0 w-full bg-white shadow-lg rounded-lg z-10 mb-1">
+        <a href="#" class="flex justify-between items-center px-4 py-2 hover:bg-gray-100">
+          <span>الخصم %</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.65,2.85L19.26,6.71L22.77,8.5L21,12L22.78,15.5L19.24,17.29L18.63,21.15L14.74,20.54L11.97,23.3L9.19,20.5L5.33,21.14L4.71,17.25L1.22,15.47L3,11.97L1.23,8.5L4.74,6.69L5.35,2.86L9.22,3.5L12,0.69L14.77,3.46L18.65,2.85M9.5,7A1.5,1.5 0 0,0 8,8.5A1.5,1.5 0 0,0 9.5,10A1.5,1.5 0 0,0 11,8.5A1.5,1.5 0 0,0 9.5,7M14.5,14A1.5,1.5 0 0,0 13,15.5A1.5,1.5 0 0,0 14.5,17A1.5,1.5 0 0,0 16,15.5A1.5,1.5 0 0,0 14.5,14M8.41,17L17,8.41L15.59,7L7,15.59L8.41,17Z"/>
+          </svg>
+        </a>
+        <a href="#" class="flex justify-between items-center px-4 py-2 hover:bg-gray-100">
+          <span>الخصم $</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4,17V9H2V7H6V17H4M22,15C22,16.11 21.1,17 20,17H16V15H20V13H18V11H20V9H16V7H20A2,2 0 0,1 22,9V10.5A1.5,1.5 0 0,1 20.5,12A1.5,1.5 0 0,1 22,13.5V15M14,15V17H8V13C8,11.89 8.9,11 10,11H12V9H8V7H12A2,2 0 0,1 14,9V11C14,12.11 13.1,13 12,13H10V15H14Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Price Button -->
+    <button data-action="price" class="flex items-center justify-center p-3 bg-gray-100 hover:bg-gray-200 rounded-lg">
+      <span>السعر</span>
+    </button>
+  </div>
+
+  <!-- Bottom Action Buttons -->
+  <div class="flex space-x-2 space-x-reverse">
+    <!-- Delete Button -->
+    <button class="flex items-center justify-center p-3 bg-red-100 text-red-600 hover:bg-red-200 rounded-lg">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z"/>
+      </svg>
+    </button>
+    
+    <!-- Add Product Button -->
+    <button class="flex-1 flex items-center justify-center p-3 bg-blue-600 text-white hover:bg-blue-700 rounded-lg">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 14H14V20H10V14H4V10H10V4H14V10H20V14Z"/>
+      </svg>
+      <span>اضافة منتج</span>
+    </button>
+    
+    <!-- Payment Dropdown -->
+    <div class="relative group flex-1">
+      <button class="w-full flex items-center justify-center p-3 bg-green-600 text-white hover:bg-green-700 rounded-lg">
+        <span>عملية الدفع</span>
+      </button>
+      <div class="hidden group-hover:block absolute bottom-full left-0 w-full bg-white shadow-lg rounded-lg z-10 mb-1 overflow-hidden">
+        <button class="w-full flex items-center justify-between px-4 py-3 bg-yellow-100 text-yellow-800 hover:bg-yellow-200">
+          <span>دفع اجل</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C17.5 2 22 6.5 22 12C22 17.5 17.5 22 12 22C6.5 22 2 17.5 2 12C2 6.5 6.5 2 12 2M12 4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20C16.42 20 20 16.42 20 12C20 7.58 16.42 4 12 4M12 5C15.87 5 19 8.13 19 12C19 13.93 18.22 15.68 16.95 16.95L12 12V5Z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
         
         <!-- Right Pane - Products Section -->
@@ -205,7 +274,7 @@
             
             
             <!-- Content Area -->
-  <div class="content-area flex-1 overflow-auto">
+  <div class="content-area flex-1 overflow-auto relative">
     <!-- Default Product Grid (shown by default) -->
             <div id="product-view" class=" view flex-1 grid grid-cols-4 gap-4 p-4 overflow-y-auto">
                 <!-- Product cards would go here -->
@@ -566,6 +635,38 @@
 </div>
 
 </div>
+
+<!-- Numeric Keypad -->
+     <div id="keypad-view" class="view hidden flex flex-col items-center justify-center h-full bg-white p-6 text-center absolute top-0 w-full">
+
+<div class="grid grid-cols-4 gap-3 w-full h-full">
+      <!-- Row 1 -->
+      <button class="num-btn text-4xl font-extrabold" data-action="7">7</button>
+      <button class="num-btn text-4xl font-extrabold" data-action="8">8</button>
+      <button class="num-btn text-4xl font-extrabold" data-action="9">9</button>
+      <button class="num-btn hover:bg-red-100 text-4xl font-extrabold flex justify-center items-center"  data-action="confirm">
+<svg viewBox="0 0 24 24" fit="" height="24" width="24" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M22,3H7C6.31,3 5.77,3.35 5.41,3.88L0,12L5.41,20.11C5.77,20.64 6.31,21 7,21H22A2,2 0 0,0 24,19V5A2,2 0 0,0 22,3M19,15.59L17.59,17L14,13.41L10.41,17L9,15.59L12.59,12L9,8.41L10.41,7L14,10.59L17.59,7L19,8.41L15.41,12"></path></svg>
+      </button>
+
+      <!-- Row 2 -->
+      <button class="num-btn text-4xl font-extrabold" data-action="4">4</button>
+      <button class="num-btn text-4xl font-extrabold" data-action="5">5</button>
+      <button class="num-btn text-4xl font-extrabold" data-action="6">6</button>
+      <button class="num-btn text-4xl font-extrabold bg-blue-100 text-blue-700 hover:bg-blue-200 row-span-2 h-full" data-action="enter">
+        <span class="text-xl font-bold">Enter</span>
+      </button>
+
+      <!-- Row 3 -->
+      <button class="num-btn text-4xl font-extrabold" data-action="1">1</button>
+      <button class="num-btn text-4xl font-extrabold" data-action="2">2</button>
+      <button class="num-btn text-4xl font-extrabold" data-action="3">3</button>
+
+      <!-- Row 4 -->
+      <button class="num-btn col-span-2 text-4xl font-extrabold" data-action="0">0</button>
+      <button class="num-btn text-4xl font-extrabold" data-action=".">.</button>
+    </div>
+     </div>
+
   </div>
         </div>
     </div>
@@ -627,6 +728,16 @@ document.getElementById('openViewClientModal').addEventListener('click', functio
 document.querySelector('#closeViewClientModal').addEventListener('click', function() {
   document.getElementById('viewClientModal').classList.add('hidden');
 });
+
+  function toggleKeypad() {
+    const keypad = document.querySelector('#keypad-view');
+    keypad.classList.toggle('hidden');
+  }
+  
+  // Add click handlers to your action buttons
+  document.querySelectorAll('[data-action="quantity"], [data-action="discount"], [data-action="price"]').forEach(btn => {
+    btn.addEventListener('click', toggleKeypad);
+  });
   });
 
     function toggleOrderOptions() {
