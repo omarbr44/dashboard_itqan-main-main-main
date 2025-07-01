@@ -213,7 +213,7 @@
     
     <!-- Payment Dropdown -->
     <div class="relative group flex-1">
-      <button class="w-full flex items-center justify-center p-3 bg-green-600 text-white hover:bg-green-700 rounded-lg">
+      <button onclick="toggleConfirmModal()" class="w-full flex items-center justify-center p-3 bg-green-600 text-white hover:bg-green-700 rounded-lg">
         <span>عملية الدفع</span>
       </button>
       <div class="hidden group-hover:block absolute bottom-full left-0 w-full bg-white shadow-lg rounded-lg z-10 mb-1 overflow-hidden">
@@ -669,6 +669,183 @@
 
   </div>
         </div>
+        <!-- Payment Modal -->
+<div id="confirm-modal" class="hidden fixed inset-0 z-50 overflow-hidden bg-gray-900 bg-opacity-50 flex items-center justify-center">
+  <!-- Modal Container -->
+  <div class="bg-white rounded-lg shadow-xl w-full h-[100vh] flex overflow-hidden">
+    <!-- Close Button -->
+    <button onclick="toggleConfirmModal()" id="close-confirm-modal" class="absolute top-4 left-4 text-gray-500 hover:text-gray-700 z-10">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z"/>
+      </svg>
+    </button>
+
+    <!-- Left Column - Payment Methods -->
+    <div class="w-7/12 p-6 border-r border-gray-200 flex flex-col">
+      <!-- Payment Methods Header -->
+      <h3 class="text-xl font-bold text-gray-800 mb-6">وسائل الدفع</h3>
+      
+      <!-- Payment Items -->
+      <div class="space-y-4 mb-6">
+        <!-- Cash Payment -->
+         <div class="flex items-stretch w-full">
+           <button class="w-2/5 border border-gray-200 rounded-lg p-4 text-right text-xl">
+<span>نقدي</span>
+</button>
+<input type="text" class="w-2/5 p-2 border border-gray-300 rounded" value="146,993.00">  
+          <button class="w-1/5 text-red-500 hover:text-red-700 rounded-lg p-4 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z"/>
+            </svg>
+          </button>
+         </div>
+         <div class="flex items-stretch w-full">
+           <button class="w-2/5 border border-gray-200 rounded-lg p-4 text-right text-xl">
+<span>الخصم</span>
+</button>
+           <div class="w-2/5 flex space-x-2">
+              <select class="w-1/2 border border-gray-300 rounded p-2">
+                <option>%</option>
+                <option>SAR</option>
+              </select>
+              <input type="text" class="w-1/2 border border-gray-300 rounded p-2 flex-grow" placeholder="القيمة">
+            </div>
+          <button class="w-1/5 text-red-500 hover:text-red-700 rounded-lg p-4 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z"/>
+            </svg>
+          </button>
+         </div>
+         <div class="flex items-stretch w-full">
+           <button class="w-2/5 border border-gray-200 rounded-lg p-4 text-right text-xl">
+<span>تسوية</span>
+</button>
+           <div class="w-2/5 flex space-x-2">
+              <input type="text" class="w-1/2 border border-gray-300 rounded p-2 flex-grow" placeholder="اسم التسوية">
+              <input type="text" class="w-1/2 border border-gray-300 rounded p-2 flex-grow" placeholder="0">
+            </div>
+          <button class="w-1/5 text-red-500 hover:text-red-700 rounded-lg p-4 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z"/>
+            </svg>
+          </button>
+         </div>
+      </div>
+
+      <!-- Keypad -->
+      <div class="mt-auto">
+        <div class="grid grid-cols-4 gap-2">
+                  <button class="border border-gray-200 rounded-lg p-4 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M5,6H23V18H5V6M14,9A3,3 0 0,1 17,12A3,3 0 0,1 14,15A3,3 0 0,1 11,12A3,3 0 0,1 14,9M9,8A2,2 0 0,1 7,10V14A2,2 0 0,1 9,16H19A2,2 0 0,1 21,14V10A2,2 0 0,1 19,8H9M1,10H3V20H19V22H1V10Z"/>
+          </svg>
+          <span>تحويل بنكي</span>
+        </button>
+          <button class="bg-gray-100 hover:bg-gray-200 p-4 rounded-lg text-xl font-bold">7</button>
+          <button class="bg-gray-100 hover:bg-gray-200 p-4 rounded-lg text-xl font-bold">8</button>
+          <button class="bg-gray-100 hover:bg-gray-200 p-4 rounded-lg text-xl font-bold">9</button>
+                  <button class="border border-gray-200 rounded-lg p-4 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M5,6H23V18H5V6M14,9A3,3 0 0,1 17,12A3,3 0 0,1 14,15A3,3 0 0,1 11,12A3,3 0 0,1 14,9M9,8A2,2 0 0,1 7,10V14A2,2 0 0,1 9,16H19A2,2 0 0,1 21,14V10A2,2 0 0,1 19,8H9M1,10H3V20H19V22H1V10Z"/>
+          </svg>
+          <span>نقدي</span>
+        </button>
+          <button class="bg-gray-100 hover:bg-gray-200 p-4 rounded-lg text-xl font-bold">4</button>
+          <button class="bg-gray-100 hover:bg-gray-200 p-4 rounded-lg text-xl font-bold">5</button>
+          <button class="bg-gray-100 hover:bg-gray-200 p-4 rounded-lg text-xl font-bold">6</button>
+                  <button class="border border-gray-200 rounded-lg p-4 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M6,6H9V8H6V6M6,10H9V12H6V10M6,14H9V16H6V14M11,6H18V8H11V6M11,10H18V12H11V10M11,14H18V16H11V14Z"/>
+          </svg>
+          <span>تسوية</span>
+        </button>
+          <button class="bg-gray-100 hover:bg-gray-200 p-4 rounded-lg text-xl font-bold">1</button>
+          <button class="bg-gray-100 hover:bg-gray-200 p-4 rounded-lg text-xl font-bold">2</button>
+          <button class="bg-gray-100 hover:bg-gray-200 p-4 rounded-lg text-xl font-bold">3</button>
+                  <button class="border border-gray-200 rounded-lg p-4 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.65,2.85L19.26,6.71L22.77,8.5L21,12L22.78,15.5L19.24,17.29L18.63,21.15L14.74,20.54L11.97,23.3L9.19,20.5L5.33,21.14L4.71,17.25L1.22,15.47L3,11.97L1.23,8.5L4.74,6.69L5.35,2.86L9.22,3.5L12,0.69L14.77,3.46L18.65,2.85M9.5,7A1.5,1.5 0 0,0 8,8.5A1.5,1.5 0 0,0 9.5,10A1.5,1.5 0 0,0 11,8.5A1.5,1.5 0 0,0 9.5,7M14.5,14A1.5,1.5 0 0,0 13,15.5A1.5,1.5 0 0,0 14.5,17A1.5,1.5 0 0,0 16,15.5A1.5,1.5 0 0,0 14.5,14M8.41,17L17,8.41L15.59,7L7,15.59L8.41,17Z"/>
+          </svg>
+          <span>الخصم</span>
+        </button>
+          <button class="bg-gray-100 hover:bg-gray-200 p-4 rounded-lg text-xl font-bold flex justify-center items-center"><svg viewBox="0 0 24 24" fit="" height="24" width="24" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M22,3H7C6.31,3 5.77,3.35 5.41,3.88L0,12L5.41,20.11C5.77,20.64 6.31,21 7,21H22A2,2 0 0,0 24,19V5A2,2 0 0,0 22,3M19,15.59L17.59,17L14,13.41L10.41,17L9,15.59L12.59,12L9,8.41L10.41,7L14,10.59L17.59,7L19,8.41L15.41,12"></path></svg>
+</button>
+          <button class="bg-gray-100 hover:bg-gray-200 p-4 rounded-lg text-xl font-bold">0</button>
+          <button class="bg-gray-100 hover:bg-gray-200 p-4 rounded-lg text-xl font-bold">.</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column - Order Summary -->
+    <div class="w-5/12 p-6 flex flex-col">
+      <!-- Customer Info -->
+      <div class="flex items-center mb-6">
+        <div class="bg-gray-100 p-3 rounded-full mr-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-600" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold mx-4">المركز الوطني</h3>
+      </div>
+      
+      <hr class="border-gray-200 my-4">
+
+      <!-- Order Summary -->
+      <div class="space-y-4">
+        <div class="flex justify-between">
+          <span>المجموع:</span>
+          <span class="font-medium">127,820.00 ر.س</span>
+        </div>
+        <div class="flex justify-between">
+          <span>تسوية:</span>
+          <span>0.00 ر.س</span>
+        </div>
+        
+        <hr class="border-gray-200 my-4">
+        
+        <div class="flex justify-between">
+          <span>القيمة المضافة:</span>
+          <span class="font-medium">19,173.00 ر.س</span>
+        </div>
+        <div class="flex justify-between">
+          <span>معافاة:</span>
+          <span>0.00 ر.س</span>
+        </div>
+        
+        <hr class="border-gray-200 my-4">
+        
+        <div class="flex justify-between text-lg">
+          <span class="font-bold">اجمالى المستحق:</span>
+          <span class="font-bold">146,993.00 ر.س</span>
+        </div>
+        <div class="flex justify-between">
+          <span>مدفوعة:</span>
+          <span class="font-bold">146,993.00 ر.س</span>
+        </div>
+        <div class="flex justify-between text-green-600">
+          <span>الباقي:</span>
+          <span class="font-bold">0.00 ر.س</span>
+        </div>
+      </div>
+
+      <!-- Responsibility Section -->
+<!--       <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+        <h4 class="font-bold mb-2">المسؤولية:</h4>
+        <div class="space-y-2">
+          <p>اسم السعودة</p>
+          <p>إجمالي المستوى:</p>
+          <p>مدة:</p>
+          <p>البلدي:</p>
+        </div>
+      </div> -->
+
+      <!-- Confirm Button -->
+      <button class="mt-auto py-4 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700">
+        تأكيد
+      </button>
+    </div>
+  </div>
+</div>
     </div>
     <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -744,6 +921,11 @@ document.querySelector('#closeViewClientModal').addEventListener('click', functi
     const panel = document.getElementById('order-options');
     panel.classList.toggle('translate-y-full');
     panel.classList.toggle('-translate-y-0');
+  }
+
+    function toggleConfirmModal() {
+    const modal = document.querySelector('#confirm-modal');
+    modal.classList.toggle('hidden');
   }
     </script>
 </body>
