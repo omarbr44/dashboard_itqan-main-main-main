@@ -867,11 +867,52 @@
             </div>
             
             <!-- Chat Messages Area -->
-            <div id="chatMessages" class="flex-1 p-3 sm:p-4 overflow-y-auto">
-                <div class="text-center text-gray-500 text-xs sm:text-sm py-3 sm:py-4">
-                    الدعم الفني، كيف يمكننا مساعدتك اليوم؟
-                </div>
-            </div>
+<!-- Chat message container -->
+<div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-3">
+  <!-- Bot message example -->
+  <div class="flex items-start gap-2 max-w-[85%]">
+    <!-- Avatar -->
+    <div class="w-8 h-8 rounded-full bg-gray-200 flex-shrink-0 overflow-hidden">
+      <img src="https://via.placeholder.com/32" alt="Support" class="w-full h-full object-cover">
+    </div>
+    
+    <!-- Message content -->
+    <div class="flex flex-col">
+      <!-- Header with name and time -->
+      <div class="flex items-baseline gap-2 mb-1">
+        <span class="font-semibold text-sm">الدعم الفني</span>
+        <span class="text-xs text-gray-500">11:30 ص</span>
+      </div>
+      
+      <!-- Message bubble -->
+      <div class="bg-gray-100 text-gray-800 px-3 py-2 rounded-lg rounded-tl-none">
+        كيف يمكنني مساعدتك اليوم؟
+      </div>
+    </div>
+  </div>
+
+  <!-- User message example -->
+  <div class="flex items-start gap-2 max-w-[85%] ml-auto">
+    <!-- Message content -->
+    <div class="flex flex-col items-end">
+      <!-- Header with name and time -->
+      <div class="flex items-baseline gap-2 mb-1">
+        <span class="text-xs text-gray-500">11:31 ص</span>
+        <span class="font-semibold text-sm">أنت</span>
+      </div>
+      
+      <!-- Message bubble -->
+      <div class="bg-blue-600 text-white px-3 py-2 rounded-lg rounded-tr-none">
+        لدي مشكلة في النظام
+      </div>
+    </div>
+    
+    <!-- Avatar -->
+    <div class="w-8 h-8 rounded-full bg-blue-100 flex-shrink-0 overflow-hidden">
+      <img src="https://via.placeholder.com/32" alt="User" class="w-full h-full object-cover">
+    </div>
+  </div>
+</div>
             
             <!-- Chat Input Area -->
             <div class="border-t border-gray-200 p-2 sm:p-3">
@@ -1007,13 +1048,41 @@ document.querySelector('#closeViewClientModal').addEventListener('click', functi
             }
         });
         
-        function addMessage(text, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `mb-3 p-3 rounded-lg max-w-xs ${sender === 'user' ? 'bg-blue-100 ml-auto' : 'bg-gray-100'}`;
-            messageDiv.textContent = text;
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
+function addMessage(text, sender, time = new Date()) {
+  const chatMessages = document.getElementById('chatMessages');
+  
+  const messageDiv = document.createElement('div');
+  messageDiv.className = `flex items-start gap-2 max-w-[85%] ${sender === 'user' ? 'ml-auto' : ''}`;
+  
+  const timeString = time.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
+  
+  messageDiv.innerHTML = `
+    ${sender !== 'user' ? `
+      <div class="w-8 h-8 rounded-full bg-gray-200 flex-shrink-0 overflow-hidden">
+        <img src="support-avatar.jpg" alt="Support" class="w-full h-full object-cover">
+      </div>
+    ` : ''}
+    
+    <div class="flex flex-col ${sender === 'user' ? 'items-end' : ''}">
+      <div class="flex items-baseline gap-2 mb-1 ${sender === 'user' ? 'flex-row-reverse' : ''}">
+        <span class="font-semibold text-sm">${sender === 'user' ? 'أنت' : 'الدعم الفني'}</span>
+        <span class="text-xs text-gray-500">${timeString}</span>
+      </div>
+      <div class="${sender === 'user' ? 'bg-blue-600 text-white rounded-lg rounded-tr-none' : 'bg-gray-100 text-gray-800 rounded-lg rounded-tl-none'} px-3 py-2">
+        ${text}
+      </div>
+    </div>
+    
+    ${sender === 'user' ? `
+      <div class="w-8 h-8 rounded-full bg-blue-100 flex-shrink-0 overflow-hidden">
+        <img src="user-avatar.jpg" alt="User" class="w-full h-full object-cover">
+      </div>
+    ` : ''}
+  `;
+  
+  chatMessages.appendChild(messageDiv);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
     </script>
 </body>
 </html>
