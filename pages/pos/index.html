@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POS System</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../../app.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
         body {
@@ -22,18 +23,18 @@
     </style>
 </head>
 <body class="bg-gray-100">
-    <div class="flex h-screen">
+<div class="flex flex-col lg:flex-row h-screen">
         <!-- Left Pane - Order Section -->
-        <div class="w-1/3 bg-white shadow-lg flex flex-col">
+        <div class="w-full lg:w-1/3 bg-white shadow-lg flex flex-col">
             <!-- Order Tabs -->
-            <div class="bg-gray-800 text-white p-4">
+            <div class="bg-gray-800 text-white p-2 sm:p-4">
                 <div class="flex justify-between items-center">
                     <div class="flex space-x-2">
-                        <div class="bg-blue-600 px-3 py-1 rounded">#1</div>
-                        <span>11:05 PM</span>
+                        <div class="bg-blue-600 px-2 sm:px-3 py-1 rounded">#1</div>
+                        <span class="text-sm sm:text-base">11:05 PM</span>
                     </div>
-                    <button class="bg-blue-600 p-2 rounded">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <button class="bg-blue-600 p-1 sm:p-2 rounded">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
                         </svg>
                     </button>
@@ -41,398 +42,395 @@
             </div>
             
             <!-- Customer Info -->
-            <div class="p-4 border-b flex">
-                <button class="bg-blue-600 text-white px-4 py-2 rounded-r w-full text-right">
+            <div class="p-2 sm:p-4 border-b flex">
+                <button class="bg-blue-600 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-r w-full text-right text-sm sm:text-base">
                     المركز الوطنى
                 </button>
-                <button onclick="toggleOrderOptions()" class="bg-blue-600 text-white px-4 py-2 rounded-l border-r border-white">
-                    <svg viewBox="0 0 24 24" fill="white" height="24" width="24" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"></path></svg>
+                <button onclick="toggleOrderOptions()" class="bg-blue-600 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-l border-r border-white">
+                    <svg viewBox="0 0 24 24" fill="white" height="20" width="20" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"></path></svg>
                 </button>
             </div>
             
             <!-- Order Options Panel -->
-<div id="order-options" class="fixed bottom-0 left-0 right-0 bg-white shadow-lg rounded-t-lg border-t border-gray-200 transform translate-y-full transition-transform duration-300 ease-in-out z-40">
-  <div class="container mx-auto px-4 py-3">
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
-      <!-- Cancel Order Button -->
-      <button class="flex flex-col items-center justify-center p-3 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors duration-200">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z"/>
-        </svg>
-        <span class="mt-1 text-sm">الغاء الطلب</span>
-      </button>
+            <div id="order-options" class="fixed bottom-0 left-0 right-0 bg-white shadow-lg rounded-t-lg border-t border-gray-200 transform translate-y-full transition-transform duration-300 ease-in-out z-40">
+                <div class="container mx-auto px-2 sm:px-4 py-2 sm:py-3">
+                    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-1 sm:gap-2">
+                        <!-- Cancel Order Button -->
+                        <button class="flex flex-col items-center justify-center p-2 sm:p-3 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors duration-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 sm:h-6 w-5 sm:w-6" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z"/>
+                            </svg>
+                            <span class="mt-1 text-xs sm:text-sm">الغاء الطلب</span>
+                        </button>
 
-      <!-- Wait Button -->
-      <button class="flex flex-col items-center justify-center p-3 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg transition-colors duration-200">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M9,9H15V15H9"/>
-        </svg>
-        <span class="mt-1 text-sm">انتظار</span>
-      </button>
+                        <!-- Wait Button -->
+                        <button class="flex flex-col items-center justify-center p-2 sm:p-3 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg transition-colors duration-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 sm:h-6 w-5 sm:w-6" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,5.5A1.5,1.5 0 0,1 13.5,7A1.5,1.5 0 0,1 12,8.5A1.5,1.5 0 0,1 10.5,7A1.5,1.5 0 0,1 12,5.5M7.5,10.5A1.5,1.5 0 0,1 9,12A1.5,1.5 0 0,1 7.5,13.5A1.5,1.5 0 0,1 6,12A1.5,1.5 0 0,1 7.5,10.5M16.5,10.5A1.5,1.5 0 0,1 18,12A1.5,1.5 0 0,1 16.5,13.5A1.5,1.5 0 0,1 15,12A1.5,1.5 0 0,1 16.5,10.5Z"/>
+                            </svg>
+                            <span class="mt-1 text-xs sm:text-sm">انتظار</span>
+                        </button>
 
-      <!-- Remove All Products Button -->
-      <button class="flex flex-col items-center justify-center p-3 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg transition-colors duration-200">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M14.46,15.88L15.88,14.46L18,16.59L20.12,14.46L21.54,15.88L19.41,18L21.54,20.12L20.12,21.54L18,19.41L15.88,21.54L14.46,20.12L16.59,18L14.46,15.88M12,17V15H7V17H12M17,11H7V13H14.69C13.07,14.07 12,15.91 12,18C12,19.09 12.29,20.12 12.8,21H5C3.89,21 3,20.1 3,19V5C3,3.89 3.89,3 5,3H19A2,2 0 0,1 21,5V12.8C20.12,12.29 19.09,12 18,12L17,12.08V11M17,9V7H7V9H17Z"/>
-        </svg>
-        <span class="mt-1 text-sm">إزالة كل المنتجات</span>
-      </button>
+                        <!-- Remove All Products Button -->
+                        <button class="flex flex-col items-center justify-center p-2 sm:p-3 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg transition-colors duration-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 sm:h-6 w-5 sm:w-6" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M14.46,15.88L15.88,14.46L18,16.59L20.12,14.46L21.54,15.88L19.41,18L14.46,15.88M14.46,15.88L15.88,14.46L18,16.59L20.12,14.46L21.54,15.88L19.41,18L14.46,15.88M7,2V4H8V18A2,2 0 0,0 10,20H14A2,2 0 0,0 16,18V4H17V2H7M11,6H13V15H11V6Z"/>
+                            </svg>
+                            <span class="mt-1 text-xs sm:text-sm">إزالة كل المنتجات</span>
+                        </button>
 
-      <!-- Invoice Details Button -->
-      <button class="flex flex-col items-center justify-center p-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-200">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
-        </svg>
-        <span class="mt-1 text-sm">بيانات الفاتورة</span>
-      </button>
+                        <!-- Invoice Details Button -->
+                        <button class="flex flex-col items-center justify-center p-2 sm:p-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 sm:h-6 w-5 sm:w-6" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                            </svg>
+                            <span class="mt-1 text-xs sm:text-sm">بيانات الفاتورة</span>
+                        </button>
 
-      <!-- Shipping Options Button -->
-      <button class="flex flex-col items-center justify-center p-3 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg transition-colors duration-200 opacity-50 cursor-not-allowed">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M3,4A2,2 0 0,0 1,6V17H3A3,3 0 0,0 6,20A3,3 0 0,0 9,17H15A3,3 0 0,0 18,20A3,3 0 0,0 21,17H23V12L20,8H17V4M10,6L14,10L10,14V11H4V9H10M17,9.5H19.5L21.47,12H17M6,15.5A1.5,1.5 0 0,1 7.5,17A1.5,1.5 0 0,1 6,18.5A1.5,1.5 0 0,1 4.5,17A1.5,1.5 0 0,1 6,15.5M18,15.5A1.5,1.5 0 0,1 19.5,17A1.5,1.5 0 0,1 18,18.5A1.5,1.5 0 0,1 16.5,17A1.5,1.5 0 0,1 18,15.5Z"/>
-        </svg>
-        <span class="mt-1 text-sm">خيارات الشحن</span>
-      </button>
+                        <!-- Shipping Options Button -->
+                        <button class="flex flex-col items-center justify-center p-2 sm:p-3 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg transition-colors duration-200 opacity-50 cursor-not-allowed">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 sm:h-6 w-5 sm:w-6" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M3,4A2,2 0 0,0 1,6V17H3A3,3 0 0,0 6,20A3,3 0 0,0 9,17H15A3,3 0 0,0 18,20A3,3 0 0,0 21,17H23V12L20,8H17V4M10,6L14,10L10,14V11H4V9H10M17,9.5H19.5L21.47,12H17M6,15.5A1.5,1.5 0 0,1 7.5,17A1.5,1.5 0 0,1 6,18.5A1.5,1.5 0 0,1 4.5,17A1.5,1.5 0 0,1 6,15.5M18,15.5A1.5,1.5 0 0,1 19.5,17A1.5,1.5 0 0,1 18,18.5A1.5,1.5 0 0,1 16.5,17A1.5,1.5 0 0,1 18,15.5Z"/>
+                            </svg>
+                            <span class="mt-1 text-xs sm:text-sm">خيارات الشحن</span>
+                        </button>
 
-      <!-- Back Button -->
-      <button class="flex flex-col items-center justify-center p-3 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg transition-colors duration-200">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20,9V15H12V19.84L4.16,12L12,4.16V9H20Z"/>
-        </svg>
-        <span class="mt-1 text-sm">رجوع</span>
-      </button>
-    </div>
-  </div>
-</div>
+                        <!-- Back Button -->
+                        <button class="flex flex-col items-center justify-center p-2 sm:p-3 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg transition-colors duration-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 sm:h-6 w-5 sm:w-6" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20,9V15H12V19.84L4.16,12L12,4.16V9H20Z"/>
+                            </svg>
+                            <span class="mt-1 text-xs sm:text-sm">رجوع</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
 
             <!-- Order Items -->
             <div class="flex-1 overflow-y-auto">
-                <div class="p-4 border-b bg-blue-50">
+                <div class="p-2 sm:p-4 border-b bg-blue-50">
                     <div class="flex justify-between items-center">
                         <div class="flex items-center">
-                            <span class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center">5</span>
-                            <span class="mr-2">كجم</span>
+                            <span class="bg-blue-600 text-white rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-xs sm:text-sm">5</span>
+                            <span class="mr-1 sm:mr-2 text-xs sm:text-sm">كجم</span>
                         </div>
                         <div class="text-right">
-                            <h4 class="font-bold">عجوة المدينة</h4>
-                            <p class="text-gray-600">السعر: <span class="font-bold">35</span></p>
+                            <h4 class="font-bold text-sm sm:text-base">عجوة المدينة</h4>
+                            <p class="text-gray-600 text-xs sm:text-sm">السعر: <span class="font-bold">35</span></p>
                         </div>
                         <div class="text-left">
-                            <span class="font-bold">175</span>
+                            <span class="font-bold text-sm sm:text-base">175</span>
                         </div>
                     </div>
                 </div>
             </div>
             
             <!-- Order Summary -->
-            <div class="border-t p-4 bg-gray-50">
-                <div class="flex justify-between mb-2">
+            <div class="border-t p-2 sm:p-4 bg-gray-50">
+                <div class="flex justify-between mb-1 sm:mb-2 text-sm">
                     <span>المجموع:</span>
                     <span class="font-bold">175.00 ر.س</span>
                 </div>
-                <div class="flex justify-between mb-2">
+                <div class="flex justify-between mb-1 sm:mb-2 text-sm">
                     <span>القيمة المضافة:</span>
                     <span class="font-bold">26.25 ر.س</span>
                 </div>
-                <div class="flex justify-between mb-4">
+                <div class="flex justify-between mb-2 sm:mb-4 text-sm">
                     <span>معافاة:</span>
                     <span class="font-bold">0.00 ر.س</span>
                 </div>
-                <div class="border-t pt-3">
-                    <div class="flex justify-between items-center">
+                <div class="border-t pt-2 sm:pt-3">
+                    <div class="flex justify-between items-center text-sm sm:text-base">
                         <span>5 بنود</span>
                         <div class="flex items-center">
-                            <span class="font-bold text-lg">الإجمالي:</span>
-                            <span class="font-bold text-green-600 text-lg mr-2">201.25 ر.س</span>
+                            <span class="font-bold text-base sm:text-lg">الإجمالي:</span>
+                            <span class="font-bold text-green-600 text-base sm:text-lg mr-1 sm:mr-2">201.25 ر.س</span>
                         </div>
                     </div>
                 </div>
             </div>
             
             <!-- Action Buttons -->
-<div class="bg-white border-t border-gray-200 p-4 shadow-md">
-  <!-- Quantity Units Toggle -->
-  <div class="flex mb-4 space-x-2 space-x-reverse">
-    <button class="px-4 py-2 bg-blue-100 text-blue-800 rounded-lg font-medium">كجم</button>
-    <button class="px-4 py-2 bg-gray-100 text-gray-800 rounded-lg font-medium hover:bg-gray-200">طن</button>
-  </div>
+            <div class="bg-white border-t border-gray-200 p-2 sm:p-4 shadow-md">
+                <!-- Quantity Units Toggle -->
+                <div class="flex mb-2 sm:mb-4 space-x-1 sm:space-x-2 space-x-reverse">
+                    <button class="px-2 sm:px-4 py-1 sm:py-2 bg-blue-100 text-blue-800 rounded-lg font-medium text-xs sm:text-sm">كجم</button>
+                    <button class="px-2 sm:px-4 py-1 sm:py-2 bg-gray-100 text-gray-800 rounded-lg font-medium hover:bg-gray-200 text-xs sm:text-sm">طن</button>
+                </div>
 
-  <!-- Action Buttons Row -->
-  <div class="grid grid-cols-3 gap-2 mb-4">
-    <!-- Quantity Button -->
-    <button data-action="quantity" class="flex items-center justify-center p-3 bg-gray-100 hover:bg-gray-200 rounded-lg">
-      <span>الكمية</span>
-    </button>
-    
-    <!-- Discount Dropdown -->
-    <div class="relative group">
-      <button data-action="discount" class="w-full flex items-center justify-center p-3 bg-gray-100 hover:bg-gray-200 rounded-lg">
-        <span>خصم $</span>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
-        </svg>
-      </button>
-      <div class="hidden group-hover:block absolute bottom-full left-0 w-full bg-white shadow-lg rounded-lg z-10 mb-1">
-        <a href="#" class="flex justify-between items-center px-4 py-2 hover:bg-gray-100">
-          <span>الخصم %</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.65,2.85L19.26,6.71L22.77,8.5L21,12L22.78,15.5L19.24,17.29L18.63,21.15L14.74,20.54L11.97,23.3L9.19,20.5L5.33,21.14L4.71,17.25L1.22,15.47L3,11.97L1.23,8.5L4.74,6.69L5.35,2.86L9.22,3.5L12,0.69L14.77,3.46L18.65,2.85M9.5,7A1.5,1.5 0 0,0 8,8.5A1.5,1.5 0 0,0 9.5,10A1.5,1.5 0 0,0 11,8.5A1.5,1.5 0 0,0 9.5,7M14.5,14A1.5,1.5 0 0,0 13,15.5A1.5,1.5 0 0,0 14.5,17A1.5,1.5 0 0,0 16,15.5A1.5,1.5 0 0,0 14.5,14M8.41,17L17,8.41L15.59,7L7,15.59L8.41,17Z"/>
-          </svg>
-        </a>
-        <a href="#" class="flex justify-between items-center px-4 py-2 hover:bg-gray-100">
-          <span>الخصم $</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M4,17V9H2V7H6V17H4M22,15C22,16.11 21.1,17 20,17H16V15H20V13H18V11H20V9H16V7H20A2,2 0 0,1 22,9V10.5A1.5,1.5 0 0,1 20.5,12A1.5,1.5 0 0,1 22,13.5V15M14,15V17H8V13C8,11.89 8.9,11 10,11H12V9H8V7H12A2,2 0 0,1 14,9V11C14,12.11 13.1,13 12,13H10V15H14Z"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-    
-    <!-- Price Button -->
-    <button data-action="price" class="flex items-center justify-center p-3 bg-gray-100 hover:bg-gray-200 rounded-lg">
-      <span>السعر</span>
-    </button>
-  </div>
+                <!-- Action Buttons Row -->
+                <div class="grid grid-cols-3 gap-1 sm:gap-2 mb-2 sm:mb-4">
+                    <!-- Quantity Button -->
+                    <button data-action="quantity" class="flex items-center justify-center p-2 sm:p-3 bg-gray-100 hover:bg-gray-200 rounded-lg text-xs sm:text-sm">
+                        <span>الكمية</span>
+                    </button>
+                    
+                    <!-- Discount Dropdown -->
+                    <div class="relative group">
+                        <button data-action="discount" class="w-full flex items-center justify-center p-2 sm:p-3 bg-gray-100 hover:bg-gray-200 rounded-lg text-xs sm:text-sm">
+                            <span>خصم $</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5 mr-1" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+                            </svg>
+                        </button>
+                        <div class="hidden group-hover:block absolute bottom-full left-0 w-full bg-white shadow-lg rounded-lg z-10 mb-1">
+                            <a href="#" class="flex justify-between items-center px-3 sm:px-4 py-1 sm:py-2 hover:bg-gray-100 text-xs sm:text-sm">
+                                <span>الخصم %</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5 text-yellow-500" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18.65,2.85L19.26,6.71L22.77,8.5L21,12L22.78,15.5L19.24,17.29L18.63,21.15L14.74,20.54L11.97,23.3L9.19,20.5L5.33,21.14L4.71,17.25L1.22,15.47L3,11.97L1.23,8.5L4.74,6.69L5.35,2.86L9.22,3.5L12,0.69L14.77,3.46L18.65,2.85M9.5,7A1.5,1.5 0 0,0 8,8.5A1.5,1.5 0 0,0 9.5,10A1.5,1.5 0 0,0 11,8.5A1.5,1.5 0 0,0 9.5,7M14.5,14A1.5,1.5 0 0,0 13,15.5A1.5,1.5 0 0,0 14.5,17A1.5,1.5 0 0,0 16,15.5A1.5,1.5 0 0,0 14.5,14M8.41,17L17,8.41L15.59,7L7,15.59L8.41,17Z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="flex justify-between items-center px-3 sm:px-4 py-1 sm:py-2 hover:bg-gray-100 text-xs sm:text-sm">
+                                <span>الخصم $</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M4,17V9H2V7H6V17H4M22,15C22,16.11 21.1,17 20,17H16V15H20V13H18V11H20V9H16V7H20A2,2 0 0,1 22,9V10.5A1.5,1.5 0 0,1 20.5,12A1.5,1.5 0 0,1 22,13.5V15M14,15V17H8V13C8,11.89 8.9,11 10,11H12V9H8V7H12A2,2 0 0,1 14,9V11C14,12.11 13.1,13 12,13H10V15H14Z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Price Button -->
+                    <button data-action="price" class="flex items-center justify-center p-2 sm:p-3 bg-gray-100 hover:bg-gray-200 rounded-lg text-xs sm:text-sm">
+                        <span>السعر</span>
+                    </button>
+                </div>
 
-  <!-- Bottom Action Buttons -->
-  <div class="flex space-x-2 space-x-reverse">
-    <!-- Delete Button -->
-    <button class="flex items-center justify-center p-3 bg-red-100 text-red-600 hover:bg-red-200 rounded-lg">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z"/>
-      </svg>
-    </button>
-    
-    <!-- Add Product Button -->
-    <button class="flex-1 flex items-center justify-center p-3 bg-blue-600 text-white hover:bg-blue-700 rounded-lg">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M20 14H14V20H10V14H4V10H10V4H14V10H20V14Z"/>
-      </svg>
-      <span>اضافة منتج</span>
-    </button>
-    
-    <!-- Payment Dropdown -->
-    <div class="relative group flex-1">
-      <button onclick="toggleConfirmModal()" class="w-full flex items-center justify-center p-3 bg-green-600 text-white hover:bg-green-700 rounded-lg">
-        <span>عملية الدفع</span>
-      </button>
-      <div class="hidden group-hover:block absolute bottom-full left-0 w-full bg-white shadow-lg rounded-lg z-10 mb-1 overflow-hidden">
-        <button class="w-full flex items-center justify-between px-4 py-3 bg-yellow-100 text-yellow-800 hover:bg-yellow-200">
-          <span>دفع اجل</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C17.5 2 22 6.5 22 12C22 17.5 17.5 22 12 22C6.5 22 2 17.5 2 12C2 6.5 6.5 2 12 2M12 4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20C16.42 20 20 16.42 20 12C20 7.58 16.42 4 12 4M12 5C15.87 5 19 8.13 19 12C19 13.93 18.22 15.68 16.95 16.95L12 12V5Z"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
+                <!-- Bottom Action Buttons -->
+                <div class="flex space-x-1 sm:space-x-2 space-x-reverse">
+                    <!-- Delete Button -->
+                    <button class="flex items-center justify-center p-2 sm:p-3 bg-red-100 text-red-600 hover:bg-red-200 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 sm:h-6 w-5 sm:w-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- Add Product Button -->
+                    <button class="flex-1 flex items-center justify-center p-2 sm:p-3 bg-blue-600 text-white hover:bg-blue-700 rounded-lg text-xs sm:text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-6 w-4 sm:w-6 mr-1 sm:mr-2" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 14H14V20H10V14H4V10H10V4H14V10H20V14Z"/>
+                        </svg>
+                        <span>اضافة منتج</span>
+                    </button>
+                    
+                    <!-- Payment Dropdown -->
+                    <div class="relative group flex-1">
+                        <button onclick="toggleConfirmModal()" class="w-full flex items-center justify-center p-2 sm:p-3 bg-green-600 text-white hover:bg-green-700 rounded-lg text-xs sm:text-sm">
+                            <span>عملية الدفع</span>
+                        </button>
+                        <div class="hidden group-hover:block absolute bottom-full left-0 w-full bg-white shadow-lg rounded-lg z-10 mb-1 overflow-hidden">
+                            <button class="w-full flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 bg-yellow-100 text-yellow-800 hover:bg-yellow-200 text-xs sm:text-sm">
+                                <span>دفع اجل</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12,2C17.5,2 22,6.5 22,12C22,17.5 17.5,22 12,22C6.5,22 2,17.5 2,12C2,6.5 6.5,2 12,2M12,4C7.58,4 4,7.58 4,12C4,16.42 7.58,20 12,20C16.42,20 20,16.42 20,12C20,7.58 16.42,4 12,4M12,5C15.87,5 19,8.13 19,12C19,13.93 18.22,15.68 16.95,16.95L12,12V5Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <!-- Right Pane - Products Section -->
         <div class="flex-1 flex flex-col">
             <!-- Header -->
-            <div class="bg-blue-600 text-white p-4 flex justify-between items-center">
-                <h2 class="text-xl font-bold">تمور المدينة المنورة</h2>
-                <div class="relative">
-                    <input type="text" placeholder="بحث عن منتج" class="bg-blue-500 text-white placeholder-blue-200 rounded px-4 py-2 w-64">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-3 top-3 text-blue-200" viewBox="0 0 20 20" fill="currentColor">
+            <div class="bg-blue-600 text-white p-2 sm:p-4 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <h2 class="text-lg sm:text-xl font-bold">تمور المدينة المنورة</h2>
+                <div class="relative w-full sm:w-auto">
+                    <input type="text" placeholder="بحث عن منتج" class="bg-blue-500 text-white placeholder-blue-200 rounded px-3 sm:px-4 py-1 sm:py-2 w-full sm:w-64">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5 absolute left-2 sm:left-3 top-2 sm:top-3 text-blue-200" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                     </svg>
                 </div>
             </div>
-            <div class="rightpane-header flex items-center bg-gray-50 p-3 border-b border-gray-200">
-  <!-- Dropdown section -->
-<div class="relative mr-2">
-  <button id="dropdown-button" class="flex items-center justify-between ml-4 px-4 py-2 bg-white border border-gray-300 rounded text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 w-40 text-right" type="button">
-    <span>المنتجات</span>
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-    </svg>
-  </button>
-  
-  <!-- Dropdown menu -->
-  <div id="dropdown-menu" class="hidden absolute z-10 mt-1 w-40 bg-white shadow-lg rounded-md py-1 border border-gray-200">
-    <a href="#" class="dropdown-option block px-4 py-2 text-right text-gray-700 hover:bg-gray-100" data-view="product">بحث عن منتج</a>
-    <a href="#" class="dropdown-option block px-4 py-2 text-right text-gray-700 hover:bg-gray-100" data-view="invoice">بحث عن فاتورة</a>
-    <a href="#" class="dropdown-option block px-4 py-2 text-right text-gray-700 hover:bg-gray-100" data-view="customer">بحث عن عميل</a>
-  </div>
-</div>
-
-  <!-- Search field section -->
-  <div class="relative flex-1">
-    <input type="text" dir="rtl" class="w-full px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="بحث...">
-  </div>
-
-  <!-- Info button section -->
-  <button class="mr-2 p-2 bg-white border border-gray-300 rounded-md text-gray-500 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9z" clip-rule="evenodd"></path>
-    </svg>
-  </button>
-</div>
             
+            <div class="rightpane-header flex items-center bg-gray-50 p-2 sm:p-3 border-b border-gray-200">
+                <!-- Dropdown section -->
+                <div class="relative mr-1 sm:mr-2">
+                    <button id="dropdown-button" class="flex items-center justify-between ml-2 sm:ml-4 px-2 sm:px-4 py-1 sm:py-2 bg-white border border-gray-300 rounded text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 w-32 sm:w-40 text-right text-xs sm:text-sm" type="button">
+                        <span>المنتجات</span>
+                        <svg class="w-4 sm:w-5 h-4 sm:h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    
+                    <!-- Dropdown menu -->
+                    <div id="dropdown-menu" class="hidden absolute z-10 mt-1 w-32 sm:w-40 bg-white shadow-lg rounded-md py-1 border border-gray-200">
+                        <a href="#" class="dropdown-option block px-3 sm:px-4 py-1 sm:py-2 text-right text-gray-700 hover:bg-gray-100 text-xs sm:text-sm" data-view="product">بحث عن منتج</a>
+                        <a href="#" class="dropdown-option block px-3 sm:px-4 py-1 sm:py-2 text-right text-gray-700 hover:bg-gray-100 text-xs sm:text-sm" data-view="invoice">بحث عن فاتورة</a>
+                        <a href="#" class="dropdown-option block px-3 sm:px-4 py-1 sm:py-2 text-right text-gray-700 hover:bg-gray-100 text-xs sm:text-sm" data-view="customer">بحث عن عميل</a>
+                    </div>
+                </div>
+
+                <!-- Search field section -->
+                <div class="relative flex-1">
+                    <input type="text" dir="rtl" class="w-full px-3 sm:px-4 py-1 sm:py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-xs sm:text-sm" placeholder="بحث...">
+                </div>
+
+                <!-- Info button section -->
+                <button class="mr-1 sm:mr-2 p-1 sm:p-2 bg-white border border-gray-300 rounded-md text-gray-500 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    <svg class="w-4 sm:w-5 h-4 sm:h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
             
             <!-- Content Area -->
-  <div class="content-area flex-1 overflow-auto relative">
-    <!-- Default Product Grid (shown by default) -->
-            <div id="product-view" class=" view flex-1 grid grid-cols-4 gap-4 p-4 overflow-y-auto">
-                <!-- Product cards would go here -->
-                <div class="bg-white rounded-lg shadow p-4 text-center">
-                    <div class="h-24 bg-gray-200 rounded mb-2"></div>
-                    <h3 class="font-bold">منتج 1</h3>
-                    <p class="text-gray-600">50 ر.س</p>
+            <div class="content-area flex-1 overflow-auto relative">
+                <!-- Default Product Grid (shown by default) -->
+                <div id="product-view" class="view flex-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-4 p-2 sm:p-4 overflow-y-auto">
+                    <!-- Product cards would go here -->
+                    <div class="bg-white rounded-lg shadow p-3 sm:p-4 text-center">
+                        <div class="h-16 sm:h-24 bg-gray-200 rounded mb-1 sm:mb-2"></div>
+                        <h3 class="font-bold text-sm sm:text-base">منتج 1</h3>
+                        <p class="text-gray-600 text-xs sm:text-sm">50 ر.س</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-3 sm:p-4 text-center">
+                        <div class="h-16 sm:h-24 bg-gray-200 rounded mb-1 sm:mb-2"></div>
+                        <h3 class="font-bold text-sm sm:text-base">منتج 2</h3>
+                        <p class="text-gray-600 text-xs sm:text-sm">75 ر.س</p>
+                    </div>
+                    <!-- More product cards... -->
                 </div>
-                <div class="bg-white rounded-lg shadow p-4 text-center">
-                    <div class="h-24 bg-gray-200 rounded mb-2"></div>
-                    <h3 class="font-bold">منتج 2</h3>
-                    <p class="text-gray-600">75 ر.س</p>
+
+                <!-- Empty Invoice State (hidden by default) -->
+                <div id="invoice-view" class="view hidden flex flex-col items-center justify-center h-full bg-white p-4 sm:p-6 text-center">
+                    <div class="mb-3 sm:mb-5">
+                        <img src="/pos/assets/images/no-invoices-added.png" alt="No invoices" class="max-w-[150px] sm:max-w-[200px] mx-auto">
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-1 sm:mb-2">
+                        لم تتم إضافة أي فواتير حتى الآن في الجلسة الحالية
+                    </h3>
+                    <p class="text-gray-600 text-sm sm:text-base max-w-md">
+                        يمكنك البحث عن الفواتير من الدورات السابقة.
+                    </p>
                 </div>
-                <!-- More product cards... -->
-            </div>
 
-    <!-- Empty Invoice State (hidden by default) -->
-    <div id="invoice-view" class="view hidden flex flex-col items-center justify-center h-full bg-white p-6 text-center">
-      <div class="mb-5">
-        <img src="/pos/assets/images/no-invoices-added.png" alt="No invoices" class="max-w-[200px] mx-auto">
-      </div>
-      <h3 class="text-xl font-semibold text-gray-800 mb-2">
-        لم تتم إضافة أي فواتير حتى الآن في الجلسة الحالية
-      </h3>
-      <p class="text-gray-600 max-w-md">
-        يمكنك البحث عن الفواتير من الدورات السابقة.
-      </p>
-    </div>
+                <!-- Empty Customer State (example for other options) -->
+                <div id="customer-view" class="view hidden h-full w-full overflow-auto p-2 sm:p-4 bg-gray-50">
+                    <!-- Add Client Button -->
+                    <button id="openClientModal" class="bg-white p-4 sm:p-6 mb-4 sm:mb-6 rounded-lg w-full shadow-sm border border-gray-200 hover:bg-blue-50 transition-colors duration-200 flex flex-col items-center justify-center">
+                        <div class="text-blue-600 mb-1 sm:mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 sm:h-10 w-8 sm:w-10" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 14H14V20H10V14H4V10H10V4H14V10H20V14Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-medium text-gray-800 text-center">أضف عميل</h3>
+                    </button>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4">
+                        <!-- Client Card 1 -->
+                        <div class="bg-white p-3 sm:p-4 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-base sm:text-lg font-medium text-gray-800 mb-1">المركز الوطني</h3>
+                                </div>
+                                <div class="flex space-x-1 sm:space-x-2 space-x-reverse">
+                                    <!-- View Button -->
+                                    <button id="openViewClientModal" class="text-gray-500 hover:text-blue-600 p-1 rounded-full hover:bg-blue-50">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
+                                        </svg>
+                                    </button>
+                                    
+                                    <!-- Edit Button -->
+                                    <button class="text-gray-500 hover:text-green-600 p-1 rounded-full hover:bg-green-50">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"/>
+                                        </svg>
+                                    </button>
+                                    
+                                    <!-- Addresses Button -->
+                                    <button class="text-gray-500 hover:text-purple-600 p-1 rounded-full hover:bg-purple-50 relative group">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M14,11.5A2.5,2.5 0 0,0 16.5,9A2.5,2.5 0 0,0 14,6.5A2.5,2.5 0 0,0 11.5,9A2.5,2.5 0 0,0 14,11.5M14,2C17.86,2 21,5.13 21,9C21,14.25 14,22 14,22C14,22 7,14.25 7,9A7,7 0 0,1 14,2M5,9C5,13.5 10.08,19.66 11,20.81L10,22C10,22 3,14.25 3,9C3,5.83 5.11,3.15 8,2.29C6.16,3.94 5,6.33 5,9Z"/>
+                                        </svg>
+                                        <!-- Addresses Dropdown -->
+                                        <div class="absolute z-10 right-0 mt-2 w-40 bg-white rounded-md shadow-lg py-1 hidden group-hover:block border border-gray-200">
+                                            <div class="px-3 sm:px-4 py-1 sm:py-2">
+                                                <h4 class="text-xs sm:text-sm font-medium text-gray-800">المركز الوطني</h4>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
-    <!-- Empty Customer State (example for other options) -->
-<!-- Client View Container -->
-<div id="customer-view" class="view hidden h-full w-full overflow-auto p-4 bg-gray-50">
-  <!-- Client List Grid -->
-  <!-- Add Client Button -->
-  <button id="openClientModal" class="bg-white p-6 mb-6 rounded-lg w-full shadow-sm border border-gray-200 hover:bg-blue-50 transition-colors duration-200 flex flex-col items-center justify-center">
-    <div class="text-blue-600 mb-2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M20 14H14V20H10V14H4V10H10V4H14V10H20V14Z"/>
-      </svg>
-    </div>
-    <h3 class="text-lg font-medium text-gray-800 text-center">أضف عميل</h3>
-  </button>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Client Card 2 -->
+                        <div class="bg-white p-3 sm:p-4 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-base sm:text-lg font-medium text-gray-800 mb-1">عميل نقدي</h3>
+                                </div>
+                                <div class="flex space-x-1 sm:space-x-2 space-x-reverse">
+                                    <!-- View Button -->
+                                    <button id="openViewClientModal" class="text-gray-500 hover:text-blue-600 p-1 rounded-full hover:bg-blue-50">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
+                                        </svg>
+                                    </button>
+                                    
+                                    <!-- Edit Button -->
+                                    <button class="text-gray-500 hover:text-green-600 p-1 rounded-full hover:bg-green-50">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"/>
+                                        </svg>
+                                    </button>
+                                    
+                                    <!-- Addresses Button -->
+                                    <button class="text-gray-500 hover:text-purple-600 p-1 rounded-full hover:bg-purple-50 relative group">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M14,11.5A2.5,2.5 0 0,0 16.5,9A2.5,2.5 0 0,0 14,6.5A2.5,2.5 0 0,0 11.5,9A2.5,2.5 0 0,0 14,11.5M14,2C17.86,2 21,5.13 21,9C21,14.25 14,22 14,22C14,22 7,14.25 7,9A7,7 0 0,1 14,2M5,9C5,13.5 10.08,19.66 11,20.81L10,22C10,22 3,14.25 3,9C3,5.83 5.11,3.15 8,2.29C6.16,3.94 5,6.33 5,9Z"/>
+                                        </svg>
+                                        <!-- Addresses Dropdown -->
+                                        <div class="absolute z-10 right-0 mt-2 w-40 bg-white rounded-md shadow-lg py-1 hidden group-hover:block border border-gray-200">
+                                            <div class="px-3 sm:px-4 py-1 sm:py-2">
+                                                <h4 class="text-xs sm:text-sm font-medium text-gray-800">عميل نقدي</h4>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
-    <!-- Client Card 1 -->
-    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200">
-      <div class="flex justify-between items-start">
-        <div>
-          <h3 class="text-lg font-medium text-gray-800 mb-1">المركز الوطني</h3>
-        </div>
-        <div class="flex space-x-2 space-x-reverse">
-          <!-- View Button -->
-          <button id="openViewClientModal" class="text-gray-500 hover:text-blue-600 p-1 rounded-full hover:bg-blue-50">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
-            </svg>
-          </button>
-          
-          <!-- Edit Button -->
-          <button class="text-gray-500 hover:text-green-600 p-1 rounded-full hover:bg-green-50">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"/>
-            </svg>
-          </button>
-          
-          <!-- Addresses Button -->
-          <button class="text-gray-500 hover:text-purple-600 p-1 rounded-full hover:bg-purple-50 relative group">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M14,11.5A2.5,2.5 0 0,0 16.5,9A2.5,2.5 0 0,0 14,6.5A2.5,2.5 0 0,0 11.5,9A2.5,2.5 0 0,0 14,11.5M14,2C17.86,2 21,5.13 21,9C21,14.25 14,22 14,22C14,22 7,14.25 7,9A7,7 0 0,1 14,2M5,9C5,13.5 10.08,19.66 11,20.81L10,22C10,22 3,14.25 3,9C3,5.83 5.11,3.15 8,2.29C6.16,3.94 5,6.33 5,9Z"/>
-            </svg>
-            <!-- Addresses Dropdown -->
-            <div class="absolute z-10 right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block border border-gray-200">
-              <div class="px-4 py-2">
-                <h4 class="text-sm font-medium text-gray-800">المركز الوطني</h4>
-              </div>
-            </div>
-          </button>
-        </div>
-      </div>
-    </div>
+                        <!-- Client Card 3 -->
+                        <div class="bg-white p-3 sm:p-4 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-base sm:text-lg font-medium text-gray-800 mb-1">فندق ملكته</h3>
+                                </div>
+                                <div class="flex space-x-1 sm:space-x-2 space-x-reverse">
+                                    <!-- View Button -->
+                                    <button id="openViewClientModal" class="text-gray-500 hover:text-blue-600 p-1 rounded-full hover:bg-blue-50">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
+                                        </svg>
+                                    </button>
+                                    
+                                    <!-- Edit Button -->
+                                    <button class="text-gray-500 hover:text-green-600 p-1 rounded-full hover:bg-green-50">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"/>
+                                        </svg>
+                                    </button>
+                                    
+                                    <!-- Addresses Button -->
+                                    <button class="text-gray-500 hover:text-purple-600 p-1 rounded-full hover:bg-purple-50 relative group">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M14,11.5A2.5,2.5 0 0,0 16.5,9A2.5,2.5 0 0,0 14,6.5A2.5,2.5 0 0,0 11.5,9A2.5,2.5 0 0,0 14,11.5M14,2C17.86,2 21,5.13 21,9C21,14.25 14,22 14,22C14,22 7,14.25 7,9A7,7 0 0,1 14,2M5,9C5,13.5 10.08,19.66 11,20.81L10,22C10,22 3,14.25 3,9C3,5.83 5.11,3.15 8,2.29C6.16,3.94 5,6.33 5,9Z"/>
+                                        </svg>
+                                        <!-- Addresses Dropdown -->
+                                        <div class="absolute z-10 right-0 mt-2 w-40 bg-white rounded-md shadow-lg py-1 hidden group-hover:block border border-gray-200">
+                                            <div class="px-3 sm:px-4 py-1 sm:py-2">
+                                                <h4 class="text-xs sm:text-sm font-medium text-gray-800">فندق ملكته</h4>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Client Card 2 -->
-    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200">
-      <div class="flex justify-between items-start">
-        <div>
-          <h3 class="text-lg font-medium text-gray-800 mb-1">عميل نقدي</h3>
-        </div>
-        <div class="flex space-x-2 space-x-reverse">
-          <!-- View Button -->
-          <button id="openViewClientModal" class="text-gray-500 hover:text-blue-600 p-1 rounded-full hover:bg-blue-50">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
-            </svg>
-          </button>
-          
-          <!-- Edit Button -->
-          <button class="text-gray-500 hover:text-green-600 p-1 rounded-full hover:bg-green-50">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"/>
-            </svg>
-          </button>
-          
-          <!-- Addresses Button -->
-          <button class="text-gray-500 hover:text-purple-600 p-1 rounded-full hover:bg-purple-50 relative group">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M14,11.5A2.5,2.5 0 0,0 16.5,9A2.5,2.5 0 0,0 14,6.5A2.5,2.5 0 0,0 11.5,9A2.5,2.5 0 0,0 14,11.5M14,2C17.86,2 21,5.13 21,9C21,14.25 14,22 14,22C14,22 7,14.25 7,9A7,7 0 0,1 14,2M5,9C5,13.5 10.08,19.66 11,20.81L10,22C10,22 3,14.25 3,9C3,5.83 5.11,3.15 8,2.29C6.16,3.94 5,6.33 5,9Z"/>
-            </svg>
-            <!-- Addresses Dropdown -->
-            <div class="absolute z-10 right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block border border-gray-200">
-              <div class="px-4 py-2">
-                <h4 class="text-sm font-medium text-gray-800">عميل نقدي</h4>
-              </div>
-            </div>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Client Card 3 -->
-    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200">
-      <div class="flex justify-between items-start">
-        <div>
-          <h3 class="text-lg font-medium text-gray-800 mb-1">فندق ملكته</h3>
-        </div>
-        <div class="flex space-x-2 space-x-reverse">
-          <!-- View Button -->
-          <button id="openViewClientModal" class="text-gray-500 hover:text-blue-600 p-1 rounded-full hover:bg-blue-50">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
-            </svg>
-          </button>
-          
-          <!-- Edit Button -->
-          <button class="text-gray-500 hover:text-green-600 p-1 rounded-full hover:bg-green-50">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"/>
-            </svg>
-          </button>
-          
-          <!-- Addresses Button -->
-          <button class="text-gray-500 hover:text-purple-600 p-1 rounded-full hover:bg-purple-50 relative group">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M14,11.5A2.5,2.5 0 0,0 16.5,9A2.5,2.5 0 0,0 14,6.5A2.5,2.5 0 0,0 11.5,9A2.5,2.5 0 0,0 14,11.5M14,2C17.86,2 21,5.13 21,9C21,14.25 14,22 14,22C14,22 7,14.25 7,9A7,7 0 0,1 14,2M5,9C5,13.5 10.08,19.66 11,20.81L10,22C10,22 3,14.25 3,9C3,5.83 5.11,3.15 8,2.29C6.16,3.94 5,6.33 5,9Z"/>
-            </svg>
-            <!-- Addresses Dropdown -->
-            <div class="absolute z-10 right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block border border-gray-200">
-              <div class="px-4 py-2">
-                <h4 class="text-sm font-medium text-gray-800">فندق ملكته</h4>
-              </div>
-            </div>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Backdrop -->
-<div id="clientModal" class="hidden fixed inset-0 z-50 overflow-y-auto" aria-hidden="true">
+                    <!-- Client Modal -->
+                    <div id="clientModal" class="hidden fixed inset-0 z-50 overflow-y-auto" aria-hidden="true">
   <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity"></div>
   
   <!-- Modal Container -->
@@ -633,46 +631,45 @@
     </div>
   </div>
 </div>
+                </div>
 
-</div>
+                <!-- Numeric Keypad -->
+                <div id="keypad-view" class="view hidden flex flex-col items-center justify-center h-full bg-white p-4 sm:p-6 text-center absolute top-0 w-full">
+                    <div class="grid grid-cols-4 gap-2 sm:gap-3 w-full h-full">
+                        <!-- Keypad buttons -->
+                        <button class="num-btn text-2xl sm:text-4xl font-extrabold" data-action="7">7</button>
+                        <button class="num-btn text-2xl sm:text-4xl font-extrabold" data-action="8">8</button>
+                        <button class="num-btn text-2xl sm:text-4xl font-extrabold" data-action="9">9</button>
+                        <button class="num-btn hover:bg-red-100 text-2xl sm:text-4xl font-extrabold flex justify-center items-center" data-action="confirm">
+                            <svg viewBox="0 0 24 24" fit="" height="20" width="20" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M22,3H7C6.31,3 5.77,3.35 5.41,3.88L0,12L5.41,20.11C5.77,20.64 6.31,21 7,21H22A2,2 0 0,0 24,19V5A2,2 0 0,0 22,3M19,15.59L17.59,17L14,13.41L10.41,17L9,15.59L12.59,12L9,8.41L10.41,7L14,10.59L17.59,7L19,8.41L15.41,12"></path></svg>
+                        </button>
 
-<!-- Numeric Keypad -->
-     <div id="keypad-view" class="view hidden flex flex-col items-center justify-center h-full bg-white p-6 text-center absolute top-0 w-full">
+                        <!-- Row 2 -->
+                        <button class="num-btn text-2xl sm:text-4xl font-extrabold" data-action="4">4</button>
+                        <button class="num-btn text-2xl sm:text-4xl font-extrabold" data-action="5">5</button>
+                        <button class="num-btn text-2xl sm:text-4xl font-extrabold" data-action="6">6</button>
+                        <button class="num-btn text-2xl sm:text-4xl font-extrabold bg-blue-100 text-blue-700 hover:bg-blue-200 row-span-2 h-full" data-action="enter">
+                            <span class="text-sm sm:text-xl font-bold">Enter</span>
+                        </button>
 
-<div class="grid grid-cols-4 gap-3 w-full h-full">
-      <!-- Row 1 -->
-      <button class="num-btn text-4xl font-extrabold" data-action="7">7</button>
-      <button class="num-btn text-4xl font-extrabold" data-action="8">8</button>
-      <button class="num-btn text-4xl font-extrabold" data-action="9">9</button>
-      <button class="num-btn hover:bg-red-100 text-4xl font-extrabold flex justify-center items-center"  data-action="confirm">
-<svg viewBox="0 0 24 24" fit="" height="24" width="24" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M22,3H7C6.31,3 5.77,3.35 5.41,3.88L0,12L5.41,20.11C5.77,20.64 6.31,21 7,21H22A2,2 0 0,0 24,19V5A2,2 0 0,0 22,3M19,15.59L17.59,17L14,13.41L10.41,17L9,15.59L12.59,12L9,8.41L10.41,7L14,10.59L17.59,7L19,8.41L15.41,12"></path></svg>
-      </button>
+                        <!-- Row 3 -->
+                        <button class="num-btn text-2xl sm:text-4xl font-extrabold" data-action="1">1</button>
+                        <button class="num-btn text-2xl sm:text-4xl font-extrabold" data-action="2">2</button>
+                        <button class="num-btn text-2xl sm:text-4xl font-extrabold" data-action="3">3</button>
 
-      <!-- Row 2 -->
-      <button class="num-btn text-4xl font-extrabold" data-action="4">4</button>
-      <button class="num-btn text-4xl font-extrabold" data-action="5">5</button>
-      <button class="num-btn text-4xl font-extrabold" data-action="6">6</button>
-      <button class="num-btn text-4xl font-extrabold bg-blue-100 text-blue-700 hover:bg-blue-200 row-span-2 h-full" data-action="enter">
-        <span class="text-xl font-bold">Enter</span>
-      </button>
-
-      <!-- Row 3 -->
-      <button class="num-btn text-4xl font-extrabold" data-action="1">1</button>
-      <button class="num-btn text-4xl font-extrabold" data-action="2">2</button>
-      <button class="num-btn text-4xl font-extrabold" data-action="3">3</button>
-
-      <!-- Row 4 -->
-      <button class="num-btn col-span-2 text-4xl font-extrabold" data-action="0">0</button>
-      <button class="num-btn text-4xl font-extrabold" data-action=".">.</button>
-    </div>
-     </div>
-
-  </div>
+                        <!-- Row 4 -->
+                        <button class="num-btn col-span-2 text-2xl sm:text-4xl font-extrabold" data-action="0">0</button>
+                        <button class="num-btn text-2xl sm:text-4xl font-extrabold" data-action=".">.</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- Payment Modal -->
-<div id="confirm-modal" class="hidden fixed inset-0 z-50 overflow-hidden bg-gray-900 bg-opacity-50 flex items-center justify-center">
+    </div>
+
+    <!-- Payment Modal -->
+<div id="confirm-modal" class="hidden fixed inset-0 z-50 bg-gray-900 bg-opacity-50 flex items-center justify-center">
   <!-- Modal Container -->
-  <div class="bg-white rounded-lg shadow-xl w-full h-[100vh] flex overflow-hidden">
+  <div class="bg-white rounded-lg shadow-xl w-full h-[100vh] flex flex-col lg:flex-row overflow-y-auto">
     <!-- Close Button -->
     <button onclick="toggleConfirmModal()" id="close-confirm-modal" class="absolute top-4 left-4 text-gray-500 hover:text-gray-700 z-10">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
@@ -681,7 +678,7 @@
     </button>
 
     <!-- Left Column - Payment Methods -->
-    <div class="w-7/12 p-6 border-r border-gray-200 flex flex-col">
+    <div class="lg:w-7/12 w-full p-6 border-r border-gray-200 flex flex-col">
       <!-- Payment Methods Header -->
       <h3 class="text-xl font-bold text-gray-800 mb-6">وسائل الدفع</h3>
       
@@ -777,7 +774,7 @@
     </div>
 
     <!-- Right Column - Order Summary -->
-    <div class="w-5/12 p-6 flex flex-col">
+    <div class="lg:w-5/12 w-full p-6 flex flex-col">
       <!-- Customer Info -->
       <div class="flex items-center mb-6">
         <div class="bg-gray-100 p-3 rounded-full mr-3">
@@ -846,7 +843,49 @@
     </div>
   </div>
 </div>
+
+    <!-- Support Chat Widget -->
+    <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
+        <!-- Chat Icon Button -->
+        <button id="chatToggle" class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-3 sm:p-4 shadow-lg transition-all duration-300 transform hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 sm:h-6 w-5 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            <span class="sr-only">Open Support Chat</span>
+        </button>
+        
+        <!-- Chat Container (hidden by default) -->
+        <div id="chatContainer" class="hidden bg-white rounded-lg shadow-xl w-72 sm:w-80 h-80 sm:h-96 flex flex-col absolute bottom-12 sm:bottom-16 right-0 border border-gray-200">
+            <!-- Chat Header -->
+            <div class="bg-blue-600 text-white p-2 sm:p-3 rounded-t-lg flex justify-between items-center">
+                <h3 class="font-semibold text-sm sm:text-base">الدعم الفني</h3>
+                <button id="closeChat" class="text-white hover:text-gray-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Chat Messages Area -->
+            <div id="chatMessages" class="flex-1 p-3 sm:p-4 overflow-y-auto">
+                <div class="text-center text-gray-500 text-xs sm:text-sm py-3 sm:py-4">
+                    الدعم الفني، كيف يمكننا مساعدتك اليوم؟
+                </div>
+            </div>
+            
+            <!-- Chat Input Area -->
+            <div class="border-t border-gray-200 p-2 sm:p-3">
+                <div class="flex space-x-1 sm:space-x-2">
+                    <input type="text" id="messageInput" placeholder="اكتب رسالتك ..." 
+                           class="flex-1 border border-gray-300 rounded-lg px-2 sm:px-3 py-1 sm:py-2 mx-1 sm:mx-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs sm:text-sm">
+                    <button id="sendMessage" class="bg-blue-600 text-white rounded-lg px-3 sm:px-4 py-1 sm:py-2 hover:bg-blue-700 text-xs sm:text-sm">
+                        إرسال
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
+
     <script>
 document.addEventListener('DOMContentLoaded', function() {
     const dropdownButton = document.getElementById('dropdown-button');
@@ -927,6 +966,54 @@ document.querySelector('#closeViewClientModal').addEventListener('click', functi
     const modal = document.querySelector('#confirm-modal');
     modal.classList.toggle('hidden');
   }
+
+
+    // Toggle chat visibility
+        const chatToggle = document.getElementById('chatToggle');
+        const chatContainer = document.getElementById('chatContainer');
+        const closeChat = document.getElementById('closeChat');
+        
+        chatToggle.addEventListener('click', () => {
+            chatContainer.classList.toggle('hidden');
+        });
+        
+        closeChat.addEventListener('click', () => {
+            chatContainer.classList.add('hidden');
+        });
+        
+        // Basic message functionality
+        const messageInput = document.getElementById('messageInput');
+        const sendMessage = document.getElementById('sendMessage');
+        const chatMessages = document.getElementById('chatMessages');
+        
+        sendMessage.addEventListener('click', () => {
+            const message = messageInput.value.trim();
+            if (message) {
+                // Add user message
+                addMessage(message, 'user');
+                messageInput.value = '';
+                
+                // Simulate bot response after a short delay
+                setTimeout(() => {
+                    addMessage("شكرا لتواصلك، فريق العمل سوف يتواصل معك قريبا.", 'bot');
+                }, 1000);
+            }
+        });
+        
+        // Allow sending message with Enter key
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage.click();
+            }
+        });
+        
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `mb-3 p-3 rounded-lg max-w-xs ${sender === 'user' ? 'bg-blue-100 ml-auto' : 'bg-gray-100'}`;
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
     </script>
 </body>
 </html>

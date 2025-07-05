@@ -17,5 +17,11 @@ tailwind.config = {
             padding: "0.5rem",
             center: true,
         },
+            screens:{
+        sm: {'max': '640px'},
+        md: {'max': '1024px',
+            'min': '640px'} ,
+        lg: '1024px',
+    }
 },
 }
